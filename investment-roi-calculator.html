@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment ROI Calculator - Free Return on Investment Calculator | CalcWithMe</title>
+    <meta name="description" content="Free investment ROI calculator. Calculate return on investment, annualized return, and compare different investment opportunities side by side.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/investment-roi-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Investment ROI Calculator","url":"https://calcwithme.com/investment-roi-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="investment-roi-calculator.html">Investment ROI</a></nav></div></header>
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Investment ROI Calculator</h1>
+                    <p class="page-desc">Calculate the return on investment (ROI) and annualized return for any investment. Compare different investments and make smarter financial decisions.</p>
+                    <div class="calc-form">
+                        <div class="form-group"><label for="invAmount">Initial Investment</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="invAmount" class="has-prefix" value="10000" min="100"></div></div>
+                        <div class="form-group"><label for="finalValue">Final Value</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="finalValue" class="has-prefix" value="15000" min="0"></div></div>
+                        <div class="form-group"><label for="invYears">Investment Period</label><input type="number" id="invYears" value="5" min="1" max="50"></div>
+                        <div class="form-group"><label for="invFees">Investment Fees (One-time)</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="invFees" class="has-prefix" value="0" min="0"></div></div>
+                        <button class="btn-calculate" onclick="calcROI()">Calculate ROI</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>How to Calculate ROI</h2>
+                        <p>Return on Investment (ROI) measures the profitability of an investment. The formula is simple: ROI = (Final Value - Initial Investment) / Initial Investment x 100</p>
+                        <h3>Understanding Annualized Return</h3>
+                        <p>Annualized return shows what your return would be if the investment grew at a steady rate every year. This makes it easier to compare investments with different time periods.</p>
+                        <h3>What Affects Your Real ROI?</h3>
+                        <ul>
+                            <li><strong>Fees and commissions</strong> — Trading fees, management fees, and expense ratios eat into returns</li>
+                            <li><strong>Taxes</strong> — Capital gains taxes reduce your actual returns</li>
+                            <li><strong>Inflation</strong> — A 10% nominal return with 3% inflation is only 7% in real terms</li>
+                            <li><strong>Dividends</strong> — Reinvested dividends significantly boost long-term returns</li>
+                        </ul>
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="compound-interest-calculator.html">Compound Interest</a><a href="retirement-calculator.html">Retirement Calculator</a><a href="savings-goal-calculator.html">Savings Goal</a></div>
+                    </div>
+                </div>
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Your Results</h2>
+                    <div class="result-item"><p class="result-label">Total Return</p><p class="result-value" id="totalReturn">$0</p></div>
+                    <div class="result-item"><p class="result-label">ROI (Return on Investment)</p><p class="result-value secondary" id="roi">0%</p></div>
+                    <div class="result-item"><p class="result-label">Annualized Return (CAGR)</p><p class="result-value secondary" id="cagr">0%</p></div>
+                    <div class="result-item"><p class="result-label">Net Profit After Fees</p><p class="result-value secondary" id="netProfit">$0</p></div>
+                    <div class="result-item"><p class="result-label">Effective Annual Rate</p><p class="result-value secondary" id="effectiveRate">0%</p></div>
+                    <div class="results-breakdown"><h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Breakdown</h3><div class="breakdown-row"><span>Initial Investment</span><span id="initVal">$0</span></div><div class="breakdown-row"><span>Final Value</span><span id="finalVal">$0</span></div><div class="breakdown-row"><span>Fees Paid</span><span id="feeVal">$0</span></div><div class="breakdown-row"><span>Gross Profit</span><span id="grossProfit">$0</span></div></div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+    <script>
+    function calcROI() {
+        const init = parseFloat(document.getElementById('invAmount').value)||0;
+        const fin = parseFloat(document.getElementById('finalValue').value)||0;
+        const years = parseInt(document.getElementById('invYears').value)||1;
+        const fees = parseFloat(document.getElementById('invFees').value)||0;
+        const netFin = fin - fees;
+        const totalReturn = netFin - init;
+        const roi = init > 0 ? (totalReturn/init)*100 : 0;
+        const cagr = years > 0 ? (Math.pow(netFin/init, 1/years)-1)*100 : 0;
+        const grossProfit = fin - init;
+        document.getElementById('totalReturn').textContent = '$'+fmt(Math.round(totalReturn));
+        document.getElementById('roi').textContent = (totalReturn>=0?'+':'')+roi.toFixed(2)+'%';
+        document.getElementById('cagr').textContent = (cagr>=0?'+':'')+cagr.toFixed(2)+'%';
+        document.getElementById('netProfit').textContent = '$'+fmt(Math.round(totalReturn));
+        document.getElementById('effectiveRate').textContent = (roi/years).toFixed(2)+'% per year';
+        document.getElementById('initVal').textContent = '$'+fmt(init);
+        document.getElementById('finalVal').textContent = '$'+fmt(fin);
+        document.getElementById('feeVal').textContent = '$'+fmt(fees);
+        document.getElementById('grossProfit').textContent = '$'+fmt(Math.round(grossProfit));
+    }
+    function fmt(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+    window.addEventListener('load', calcROI);
+    </script>
+</body>
+</html>

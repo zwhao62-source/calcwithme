@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator - Free Savings & Investment Growth Tool | CalcWithMe</title>
+    <meta name="description" content="Free compound interest calculator. See how your money grows over time with compound interest. Perfect for savings accounts, investments, and retirement planning.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/compound-interest-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Compound Interest Calculator","url":"https://calcwithme.com/compound-interest-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a>
+            <nav>
+                <a href="/#calculators">Calculators</a>
+                <a href="/#about">About</a>
+                <a href="compound-interest-calculator.html">Compound Interest</a>
+            </nav>
+        </div>
+    </header>
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Compound Interest Calculator</h1>
+                    <p class="page-desc">See the power of compound interest. Calculate how your savings or investments will grow over time with regular contributions and compound earnings.</p>
+                    <div class="calc-form">
+                        <div class="form-group">
+                            <label for="initialBalance">Initial Investment</label>
+                            <div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="initialBalance" class="has-prefix" value="10000" min="0"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="monthlyContribution">Monthly Contribution</label>
+                            <div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="monthlyContribution" class="has-prefix" value="500" min="0"></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="annualRate">Annual Interest Rate</label>
+                                <div class="input-wrapper"><input type="number" id="annualRate" value="7" min="0.1" max="30" step="0.1"><span class="input-suffix">%</span></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="compoundYears">Investment Period (Years)</label>
+                                <input type="number" id="compoundYears" value="20" min="1" max="50">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="compoundFreq">Compound Frequency</label>
+                            <select id="compoundFreq">
+                                <option value="12" selected>Monthly (12x/year)</option>
+                                <option value="4">Quarterly (4x/year)</option>
+                                <option value="1">Annually (1x/year)</option>
+                            </select>
+                        </div>
+                        <button class="btn-calculate" onclick="calcCompound()">Calculate Growth</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>What is Compound Interest?</h2>
+                        <p>Compound interest is interest on a loan or deposit calculated based on both the initial principal and the accumulated interest from previous periods. Often called \"interest on interest,\" compound interest grows your money exponentially over time.</p>
+                        <h3>The Rule of 72</h3>
+                        <p>Want to quickly estimate how long it takes to double your money? Divide 72 by your annual interest rate. At 7% return, your money doubles in approximately 10.3 years (72 / 7 = 10.3).</p>
+                        <h3>Why Start Early?</h3>
+                        <p>Starting to invest at age 25 vs. 35 can mean a difference of hundreds of thousands of dollars by retirement. Time is your greatest asset when it comes to compound interest.</p>
+                        <div class="related-calcs">
+                            <h3>Related Calculators</h3>
+                            <a href="investment-roi-calculator.html">Investment ROI Calculator</a>
+                            <a href="retirement-calculator.html">Retirement Calculator</a>
+                            <a href="savings-goal-calculator.html">Savings Goal Calculator</a>
+                            <a href="loan-calculator.html">Loan Calculator</a>
+                        </div>
+                    </div>
+                </div>
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Your Results</h2>
+                    <div class="result-item">
+                        <p class="result-label">Final Balance</p>
+                        <p class="result-value" id="finalBalance">$0</p>
+                    </div>
+                    <div class="result-item">
+                        <p class="result-label">Total Contributions</p>
+                        <p class="result-value secondary" id="totalContrib">$0</p>
+                    </div>
+                    <div class="result-item">
+                        <p class="result-label">Total Interest Earned</p>
+                        <p class="result-value secondary" id="totalInterestEarned" style="color:#10b981;">$0</p>
+                    </div>
+                    <div class="result-item">
+                        <p class="result-label">Interest vs Contributions</p>
+                        <p class="result-value secondary" id="interestRatio">0%</p>
+                    </div>
+                    <div class="results-breakdown" id="growthTable">
+                        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Yearly Growth</h3>
+                        <div class="breakdown-row"><span>Year 1</span><span id="yr1">$0</span></div>
+                        <div class="breakdown-row"><span>Year 5</span><span id="yr5">$0</span></div>
+                        <div class="breakdown-row"><span>Year 10</span><span id="yr10">$0</span></div>
+                        <div class="breakdown-row"><span>Year 15</span><span id="yr15">$0</span></div>
+                        <div class="breakdown-row"><span>Year 20</span><span id="yr20">$0</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free online financial calculators.</p></div>
+                <div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage Calculator</a><a href="loan-calculator.html">Loan Calculator</a><a href="compound-interest-calculator.html">Compound Interest</a></div>
+                <div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div>
+            </div>
+            <div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div>
+        </div>
+    </footer>
+    <script>
+    function calcCompound() {
+        const P = parseFloat(document.getElementById('initialBalance').value) || 0;
+        const monthly = parseFloat(document.getElementById('monthlyContribution').value) || 0;
+        const rate = parseFloat(document.getElementById('annualRate').value) || 0;
+        const years = parseInt(document.getElementById('compoundYears').value) || 1;
+        const freq = parseInt(document.getElementById('compoundFreq').value) || 12;
+        if (rate <= 0 || years <= 0) return;
+        const r = rate / 100;
+        let balance = P;
+        const yearly = [];
+        for (let y = 1; y <= years; y++) {
+            for (let m = 0; m < freq / 12; m++) {
+                balance = balance * (1 + r / freq) + monthly * (12 / freq);
+            }
+            yearly.push(balance);
+        }
+        const totalContrib = P + monthly * 12 * years;
+        const totalInterest = balance - totalContrib;
+        const ratio = Math.round(totalInterest / totalContrib * 100);
+        document.getElementById('finalBalance').textContent = '$' + fmt(Math.round(balance));
+        document.getElementById('totalContrib').textContent = '$' + fmt(Math.round(totalContrib));
+        document.getElementById('totalInterestEarned').textContent = '$' + fmt(Math.round(totalInterest));
+        document.getElementById('interestRatio').textContent = ratio + '% of your contributions';
+        if (yearly[0]) document.getElementById('yr1').textContent = '$' + fmt(Math.round(yearly[0]));
+        if (yearly[4]) document.getElementById('yr5').textContent = '$' + fmt(Math.round(yearly[4]));
+        if (yearly[9]) document.getElementById('yr10').textContent = '$' + fmt(Math.round(yearly[9]));
+        if (yearly[14]) document.getElementById('yr15').textContent = '$' + fmt(Math.round(yearly[14]));
+        if (yearly[19]) document.getElementById('yr20').textContent = '$' + fmt(Math.round(yearly[19]));
+    }
+    function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+    window.addEventListener('load', calcCompound);
+    </script>
+</body>
+</html>

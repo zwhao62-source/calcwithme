@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Card Payoff Calculator - Free Debt Payoff Planner | CalcWithMe</title>
+    <meta name="description" content="Free credit card payoff calculator. See how long it takes to pay off your credit card debt and how much interest you will save by paying more each month.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/credit-card-payoff-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Credit Card Payoff Calculator","url":"https://calcwithme.com/credit-card-payoff-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="credit-card-payoff-calculator.html">Credit Card Payoff</a></nav></div></header>
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Credit Card Payoff Calculator</h1>
+                    <p class="page-desc">Find out how long it takes to pay off your credit card and how much interest you can save by paying more than the minimum payment.</p>
+                    <div class="calc-form">
+                        <div class="form-group"><label for="balance">Current Balance</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="balance" class="has-prefix" value="5000" min="100"></div></div>
+                        <div class="form-group"><label for="apr">APR (Annual Interest Rate)</label><div class="input-wrapper"><input type="number" id="apr" value="22" min="0.1" max="99"><span class="input-suffix">%</span></div></div>
+                        <div class="form-group"><label for="minPay">Minimum Monthly Payment</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="minPay" class="has-prefix" value="150" min="10"></div></div>
+                        <div class="form-group"><label for="extraPay">Extra Monthly Payment</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="extraPay" class="has-prefix" value="100" min="0"></div></div>
+                        <button class="btn-calculate" onclick="calcCC()">Calculate Payoff</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>Why Paying Minimums is Expensive</h2>
+                        <p>Credit cards have some of the highest interest rates of any loan type. Paying only the minimum payment can take decades to pay off a balance, and you will pay far more in interest than the original amount you owed.</p>
+                        <h3>The Snowball vs Avalanche Method</h3>
+                        <ul>
+                            <li><strong>Avalanche Method</strong> — Pay off the highest-interest card first. Saves the most money mathematically.</li>
+                            <li><strong>Snowball Method</strong> — Pay off the smallest balance first. Provides psychological wins that keep you motivated.</li>
+                        </ul>
+                        <h3>Tips to Pay Off Credit Cards Faster</h3>
+                        <ul>
+                            <li>Pay more than the minimum every month</li>
+                            <li>Consider a balance transfer card with 0% APR</li>
+                            <li>Use the debt avalanche or snowball strategy</li>
+                            <li>Avoid adding new charges while paying off debt</li>
+                        </ul>
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="loan-calculator.html">Loan Calculator</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="mortgage-calculator.html">Mortgage Calculator</a></div>
+                    </div>
+                </div>
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Your Results</h2>
+                    <div class="result-item"><p class="result-label">Minimum Only - Months to Payoff</p><p class="result-value" id="minMonths">0</p></div>
+                    <div class="result-item"><p class="result-label">Minimum Only - Total Interest</p><p class="result-value secondary" id="minInterest" style="color:#dc2626;">$0</p></div>
+                    <div class="result-item"><p class="result-label">With Extra - Months to Payoff</p><p class="result-value" id="extraMonths">0</p></div>
+                    <div class="result-item"><p class="result-label">With Extra - Total Interest</p><p class="result-value secondary" id="extraInterest" style="color:#10b981;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Interest You Save</p><p class="result-value secondary" id="interestSaved" style="color:#10b981;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Time You Save</p><p class="result-value secondary" id="timeSaved">0 months</p></div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+    <script>
+    function calcCC() {
+        const bal = parseFloat(document.getElementById('balance').value)||0;
+        const apr = parseFloat(document.getElementById('apr').value)||0;
+        const min = parseFloat(document.getElementById('minPay').value)||10;
+        const extra = parseFloat(document.getElementById('extraPay').value)||0;
+        const mr = apr/100/12;
+        const totalPay = min + extra;
+
+        function payoff(balance, payment) {
+            if (mr===0) return {months: Math.ceil(balance/payment), interest: Math.max(0,payment*Math.ceil(balance/payment)-balance)};
+            let bal=balance, months=0, totalInt=0;
+            while(bal>0 && months<1200) {
+                const int=bal*mr;
+                totalInt+=int;
+                bal+=int;
+                const p=Math.min(payment,bal);
+                bal-=p;
+                months++;
+            }
+            return {months, interest: Math.round(totalInt)};
+        }
+
+        const minRes = payoff(bal, min);
+        const extRes = payoff(bal, totalPay);
+
+        document.getElementById('minMonths').textContent = minRes.months < 1200 ? minRes.months + ' months' : '1200+ months';
+        document.getElementById('minInterest').textContent = '$'+fmt(minRes.interest);
+        document.getElementById('extraMonths').textContent = extRes.months < 1200 ? extRes.months + ' months' : '1200+ months';
+        document.getElementById('extraInterest').textContent = '$'+fmt(extRes.interest);
+        document.getElementById('interestSaved').textContent = '$'+fmt(Math.max(0,minRes.interest-extRes.interest));
+        document.getElementById('timeSaved').textContent = Math.max(0,minRes.months-extRes.months)+' months';
+    }
+    function fmt(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+    window.addEventListener('load', calcCC);
+    </script>
+</body>
+</html>

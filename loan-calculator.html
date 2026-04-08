@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator - Free Online Personal Loan Calculator | CalcWithMe</title>
+    <meta name="description" content="Free loan calculator. Calculate monthly payments for personal loans, student loans, and business loans. See total interest and payoff date instantly.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/loan-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Loan Calculator",
+        "url": "https://calcwithme.com/loan-calculator.html",
+        "description": "Free online loan calculator to calculate monthly payments and total interest",
+        "applicationCategory": "FinanceApplication",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">&#x1F522;</span>
+                <span>Calc<span class="highlight">With</span>Me</span>
+            </a>
+            <nav>
+                <a href="/#calculators">Calculators</a>
+                <a href="/#about">About</a>
+                <a href="mortgage-calculator.html">Mortgage Calculator</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Loan Calculator</h1>
+                    <p class="page-desc">Calculate monthly payments and total cost for any type of loan — personal loans, student loans, business loans, and more.</p>
+
+                    <div class="calc-form">
+                        <div class="form-group">
+                            <label for="loanAmount">Loan Amount</label>
+                            <div class="input-wrapper">
+                                <span class="input-prefix">$</span>
+                                <input type="number" id="loanAmount" class="has-prefix" value="10000" min="100" max="1000000" step="100">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="loanRate">Annual Interest Rate</label>
+                            <div class="input-wrapper">
+                                <input type="number" id="loanRate" value="8" min="0.1" max="50" step="0.1">
+                                <span class="input-suffix">%</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="loanTerm">Loan Term</label>
+                            <select id="loanTerm">
+                                <option value="12">1 Year</option>
+                                <option value="24">2 Years</option>
+                                <option value="36" selected>3 Years</option>
+                                <option value="48">4 Years</option>
+                                <option value="60">5 Years</option>
+                                <option value="84">7 Years</option>
+                                <option value="120">10 Years</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="loanType">Loan Type</label>
+                            <select id="loanType">
+                                <option value="personal">Personal Loan</option>
+                                <option value="student">Student Loan</option>
+                                <option value="business">Business Loan</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <button class="btn-calculate" onclick="calculateLoan()">Calculate Payment</button>
+                    </div>
+
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+
+                    <div class="calc-content">
+                        <h2>How to Use This Loan Calculator</h2>
+                        <p>Our free loan calculator helps you understand the true cost of borrowing. Simply enter your loan amount, interest rate, and loan term to see your monthly payment and total interest.</p>
+                        <h3>Types of Loans You Can Calculate</h3>
+                        <ul>
+                            <li><strong>Personal loans</strong> — Unsecured loans from banks and online lenders</li>
+                            <li><strong>Student loans</strong> — Federal and private student loans</li>
+                            <li><strong>Business loans</strong> — Small business financing options</li>
+                            <li><strong>Medical loans</strong> — Financing for medical procedures</li>
+                        </ul>
+                        <h3>Understanding Your Total Cost</h3>
+                        <p>When comparing loans, always look at the total cost of borrowing — not just the monthly payment. A lower monthly payment with a longer term often means paying significantly more interest overall.</p>
+                        <div class="related-calcs">
+                            <h3>Related Calculators</h3>
+                            <a href="mortgage-calculator.html">Mortgage Calculator</a>
+                            <a href="auto-loan-calculator.html">Auto Loan Calculator</a>
+                            <a href="credit-card-payoff-calculator.html">Credit Card Payoff Calculator</a>
+                            <a href="compound-interest-calculator.html">Compound Interest Calculator</a>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="results-panel" id="resultsPanel">
+                    <h2>&#x1F4CA; Your Results</h2>
+                    <div class="result-item">
+                        <p class="result-label">Monthly Payment</p>
+                        <p class="result-value" id="monthlyPayment">$0</p>
+                    </div>
+                    <div class="result-item">
+                        <p class="result-label">Total Interest Paid</p>
+                        <p class="result-value secondary" id="totalInterest" style="color: #dc2626;">$0</p>
+                    </div>
+                    <div class="result-item">
+                        <p class="result-label">Total Amount Paid</p>
+                        <p class="result-value secondary" id="totalPaid">$0</p>
+                    </div>
+                    <div class="results-breakdown">
+                        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Cost Breakdown</h3>
+                        <div class="breakdown-row"><span>Principal</span><span id="principalVal">$0</span></div>
+                        <div class="breakdown-row"><span>Total Interest</span><span id="interestVal">$0</span></div>
+                        <div class="breakdown-row"><span>Interest Rate</span><span id="rateVal">0%</span></div>
+                        <div class="breakdown-row"><span>Loan Term</span><span id="termVal">0 months</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free online financial calculators for everyone.</p></div>
+                <div class="footer-links">
+                    <h4>Popular Calculators</h4>
+                    <a href="mortgage-calculator.html">Mortgage Calculator</a>
+                    <a href="loan-calculator.html">Loan Calculator</a>
+                    <a href="compound-interest-calculator.html">Compound Interest</a>
+                    <a href="retirement-calculator.html">Retirement Calculator</a>
+                </div>
+                <div class="footer-links">
+                    <h4>More Tools</h4>
+                    <a href="auto-loan-calculator.html">Auto Loan Calculator</a>
+                    <a href="credit-card-payoff-calculator.html">Credit Card Payoff</a>
+                    <a href="salary-calculator.html">Salary Calculator</a>
+                    <a href="investment-roi-calculator.html">Investment ROI</a>
+                </div>
+            </div>
+            <div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com. All rights reserved.</p><p class="disclaimer">Disclaimer: Calculator results are for informational purposes only.</p></div>
+        </div>
+    </footer>
+    <script>
+    function calculateLoan() {
+        const amount = parseFloat(document.getElementById('loanAmount').value) || 0;
+        const rate = parseFloat(document.getElementById('loanRate').value) || 0;
+        const months = parseInt(document.getElementById('loanTerm').value) || 12;
+        if (amount <= 0 || rate <= 0) return;
+        const monthlyRate = rate / 100 / 12;
+        const payment = amount * (monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+        const totalPaid = payment * months;
+        const totalInterest = totalPaid - amount;
+        document.getElementById('monthlyPayment').textContent = '$' + fmt(Math.round(payment));
+        document.getElementById('totalInterest').textContent = '$' + fmt(Math.round(totalInterest));
+        document.getElementById('totalPaid').textContent = '$' + fmt(Math.round(totalPaid));
+        document.getElementById('principalVal').textContent = '$' + fmt(amount);
+        document.getElementById('interestVal').textContent = '$' + fmt(Math.round(totalInterest));
+        document.getElementById('rateVal').textContent = rate + '%';
+        document.getElementById('termVal').textContent = months + ' months';
+    }
+    function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+    window.addEventListener('load', calculateLoan);
+    </script>
+</body>
+</html>

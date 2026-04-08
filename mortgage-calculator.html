@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator - Free Online Home Loan Calculator | CalcWithMe</title>
+    <meta name="description" content="Free mortgage calculator. Calculate monthly mortgage payments, total interest, and amortization schedule. Supports fixed-rate mortgages, adjustable-rate loans, and all US states.">
+    <meta name="keywords" content="mortgage calculator, home loan calculator, monthly payment calculator, mortgage rate calculator, loan amortization">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/mortgage-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <meta property="og:title" content="Mortgage Calculator - Free Online Home Loan Calculator">
+    <meta property="og:description" content="Calculate your monthly mortgage payment instantly. Free, fast, and accurate.">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Mortgage Calculator",
+        "url": "https://calcwithme.com/mortgage-calculator.html",
+        "description": "Free online mortgage calculator to calculate monthly payments and amortization schedule",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">&#x1F522;</span>
+                <span>Calc<span class="highlight">With</span>Me</span>
+            </a>
+            <nav>
+                <a href="/#calculators">Calculators</a>
+                <a href="/#about">About</a>
+                <a href="mortgage-calculator.html" class="active">Mortgage Calculator</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <!-- Main Calculator -->
+                <div class="calculator-main">
+                    <h1>Mortgage Calculator</h1>
+                    <p class="page-desc">Calculate your monthly mortgage payment, total interest, and full amortization schedule. Updated with current 2026 rates.</p>
+                        <div class="form-group">
+                            <label for="stateSelect">Select Your State/Province</label>
+                            <select id="stateSelect" onchange="updateRateForState()">
+                                <option value="">-- Select State/Province --</option>
+                                <optgroup label="United States">
+                                    <option value="alabama">Alabama</option>
+                                    <option value="alaska">Alaska</option>
+                                    <option value="arizona">Arizona</option>
+                                    <option value="arkansas">Arkansas</option>
+                                    <option value="california">California</option>
+                                    <option value="colorado">Colorado</option>
+                                    <option value="connecticut">Connecticut</option>
+                                    <option value="delaware">Delaware</option>
+                                    <option value="florida">Florida</option>
+                                    <option value="georgia">Georgia</option>
+                                    <option value="hawaii">Hawaii</option>
+                                    <option value="idaho">Idaho</option>
+                                    <option value="illinois">Illinois</option>
+                                    <option value="indiana">Indiana</option>
+                                    <option value="iowa">Iowa</option>
+                                    <option value="kansas">Kansas</option>
+                                    <option value="kentucky">Kentucky</option>
+                                    <option value="louisiana">Louisiana</option>
+                                    <option value="maine">Maine</option>
+                                    <option value="maryland">Maryland</option>
+                                    <option value="massachusetts">Massachusetts</option>
+                                    <option value="michigan">Michigan</option>
+                                    <option value="minnesota">Minnesota</option>
+                                    <option value="mississippi">Mississippi</option>
+                                    <option value="missouri">Missouri</option>
+                                    <option value="montana">Montana</option>
+                                    <option value="nebraska">Nebraska</option>
+                                    <option value="nevada">Nevada</option>
+                                    <option value="new-hampshire">New Hampshire</option>
+                                    <option value="new-jersey">New Jersey</option>
+                                    <option value="new-mexico">New Mexico</option>
+                                    <option value="new-york">New York</option>
+                                    <option value="north-carolina">North Carolina</option>
+                                    <option value="north-dakota">North Dakota</option>
+                                    <option value="ohio">Ohio</option>
+                                    <option value="oklahoma">Oklahoma</option>
+                                    <option value="oregon">Oregon</option>
+                                    <option value="pennsylvania">Pennsylvania</option>
+                                    <option value="rhode-island">Rhode Island</option>
+                                    <option value="south-carolina">South Carolina</option>
+                                    <option value="south-dakota">South Dakota</option>
+                                    <option value="tennessee">Tennessee</option>
+                                    <option value="texas">Texas</option>
+                                    <option value="utah">Utah</option>
+                                    <option value="vermont">Vermont</option>
+                                    <option value="virginia">Virginia</option>
+                                    <option value="washington">Washington</option>
+                                    <option value="west-virginia">West Virginia</option>
+                                    <option value="wisconsin">Wisconsin</option>
+                                    <option value="wyoming">Wyoming</option>
+                                </optgroup>
+                                <optgroup label="Canada">
+                                    <option value="canada/ontario">Ontario</option>
+                                    <option value="canada/british-columbia">British Columbia</option>
+                                    <option value="canada/quebec">Quebec</option>
+                                    <option value="canada/alberta">Alberta</option>
+                                    <option value="canada/manitoba">Manitoba</option>
+                                    <option value="canada/saskatchewan">Saskatchewan</option>
+                                    <option value="canada/nova-scotia">Nova Scotia</option>
+                                    <option value="canada/new-brunswick">New Brunswick</option>
+                                    <option value="canada/prince-edward-island">Prince Edward Island</option>
+                                    <option value="canada/newfoundland-labrador">Newfoundland & Labrador</option>
+                                </optgroup>
+                            </select>
+                            <p class="help-text">Select your location for accurate local rates</p>
+                        </div>
+
+
+                    <div class="calc-form">
+                        <div class="form-group">
+                            <label for="homePrice">Home Price</label>
+                            <div class="input-wrapper">
+                                <span class="input-prefix">$</span>
+                                <input type="number" id="homePrice" class="has-prefix" value="400000" min="1000" max="10000000" step="1000">
+                            </div>
+                            <p class="help-text">The total purchase price of the home</p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="downPayment">Down Payment</label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix">$</span>
+                                    <input type="number" id="downPayment" class="has-prefix" value="80000" min="0" step="1000">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="downPaymentPct">Down Payment %</label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="downPaymentPct" value="20" min="0" max="90" step="0.5">
+                                    <span class="input-suffix">%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="loanTerm">Loan Term</label>
+                                <select id="loanTerm">
+                                    <option value="30" selected>30 Years</option>
+                                    <option value="20">20 Years</option>
+                                    <option value="15">15 Years</option>
+                                    <option value="10">10 Years</option>
+                                    <option value="5">5 Years</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="interestRate">Interest Rate</label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="interestRate" value="6.5" min="0.1" max="25" step="0.05">
+                                    <span class="input-suffix">%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="startYear">Start Year</label>
+                            <select id="startYear">
+                                <option value="2026" selected>2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                            </select>
+                            <p class="help-text">Select the year you plan to start the mortgage</p>
+                        </div>
+
+                        <button class="btn-calculate" onclick="calculateMortgage()">Calculate Monthly Payment</button>
+                    </div>
+
+                    <!-- Ad placeholder -->
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+
+                    <!-- Content / SEO -->
+                    <div class="calc-content">
+                        <h2>How to Use This Mortgage Calculator</h2>
+                        <p>Our free mortgage calculator helps you estimate your monthly home loan payment in seconds. Whether you are buying your first home, refinancing, or comparing loan offers, this tool gives you accurate results based on current market rates.</p>
+
+                        <h3>How to calculate mortgage payments</h3>
+                        <p>Your monthly mortgage payment is determined by three main factors:</p>
+                        <ul>
+                            <li><strong>Loan amount</strong> — The home price minus your down payment</li>
+                            <li><strong>Interest rate</strong> — The annual interest rate charged by your lender</li>
+                            <li><strong>Loan term</strong> — How many years you take to repay the loan (most common is 30 years)</li>
+                        </ul>
+
+                        <p>The formula our calculator uses: M = P [ i(1 + i)^n ] / [ (1 + i)^n &#x2013; 1 ]</p>
+                        <p>Where: M = monthly payment, P = principal, i = monthly interest rate, n = number of payments</p>
+
+                        <h3>Understanding your total costs</h3>
+                        <p>Beyond your monthly payment, remember to budget for:</p>
+                        <ul>
+                            <li><strong>Property taxes</strong> — Typically 0.5-2% of home value per year</li>
+                            <li><strong>Homeowners insurance</strong> — Usually $1,000-$3,000 per year</li>
+                            <li><strong>PMI (Private Mortgage Insurance)</strong> — Required if down payment is less than 20%</li>
+                            <li><strong>HOA fees</strong> — Vary by community, $0-$1,000+ per month</li>
+                            <li><strong>Closing costs</strong> — Typically 2-5% of the loan amount</li>
+                        </ul>
+
+                        <h3>30-Year vs 15-Year Mortgage</h3>
+                        <p>A 30-year mortgage offers lower monthly payments but you pay more total interest over the life of the loan. A 15-year mortgage has higher monthly payments but you become debt-free faster and pay significantly less total interest.</p>
+
+                        <div class="related-calcs">
+                            <h3>Related Calculators</h3>
+                            <a href="#">Auto Loan Calculator</a>
+                            <a href="#">Loan Calculator</a>
+                            <a href="#">Compound Interest Calculator</a>
+                            <a href="#">Rent vs Buy Calculator</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results Sidebar -->
+                <aside class="results-panel" id="resultsPanel">
+                    <h2>&#x1F4CA; Your Results</h2>
+
+                    <div class="result-item">
+                        <p class="result-label">Monthly Payment (PITI)</p>
+                        <p class="result-value" id="monthlyPayment">$0</p>
+                        <p class="result-note">Principal, Interest, Taxes & Insurance</p>
+                    </div>
+
+                    <div class="result-item">
+                        <p class="result-label">Monthly Principal & Interest</p>
+                        <p class="result-value secondary" id="monthlyPI">$0</p>
+                        <p class="result-note">Excludes taxes and insurance</p>
+                    </div>
+
+                    <div class="result-item">
+                        <p class="result-label">Loan Amount</p>
+                        <p class="result-value secondary" id="loanAmount">$0</p>
+                    </div>
+
+                    <div class="result-item">
+                        <p class="result-label">Down Payment</p>
+                        <p class="result-value secondary" id="downPaymentResult">$0</p>
+                    </div>
+
+                    <div class="result-item">
+                        <p class="result-label">Total Interest Paid</p>
+                        <p class="result-value secondary" id="totalInterest" style="color: #dc2626;">$0</p>
+                    </div>
+
+                    <div class="result-item">
+                        <p class="result-label">Total Cost of Loan</p>
+                        <p class="result-value secondary" id="totalCost">$0</p>
+                        <p class="result-note">Principal + Total Interest</p>
+                    </div>
+
+                    <div class="results-breakdown" id="breakdownTable">
+                        <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px;">Amortization Summary</h3>
+                        <div class="breakdown-row">
+                            <span>Year 1 Interest</span>
+                            <span id="year1Interest">$0</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Year 5 Interest</span>
+                            <span id="year5Interest">$0</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Year 10 Interest</span>
+                            <span id="year10Interest">$0</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Year 15 Interest</span>
+                            <span id="year15Interest">$0</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Year 20 Interest</span>
+                            <span id="year20Interest">$0</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="logo-icon">&#x1F522;</span>
+                    <span>CalcWithMe</span>
+                    <p>Free online financial calculators for everyone.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Popular Calculators</h4>
+                    <a href="mortgage-calculator.html">Mortgage Calculator</a>
+                    <a href="#">Loan Calculator</a>
+                    <a href="#">Compound Interest</a>
+                    <a href="#">Retirement Calculator</a>
+                </div>
+                <div class="footer-links">
+                    <h4>More Tools</h4>
+                    <a href="#">Auto Loan Calculator</a>
+                    <a href="#">Credit Card Payoff</a>
+                    <a href="#">Salary Calculator</a>
+                    <a href="#">Investment ROI</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&#169; 2026 CalcWithMe.com. All rights reserved.</p>
+                <p class="disclaimer">Disclaimer: Calculator results are for informational purposes only. Consult a financial advisor for professional advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Auto-sync down payment and percentage
+        document.getElementById('homePrice').addEventListener('input', syncDownPayment);
+        document.getElementById('downPayment').addEventListener('input', syncDownPaymentPct);
+        document.getElementById('downPaymentPct').addEventListener('input', syncDownPaymentFromPct);
+
+        function syncDownPayment() {
+            const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
+            const currentDownPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+            const pct = homePrice > 0 ? (currentDownPayment / homePrice * 100).toFixed(1) : 0;
+            document.getElementById('downPaymentPct').value = pct;
+        }
+
+        function syncDownPaymentPct() {
+            const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
+            const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+            const pct = homePrice > 0 ? (downPayment / homePrice * 100).toFixed(1) : 0;
+            document.getElementById('downPaymentPct').value = pct;
+        }
+
+        function syncDownPaymentFromPct() {
+            const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
+            const pct = parseFloat(document.getElementById('downPaymentPct').value) || 0;
+            document.getElementById('downPayment').value = Math.round(homePrice * pct / 100);
+        }
+
+        function calculateMortgage() {
+            const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
+            const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+            const loanTermYears = parseInt(document.getElementById('loanTerm').value) || 30;
+            const annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
+
+            if (homePrice <= 0 || downPayment >= homePrice || annualRate <= 0) {
+                alert('Please enter valid values.');
+                return;
+            }
+
+            const loanAmount = homePrice - downPayment;
+            const monthlyRate = annualRate / 100 / 12;
+            const numPayments = loanTermYears * 12;
+
+            // Monthly payment formula
+            const monthlyPI = monthlyRate === 0
+                ? loanAmount / numPayments
+                : loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+
+            // Estimate taxes and insurance (approximately 1.5% of home value annually / 12)
+            const estMonthlyTaxIns = homePrice * 0.015 / 12;
+            const totalMonthly = monthlyPI + estMonthlyTaxIns;
+
+            const totalPaid = monthlyPI * numPayments;
+            const totalInterest = totalPaid - loanAmount;
+            const totalCost = totalPaid + downPayment;
+
+            // Update results
+            document.getElementById('monthlyPayment').textContent = '$' + formatNumber(Math.round(totalMonthly));
+            document.getElementById('monthlyPI').textContent = '$' + formatNumber(Math.round(monthlyPI));
+            document.getElementById('loanAmount').textContent = '$' + formatNumber(Math.round(loanAmount));
+            document.getElementById('downPaymentResult').textContent = '$' + formatNumber(Math.round(downPayment));
+            document.getElementById('totalInterest').textContent = '$' + formatNumber(Math.round(totalInterest));
+            document.getElementById('totalCost').textContent = '$' + formatNumber(Math.round(totalCost));
+
+            // Year-by-year interest
+            const year1Interest = calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 12);
+            const year5Interest = calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 60);
+            const year10Interest = calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 120);
+            const year15Interest = calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 180);
+            const year20Interest = calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 240);
+
+            document.getElementById('year1Interest').textContent = '$' + formatNumber(Math.round(year1Interest));
+            document.getElementById('year5Interest').textContent = '$' + formatNumber(Math.round(year5Interest));
+            document.getElementById('year10Interest').textContent = '$' + formatNumber(Math.round(year10Interest));
+            document.getElementById('year15Interest').textContent = '$' + formatNumber(Math.round(year15Interest));
+            document.getElementById('year20Interest').textContent = '$' + formatNumber(Math.round(year20Interest));
+        }
+
+        function calculateCumulativeInterest(principal, monthlyRate, monthlyPayment, months) {
+            let balance = principal;
+            let totalInterest = 0;
+            for (let i = 0; i < months && balance > 0; i++) {
+                const interest = balance * monthlyRate;
+                totalInterest += interest;
+                const principalPaid = Math.min(monthlyPayment - interest, balance);
+                balance -= principalPaid;
+            }
+            return totalInterest;
+        }
+
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+
+        // Auto-calculate on page load
+        window.addEventListener('load', calculateMortgage);
+    </script>
+
+    <script>
+    // State and province data
+    const stateData = {
+        // US States
+        'alabama': { rate: 6.85, propertyTax: 0.42 },
+        'alaska': { rate: 6.75, propertyTax: 1.19 },
+        'arizona': { rate: 6.65, propertyTax: 0.62 },
+        'arkansas': { rate: 6.90, propertyTax: 0.62 },
+        'california': { rate: 6.50, propertyTax: 0.73 },
+        'colorado': { rate: 6.45, propertyTax: 0.51 },
+        'connecticut': { rate: 6.75, propertyTax: 2.14 },
+        'delaware': { rate: 6.80, propertyTax: 0.57 },
+        'florida': { rate: 6.70, propertyTax: 0.89 },
+        'georgia': { rate: 6.80, propertyTax: 0.92 },
+        'hawaii': { rate: 6.50, propertyTax: 0.28 },
+        'idaho': { rate: 6.55, propertyTax: 0.69 },
+        'illinois': { rate: 6.80, propertyTax: 2.27 },
+        'indiana': { rate: 6.75, propertyTax: 0.85 },
+        'iowa': { rate: 6.60, propertyTax: 1.57 },
+        'kansas': { rate: 6.65, propertyTax: 1.41 },
+        'kentucky': { rate: 6.90, propertyTax: 0.86 },
+        'louisiana': { rate: 6.85, propertyTax: 0.55 },
+        'maine': { rate: 6.75, propertyTax: 1.36 },
+        'maryland': { rate: 6.70, propertyTax: 1.09 },
+        'massachusetts': { rate: 6.55, propertyTax: 1.23 },
+        'michigan': { rate: 6.80, propertyTax: 1.54 },
+        'minnesota': { rate: 6.50, propertyTax: 1.12 },
+        'mississippi': { rate: 6.95, propertyTax: 0.81 },
+        'missouri': { rate: 6.70, propertyTax: 0.97 },
+        'montana': { rate: 6.55, propertyTax: 0.84 },
+        'nebraska': { rate: 6.65, propertyTax: 1.73 },
+        'nevada': { rate: 6.60, propertyTax: 0.60 },
+        'new-hampshire': { rate: 6.70, propertyTax: 2.18 },
+        'new-jersey': { rate: 6.65, propertyTax: 2.49 },
+        'new-mexico': { rate: 6.70, propertyTax: 0.80 },
+        'new-york': { rate: 6.50, propertyTax: 1.72 },
+        'north-carolina': { rate: 6.75, propertyTax: 0.84 },
+        'north-dakota': { rate: 6.50, propertyTax: 0.98 },
+        'ohio': { rate: 6.80, propertyTax: 1.56 },
+        'oklahoma': { rate: 6.85, propertyTax: 0.90 },
+        'oregon': { rate: 6.40, propertyTax: 0.97 },
+        'pennsylvania': { rate: 6.75, propertyTax: 1.58 },
+        'rhode-island': { rate: 6.75, propertyTax: 1.63 },
+        'south-carolina': { rate: 6.80, propertyTax: 0.57 },
+        'south-dakota': { rate: 6.55, propertyTax: 1.31 },
+        'tennessee': { rate: 6.80, propertyTax: 0.71 },
+        'texas': { rate: 6.85, propertyTax: 1.80 },
+        'utah': { rate: 6.50, propertyTax: 0.63 },
+        'vermont': { rate: 6.70, propertyTax: 1.90 },
+        'virginia': { rate: 6.65, propertyTax: 0.82 },
+        'washington': { rate: 6.40, propertyTax: 0.98 },
+        'west-virginia': { rate: 6.90, propertyTax: 0.58 },
+        'wisconsin': { rate: 6.60, propertyTax: 1.85 },
+        'wyoming': { rate: 6.50, propertyTax: 0.61 }
+    };
+
+    // Canadian provinces
+    const canadaData = {
+        'ontario': { rate: 4.79, propertyTax: 1.1 },
+        'british-columbia': { rate: 4.69, propertyTax: 0.58 },
+        'quebec': { rate: 4.95, propertyTax: 1.0 },
+        'alberta': { rate: 4.59, propertyTax: 0.77 },
+        'manitoba': { rate: 4.85, propertyTax: 1.1 },
+        'saskatchewan': { rate: 4.75, propertyTax: 1.0 },
+        'nova-scotia': { rate: 5.15, propertyTax: 1.0 },
+        'new-brunswick': { rate: 5.25, propertyTax: 1.3 },
+        'prince-edward-island': { rate: 5.1, propertyTax: 0.95 },
+        'newfoundland-labrador': { rate: 5.25, propertyTax: 1.0 }
+    };
+
+    function updateRateForState() {
+        const selected = document.getElementById('stateSelect').value;
+        if (!selected) return;
+
+        let rate, propertyTax;
+        
+        if (selected.startsWith('canada/')) {
+            const province = selected.replace('canada/', '');
+            rate = canadaData[province].rate;
+            propertyTax = canadaData[province].propertyTax;
+        } else {
+            rate = stateData[selected].rate;
+            propertyTax = stateData[selected].propertyTax;
+        }
+
+        document.getElementById('interestRate').value = rate;
+        document.getElementById('propertyTax').value = propertyTax.toFixed(2);
+        
+        // Show a notification
+        alert('Rates updated for selected location! You can now calculate your mortgage.');
+    }
+    </script>
+</body>
+</html>

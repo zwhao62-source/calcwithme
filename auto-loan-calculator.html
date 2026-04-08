@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Loan Calculator - Free Car Loan Payment Calculator | CalcWithMe</title>
+    <meta name="description" content="Free auto loan calculator. Calculate monthly car loan payments, total interest, and compare new vs used car financing options.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/auto-loan-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Auto Loan Calculator","url":"https://calcwithme.com/auto-loan-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a>
+            <nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="auto-loan-calculator.html">Auto Loan</a></nav>
+        </div>
+    </header>
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Auto Loan Calculator</h1>
+                    <p class="page-desc">Calculate monthly car loan payments for new and used vehicles. Compare financing options and understand the true cost of your car loan.</p>
+                    <div class="calc-form">
+                        <div class="form-group">
+                            <label for="carPrice">Vehicle Price</label>
+                            <div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="carPrice" class="has-prefix" value="35000" min="1000"></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="downPay">Down Payment</label>
+                                <div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="downPay" class="has-prefix" value="5000" min="0"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="tradeIn">Trade-in Value</label>
+                                <div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="tradeIn" class="has-prefix" value="0" min="0"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="salesTax">Sales Tax Rate</label>
+                            <div class="input-wrapper"><input type="number" id="salesTax" value="6" min="0" max="15" step="0.25"><span class="input-suffix">%</span></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="loanRate">Interest Rate (APR)</label>
+                                <div class="input-wrapper"><input type="number" id="loanRate" value="6.5" min="0.1" max="30" step="0.1"><span class="input-suffix">%</span></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="loanTerm">Loan Term</label>
+                                <select id="loanTerm">
+                                    <option value="36" selected>3 Years (36 months)</option>
+                                    <option value="48">4 Years (48 months)</option>
+                                    <option value="60">5 Years (60 months)</option>
+                                    <option value="72">6 Years (72 months)</option>
+                                    <option value="84">7 Years (84 months)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn-calculate" onclick="calcAuto()">Calculate Payment</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>How Auto Loan Financing Works</h2>
+                        <p>When you finance a car, you borrow money from a lender to pay for the vehicle. You repay the loan with interest over a set period of time. Key factors that affect your monthly payment include the loan amount, interest rate, and loan term.</p>
+                        <h3>New Car vs Used Car</h3>
+                        <p>New cars typically have higher prices but lower interest rates. Used cars have lower prices but may have higher interest rates and shorter loan terms available. Use this calculator to compare both options side by side.</p>
+                        <h3>What Affects Your Auto Loan Rate?</h3>
+                        <ul>
+                            <li><strong>Credit score</strong> — Higher scores get lower rates</li>
+                            <li><strong>Loan term</strong> — Longer terms = more total interest</li>
+                            <li><strong>New vs used</strong> — New cars typically get better rates</li>
+                            <li><strong>Down payment</strong> — Larger down payment = lower loan amount</li>
+                        </ul>
+                        <div class="related-calcs">
+                            <h3>Related Calculators</h3>
+                            <a href="loan-calculator.html">Loan Calculator</a>
+                            <a href="mortgage-calculator.html">Mortgage Calculator</a>
+                            <a href="mortgage-calculator.html">Rent vs Buy Calculator</a>
+                            <a href="compound-interest-calculator.html">Compound Interest</a>
+                        </div>
+                    </div>
+                </div>
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Your Results</h2>
+                    <div class="result-item"><p class="result-label">Monthly Payment</p><p class="result-value" id="monthlyPay">$0</p></div>
+                    <div class="result-item"><p class="result-label">Total Interest Paid</p><p class="result-value secondary" id="totalInt" style="color:#dc2626;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Total Cost of Vehicle</p><p class="result-value secondary" id="totalCost">$0</p></div>
+                    <div class="result-item"><p class="result-label">Amount Financed</p><p class="result-value secondary" id="financed">$0</p></div>
+                    <div class="results-breakdown">
+                        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Cost Breakdown</h3>
+                        <div class="breakdown-row"><span>Vehicle Price</span><span id="priceVal">$0</span></div>
+                        <div class="breakdown-row"><span>Sales Tax</span><span id="taxVal">$0</span></div>
+                        <div class="breakdown-row"><span>Down Payment</span><span id="dpVal">$0</span></div>
+                        <div class="breakdown-row"><span>Trade-in</span><span id="tradeVal">$0</span></div>
+                        <div class="breakdown-row"><span>Total Interest</span><span id="intVal">$0</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div>
+    </footer>
+    <script>
+    function calcAuto() {
+        const price = parseFloat(document.getElementById('carPrice').value)||0;
+        const dp = parseFloat(document.getElementById('downPay').value)||0;
+        const trade = parseFloat(document.getElementById('tradeIn').value)||0;
+        const tax = parseFloat(document.getElementById('salesTax').value)||0;
+        const rate = parseFloat(document.getElementById('loanRate').value)||0;
+        const months = parseInt(document.getElementById('loanTerm').value)||36;
+        const taxAmount = price * tax / 100;
+        const financed = price + taxAmount - dp - trade;
+        const mr = rate / 100 / 12;
+        const payment = mr===0 ? financed/months : financed * (mr*Math.pow(1+mr,months))/(Math.pow(1+mr,months)-1);
+        const totalInt = payment * months - financed;
+        const total = price + taxAmount + totalInt;
+        document.getElementById('monthlyPay').textContent = '$'+fmt(Math.round(payment));
+        document.getElementById('totalInt').textContent = '$'+fmt(Math.round(totalInt));
+        document.getElementById('totalCost').textContent = '$'+fmt(Math.round(total));
+        document.getElementById('financed').textContent = '$'+fmt(Math.round(financed));
+        document.getElementById('priceVal').textContent = '$'+fmt(price);
+        document.getElementById('taxVal').textContent = '$'+fmt(Math.round(taxAmount));
+        document.getElementById('dpVal').textContent = '$'+fmt(dp);
+        document.getElementById('tradeVal').textContent = '$'+fmt(trade);
+        document.getElementById('intVal').textContent = '$'+fmt(Math.round(totalInt));
+    }
+    function fmt(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+    window.addEventListener('load', calcAuto);
+    </script>
+</body>
+</html>

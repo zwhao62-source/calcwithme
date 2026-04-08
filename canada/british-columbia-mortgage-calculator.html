@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>British Columbia Mortgage Calculator 2026 - Free British Columbia Home Loan Calculator</title>
+    <meta name="description" content="Calculate your mortgage in British Columbia. Updated with 2026 British Columbia mortgage rates (avg 4.69%), property tax (0.58%), and insurance. Free British Columbia homebuyers use this calculator.">
+    <meta name="keywords" content="British Columbia mortgage calculator, BC mortgage rates, British Columbia home loan calculator, mortgage calculator BC">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/british-columbia-mortgage-calculator.html">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <meta property="og:title" content="British Columbia Mortgage Calculator 2026">
+    <meta property="og:description" content="Free British Columbia mortgage calculator. Calculate your monthly payments with current 4.69% rates.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "British Columbia Mortgage Calculator",
+        "url": "https://calcwithme.com/british-columbia-mortgage-calculator.html",
+        "description": "Free British Columbia mortgage calculator with current 4.69% rates",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "CAD"
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">&#x1F522;</span>
+                <span>Calc<span class="highlight">With</span>Me</span>
+            </a>
+            <nav>
+                <a href="/#calculators">Calculators</a>
+                <a href="/#about">About</a>
+                <a href="/mortgage-calculator.html">Mortgage Calculator</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="calculator-page">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> &gt; <a href="/mortgage-calculator.html">Mortgage Calculator</a> &gt; British Columbia
+            </div>
+            <h1>British Columbia Mortgage Calculator 2026</h1>
+            <p class="page-desc">Calculate your mortgage in British Columbia. Updated with 2026 British Columbia mortgage rates, property tax, and insurance estimates.</p>
+
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <div class="calc-form">
+                        <div class="form-group">
+                            <label for="homePrice">Home Price (CAD)</label>
+                            <div class="input-wrapper">
+                                <span class="input-prefix">$</span>
+                                <input type="number" id="homePrice" class="has-prefix" value="500000" min="10000" max="50000000" step="5000">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="downPayment">Down Payment</label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix">$</span>
+                                    <input type="number" id="downPayment" class="has-prefix" value="100000" min="0" step="5000">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="downPaymentPct">Down Payment %</label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="downPaymentPct" value="20" min="5" max="90" step="0.5">
+                                    <span class="input-suffix">%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="interestRate">Interest Rate</label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="interestRate" value="4.69" min="1" max="15" step="0.125">
+                                    <span class="input-suffix">%</span>
+                                </div>
+                                <p class="help-text">Current British Columbia 5-year fixed rate: 4.69%</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="loanTerm">Loan Term</label>
+                                <select id="loanTerm">
+                                    <option value="15">15 years</option>
+                                    <option value="20">20 years</option>
+                                    <option value="25" selected>25 years</option>
+                                    <option value="30">30 years</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="propertyTax">Annual Property Tax</label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="propertyTax" value="0.58" min="0" max="5" step="0.1">
+                                    <span class="input-suffix">%</span>
+                                </div>
+                                <p class="help-text">British Columbia avg: 0.58%</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="homeInsurance">Annual Home Insurance</label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix">$</span>
+                                    <input type="number" id="homeInsurance" value="1200" min="0" step="100">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="calculateMortgage()" class="btn-calculate">Calculate Payment</button>
+                    </div>
+
+                    <div id="results" class="results-section" style="display: none;">
+                        <h2>Your Monthly Payment</h2>
+                        <div class="payment-amount">
+                            <span class="currency">$</span><span id="monthlyPayment">0</span>
+                        </div>
+                        
+                        <div class="payment-breakdown">
+                            <div class="breakdown-item">
+                                <span>Principal & Interest</span>
+                                <span id="principalInterest">$0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Property Tax</span>
+                                <span id="propertyTaxPayment">$0</span>
+                            </div>
+                            <div class="breakdown-item">
+                                <span>Home Insurance</span>
+                                <span id="insurancePayment">$0</span>
+                            </div>
+                        </div>
+
+                        <div class="total-summary">
+                            <h3>Loan Details</h3>
+                            <p><strong>Loan Amount:</strong> <span id="loanAmount">$0</span></p>
+                            <p><strong>Total Interest:</strong> <span id="totalInterest">$0</span></p>
+                            <p><strong>Total Cost:</strong> <span id="totalCost">$0</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="calculator-sidebar">
+                    <h3>Other Calculators</h3>
+                    <ul>
+                        <li><a href="/mortgage-calculator.html">US Mortgage Calculator</a></li>
+                        <li><a href="/loan-calculator.html">Loan Calculator</a></li>
+                        <li><a href="/compound-interest-calculator.html">Compound Interest</a></li>
+                    </ul>
+                    
+                    <h3>British Columbia Resources</h3>
+                    <ul>
+                        <li><a href="/blog/mortgage-rate-outlook-2026.html">Canada Mortgage Rate Outlook 2026</a></li>
+                        <li><a href="/blog/first-time-homebuyer-mistakes.html">First-Time Homebuyer Guide</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CalcWithMe.com - Free Online Financial Calculators</p>
+        </div>
+    </footer>
+
+    <script>
+        function calculateMortgage() {
+            const homePrice = parseFloat(document.getElementById('homePrice').value);
+            const downPayment = parseFloat(document.getElementById('downPayment').value);
+            const rate = parseFloat(document.getElementById('interestRate').value) / 100 / 12;
+            const years = parseFloat(document.getElementById('loanTerm').value);
+            const propertyTaxRate = parseFloat(document.getElementById('propertyTax').value) / 100 / 12;
+            const homeInsurance = parseFloat(document.getElementById('homeInsurance').value) / 12;
+            
+            const loanAmount = homePrice - downPayment;
+            const n = years * 12;
+            
+            // Monthly payment formula: M = P * [r(1+r)^n] / [(1+r)^n - 1]
+            const monthlyPayment = loanAmount * (rate * Math.pow(1 + rate, n)) / (Math.pow(1 + rate, n) - 1);
+            const propertyTaxPayment = (homePrice * propertyTaxRate);
+            
+            const totalMonthly = monthlyPayment + propertyTaxPayment + homeInsurance;
+            const totalInterest = (monthlyPayment * n) - loanAmount;
+            const totalCost = (monthlyPayment * n) + (propertyTaxPayment * 12 * years) + (homeInsurance * 12 * years);
+            
+            document.getElementById('monthlyPayment').textContent = Math.round(totalMonthly).toLocaleString();
+            document.getElementById('principalInterest').textContent = '$' + Math.round(monthlyPayment).toLocaleString();
+            document.getElementById('propertyTaxPayment').textContent = '$' + Math.round(propertyTaxPayment).toLocaleString();
+            document.getElementById('insurancePayment').textContent = '$' + Math.round(homeInsurance).toLocaleString();
+            document.getElementById('loanAmount').textContent = '$' + Math.round(loanAmount).toLocaleString();
+            document.getElementById('totalInterest').textContent = '$' + Math.round(totalInterest).toLocaleString();
+            document.getElementById('totalCost').textContent = '$' + Math.round(totalCost).toLocaleString();
+            
+            document.getElementById('results').style.display = 'block';
+        }
+
+        // Sync down payment amount and percentage
+        document.getElementById('homePrice').addEventListener('input', updateDownPaymentPct);
+        document.getElementById('downPayment').addEventListener('input', updateDownPaymentAmount);
+        
+        function updateDownPaymentPct() {
+            const homePrice = parseFloat(document.getElementById('homePrice').value);
+            const downPayment = parseFloat(document.getElementById('downPayment').value);
+            if (homePrice > 0) {
+                document.getElementById('downPaymentPct').value = ((downPayment / homePrice) * 100).toFixed(1);
+            }
+        }
+        
+        function updateDownPaymentAmount() {
+            const homePrice = parseFloat(document.getElementById('homePrice').value);
+            const downPaymentPct = parseFloat(document.getElementById('downPaymentPct').value);
+            document.getElementById('downPayment').value = Math.round(homePrice * downPaymentPct / 100);
+        }
+    </script>
+</body>
+</html>

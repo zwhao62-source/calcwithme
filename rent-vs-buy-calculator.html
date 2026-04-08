@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent vs Buy Calculator - Should You Rent or Buy a Home? | CalcWithMe</title>
+    <meta name="description" content="Free rent vs buy calculator. Compare the cost of renting vs buying a home and find out which is better for your financial situation.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/rent-vs-buy-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Rent vs Buy Calculator","url":"https://calcwithme.com/rent-vs-buy-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="rent-vs-buy-calculator.html">Rent vs Buy</a></nav></div></header>
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Rent vs Buy Calculator</h1>
+                    <p class="page-desc">Should you rent or buy? Compare the total costs of renting vs buying over time and make the best financial decision for your situation.</p>
+                    <div class="calc-form">
+                        <h3 style="font-size:1rem;font-weight:700;margin-bottom:16px;">Rent Details</h3>
+                        <div class="form-group"><label for="monthlyRent">Monthly Rent</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="monthlyRent" class="has-prefix" value="2000" min="0"></div></div>
+                        <div class="form-group"><label for="rentInsurance">Renters Insurance</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="rentInsurance" class="has-prefix" value="20" min="0"></div></div>
+                        <h3 style="font-size:1rem;font-weight:700;margin:24px 0 16px;">Buy Details</h3>
+                        <div class="form-group"><label for="homePrice">Home Price</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="homePrice" class="has-prefix" value="400000" min="0"></div></div>
+                        <div class="form-group"><label for="downPay">Down Payment</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="downPay" class="has-prefix" value="80000" min="0"></div></div>
+                        <div class="form-row">
+                            <div class="form-group"><label for="buyRate">Mortgage Rate</label><div class="input-wrapper"><input type="number" id="buyRate" value="6.5" step="0.05"><span class="input-suffix">%</span></div></div>
+                            <div class="form-group"><label for="loanTerm">Loan Term</label><select id="loanTerm"><option value="30" selected>30 Years</option><option value="15">15 Years</option></select></div>
+                        </div>
+                        <div class="form-group"><label for="propertyTax">Annual Property Tax</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="propertyTax" class="has-prefix" value="4000" min="0"></div></div>
+                        <div class="form-group"><label for="yearsToCompare">Years to Compare</label><select id="yearsToCompare"><option value="5">5 Years</option><option value="7" selected>7 Years</option><option value="10">10 Years</option><option value="15">15 Years</option><option value="20">20 Years</option><option value="30">30 Years</option></select></div>
+                        <button class="btn-calculate" onclick="calcRentVsBuy()">Compare Rent vs Buy</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>Should You Rent or Buy?</h2>
+                        <p>The rent vs buy decision depends on many factors including how long you plan to stay, local real estate prices, interest rates, and your personal financial situation. There is no one-size-fits-all answer.</p>
+                        <h3>When Buying Makes Sense</h3>
+                        <ul>
+                            <li>You plan to stay in the same location for 5+ years</li>
+                            <li>You have a stable income and emergency fund</li>
+                            <li>You can afford a 20% down payment without stretching</li>
+                            <li>Your monthly payment would be similar to or less than renting</li>
+                        </ul>
+                        <h3>When Renting Makes Sense</h3>
+                        <ul>
+                            <li>You are planning to move within 1-3 years</li>
+                            <li>You have high-interest debt to pay off first</li>
+                            <li>Home prices in your area are very high relative to rents</li>
+                            <li>You prefer flexibility and lower maintenance responsibilities</li>
+                        </ul>
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="mortgage-calculator.html">Mortgage Calculator</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="loan-calculator.html">Loan Calculator</a></div>
+                    </div>
+                </div>
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Results</h2>
+                    <div class="result-item"><p class="result-label">Total Cost of Renting</p><p class="result-value" id="totalRent" style="color:#dc2626;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Total Cost of Buying</p><p class="result-value" id="totalBuy" style="color:#dc2626;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Home Equity After <span id="yrLabel">7</span> Years</p><p class="result-value" id="homeEquity" style="color:#10b981;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Recommendation</p><p class="result-value secondary" id="recommendation">-</p></div>
+                    <div class="results-breakdown"><h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Breakdown</h3><div class="breakdown-row"><span>Rent Over <span id="rentYr">7</span> Years</span><span id="rentTotal">$0</span></div><div class="breakdown-row"><span>Buy Over <span id="buyYr">7</span> Years</span><span id="buyTotal">$0</span></div><div class="breakdown-row"><span>Investment Growth (rent savings)</span><span id="invGrowth">$0</span></div><div class="breakdown-row"><span>Net Difference</span><span id="netDiff">$0</span></div></div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+    <script>
+    function calcRentVsBuy() {
+        const rent = parseFloat(document.getElementById('monthlyRent').value)||0;
+        const rentIns = parseFloat(document.getElementById('rentInsurance').value)||0;
+        const price = parseFloat(document.getElementById('homePrice').value)||0;
+        const dp = parseFloat(document.getElementById('downPay').value)||0;
+        const rate = parseFloat(document.getElementById('buyRate').value)||0;
+        const term = parseInt(document.getElementById('loanTerm').value)||30;
+        const propTax = parseFloat(document.getElementById('propertyTax').value)||0;
+        const years = parseInt(document.getElementById('yearsToCompare').value)||7;
+        const loanAmt = price - dp;
+        const mr = rate/100/12, n = term*12;
+        const monthlyPI = loanAmt * (mr*Math.pow(1+mr,n))/(Math.pow(1+mr,n)-1);
+        const monthlyPropTax = propTax/12;
+        const monthlyHOA = 0;
+        const totalMonthlyBuy = monthlyPI + monthlyPropTax + monthlyHOA;
+        const totalMonthlyRent = rent + rentIns;
+        const totalRentCost = totalMonthlyRent * 12 * years;
+        const appreciationRate = 0.03;
+        const homeValue = price * Math.pow(1+appreciationRate, years);
+        const equityAfterYears = homeValue - Math.max(0, loanAmt - calcPrincipalPaid(loanAmt, mr, monthlyPI, years*12));
+        const rentSavings = Math.max(0, (totalMonthlyBuy - totalMonthlyRent) * 12 * years);
+        const investmentGrowth = rentSavings * Math.pow(1+0.07, years);
+        const totalBuyCost = totalMonthlyBuy * 12 * years + dp - equityAfterYears;
+        const recommendation = totalBuyCost < totalRentCost + investmentGrowth ? 'Buying' : 'Renting';
+        document.getElementById('totalRent').textContent = '$'+fmt(Math.round(totalRentCost));
+        document.getElementById('totalBuy').textContent = '$'+fmt(Math.round(totalBuyCost));
+        document.getElementById('homeEquity').textContent = '$'+fmt(Math.round(equityAfterYears));
+        document.getElementById('recommendation').innerHTML = '<span style="color:'+(recommendation==='Buying'?'#10b981':'#f59e0b')+';font-weight:700;">'+recommendation+' is Better</span>';
+        document.getElementById('yrLabel').textContent = years;
+        document.getElementById('rentYr').textContent = years;
+        document.getElementById('buyYr').textContent = years;
+        document.getElementById('rentTotal').textContent = '$'+fmt(Math.round(totalRentCost));
+        document.getElementById('buyTotal').textContent = '$'+fmt(Math.round(totalBuyCost));
+        document.getElementById('invGrowth').textContent = '$'+fmt(Math.round(investmentGrowth));
+        document.getElementById('netDiff').textContent = '$'+fmt(Math.abs(Math.round(totalBuyCost - totalRentCost - investmentGrowth)));
+    }
+    function calcPrincipalPaid(loan, mr, payment, months) {
+        let bal=loan, paid=0;
+        for(let i=0; i<months; i++){const int=bal*mr; bal-=Math.min(payment-int,bal); paid+=payment-int;}
+        return paid;
+    }
+    function fmt(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+    window.addEventListener('load', calcRentVsBuy);
+    </script>
+</body>
+</html>

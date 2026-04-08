@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Savings Goal Calculator - Free Goal-Based Savings Planner | CalcWithMe</title>
+    <meta name="description" content="Free savings goal calculator. See how much you need to save monthly to reach your financial goals. Plan for vacations, emergency funds, and big purchases.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/savings-goal-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Savings Goal Calculator","url":"https://calcwithme.com/savings-goal-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="savings-goal-calculator.html">Savings Goal</a></nav></div></header>
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Savings Goal Calculator</h1>
+                    <p class="page-desc">Plan your savings and see how much you need to save each month to reach your financial goals. Whether it is an emergency fund, vacation, or down payment on a house.</p>
+                    <div class="calc-form">
+                        <div class="form-group"><label for="goalAmount">Savings Goal</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="goalAmount" class="has-prefix" value="10000" min="100"></div></div>
+                        <div class="form-group"><label for="timeFrame">Time Frame</label><select id="timeFrame"><option value="3">3 Months</option><option value="6">6 Months</option><option value="12" selected>1 Year</option><option value="24">2 Years</option><option value="36">3 Years</option><option value="60">5 Years</option><option value="120">10 Years</option></select></div>
+                        <div class="form-group"><label for="startAmount">Starting Amount</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="startAmount" class="has-prefix" value="0" min="0"></div></div>
+                        <div class="form-group"><label for="saveRate">Annual Interest Rate (APY)</label><div class="input-wrapper"><input type="number" id="saveRate" value="4.5" min="0" max="20" step="0.1"><span class="input-suffix">%</span></div></div>
+                        <button class="btn-calculate" onclick="calcSavingsGoal()">Calculate</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>How to Reach Your Savings Goals</h2>
+                        <p>Reaching a savings goal requires a combination of saving consistently and earning interest on your money. High-yield savings accounts currently offer APYs of 4-5%, making it easier to reach your goals faster.</p>
+                        <h3>Tips to Save More</h3>
+                        <ul>
+                            <li><strong>Pay yourself first</strong> — Set up automatic transfers to savings on payday</li>
+                            <li><strong>Use rounding up apps</strong> — Round up purchases and save the difference</li>
+                            <li><strong>Cut one expense</strong> — Cancel one subscription and redirect that money to savings</li>
+                            <li><strong>Use a high-yield savings account</strong> — Earn 10-20x more interest than traditional banks</li>
+                        </ul>
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="compound-interest-calculator.html">Compound Interest</a><a href="retirement-calculator.html">Retirement Calculator</a><a href="investment-roi-calculator.html">Investment ROI</a></div>
+                    </div>
+                </div>
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Your Results</h2>
+                    <div class="result-item"><p class="result-label">Monthly Savings Needed</p><p class="result-value" id="monthlySave">$0</p></div>
+                    <div class="result-item"><p class="result-label">Weekly Savings Needed</p><p class="result-value secondary" id="weeklySave">$0</p></div>
+                    <div class="result-item"><p class="result-label">Total You Will Save</p><p class="result-value secondary" id="totalSave">$0</p></div>
+                    <div class="result-item"><p class="result-label">Interest Earned</p><p class="result-value secondary" id="intEarned" style="color:#10b981;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Days Per Month to Skip a Coffee</p><p class="result-value secondary" id="coffeeDays">0</p></div>
+                    <div class="results-breakdown"><h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Monthly Breakdown</h3><div class="breakdown-row"><span>Goal Amount</span><span id="goalVal">$0</span></div><div class="breakdown-row"><span>Starting Amount</span><span id="startVal">$0</span></div><div class="breakdown-row"><span>Total to Save</span><span id="totalToSave">$0</span></div><div class="breakdown-row"><span>Interest Earned</span><span id="intVal">$0</span></div></div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+    <script>
+    function calcSavingsGoal() {
+        const goal = parseFloat(document.getElementById('goalAmount').value)||0;
+        const months = parseInt(document.getElementById('timeFrame').value)||12;
+        const start = parseFloat(document.getElementById('startAmount').value)||0;
+        const apy = parseFloat(document.getElementById('saveRate').value)||0;
+        const mr = apy/100/12;
+        const needed = goal - start;
+        let monthly = 0;
+        if(needed<=0) { monthly=0; }
+        else if(mr===0) { monthly=needed/months; }
+        else {
+            let bal=start, m=0;
+            while(bal<goal && m<months) { bal+=monthly; bal*=(1+mr); m++; }
+            if(bal>=goal) { monthly=needed/months; }
+            else {
+                let lo=0, hi=needed, iters=0;
+                while(iters<50) {
+                    monthly=(lo+hi)/2;
+                    bal=start; for(let i=0;i<months;i++){bal+=monthly;bal*=(1+mr);}
+                    if(Math.abs(bal-goal)<1){break;}
+                    bal<goal ? lo=monthly : hi=monthly;
+                    iters++;
+                }
+            }
+        }
+        const totalSaved = start + monthly * months;
+        const interest = goal - totalSaved;
+        const coffeeCost = 6;
+        const coffeeDays = Math.ceil(monthly / coffeeCost);
+        document.getElementById('monthlySave').textContent = '$'+fmt(Math.round(monthly));
+        document.getElementById('weeklySave').textContent = '$'+fmt(Math.round(monthly/4.33));
+        document.getElementById('totalSave').textContent = '$'+fmt(Math.round(totalSaved));
+        document.getElementById('intEarned').textContent = '$'+fmt(Math.round(Math.max(0,interest)));
+        document.getElementById('coffeeDays').textContent = coffeeDays+' days/month';
+        document.getElementById('goalVal').textContent = '$'+fmt(goal);
+        document.getElementById('startVal').textContent = '$'+fmt(start);
+        document.getElementById('totalToSave').textContent = '$'+fmt(Math.round(totalSaved));
+        document.getElementById('intVal').textContent = '$'+fmt(Math.round(Math.max(0,interest)));
+    }
+    function fmt(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+    window.addEventListener('load', calcSavingsGoal);
+    </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculator - Hourly to Annual Salary Converter | CalcWithMe</title>
+    <meta name="description" content="Free salary calculator. Convert hourly, daily, weekly, monthly to annual salary. See your true annual, monthly, and biweekly earnings instantly.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/salary-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Salary Calculator","url":"https://calcwithme.com/salary-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="salary-calculator.html">Salary</a></nav></div></header>
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Salary Calculator</h1>
+                    <p class="page-desc">Convert between hourly, daily, weekly, monthly and annual salary. Understand your true earning power and compare job offers easily.</p>
+                    <div class="calc-form">
+                        <div class="form-group"><label for="inputType">I Know My...</label><select id="inputType" onchange="updateLabels()"><option value="hourly">Hourly Rate</option><option value="daily">Daily Rate</option><option value="weekly">Weekly Salary</option><option value="monthly">Monthly Salary</option><option value="annual">Annual Salary</option></select></div>
+                        <div class="form-group"><label for="inputValue" id="inputLabel">Hourly Rate</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="inputValue" class="has-prefix" value="25" min="0" step="0.5"></div></div>
+                        <div class="form-group"><label for="hoursPerWeek">Hours Worked Per Week</label><input type="number" id="hoursPerWeek" value="40" min="1" max="80"></div>
+                        <div class="form-group"><label for="weeksPerYear">Paid Weeks Per Year</label><input type="number" id="weeksPerYear" value="52" min="1" max="52"></div>
+                        <button class="btn-calculate" onclick="calcSalary()">Calculate Salary</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>How to Compare Salary Offers</h2>
+                        <p>When comparing job offers, it is important to look beyond the base salary. Two jobs with the same annual salary can have very different effective hourly rates depending on hours worked, benefits, and bonuses.</p>
+                        <h3>What to Consider</h3>
+                        <ul>
+                            <li><strong>Hourly vs salary</strong> — Salaried jobs often require more hours without overtime pay</li>
+                            <li><strong>Benefits value</strong> — Health insurance, 401k matching, and PTO add significant value</li>
+                            <li><strong>Cost of living</strong> — $100K in a small city goes much further than $100K in New York</li>
+                            <li><strong>Work-life balance</strong> — Is the extra pay worth the additional hours?</li>
+                        </ul>
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="investment-roi-calculator.html">Investment ROI</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="retirement-calculator.html">Retirement Calculator</a></div>
+                    </div>
+                </div>
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Your Salary Breakdown</h2>
+                    <div class="result-item"><p class="result-label">Annual Salary</p><p class="result-value" id="annualSal">$0</p></div>
+                    <div class="result-item"><p class="result-label">Monthly Salary</p><p class="result-value secondary" id="monthlySal">$0</p></div>
+                    <div class="result-item"><p class="result-label">Biweekly Salary</p><p class="result-value secondary" id="biweeklySal">$0</p></div>
+                    <div class="result-item"><p class="result-label">Weekly Salary</p><p class="result-value secondary" id="weeklySal">$0</p></div>
+                    <div class="result-item"><p class="result-label">Daily Rate (5-day week)</p><p class="result-value secondary" id="dailySal">$0</p></div>
+                    <div class="result-item"><p class="result-label">Effective Hourly Rate</p><p class="result-value secondary" id="hourlySal">$0</p></div>
+                    <div class="results-breakdown"><h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Income Tax Estimate (25% rate)</h3><div class="breakdown-row"><span>Gross Annual</span><span id="grossVal">$0</span></div><div class="breakdown-row"><span>Est. Tax (25%)</span><span id="taxVal">$0</span></div><div class="breakdown-row"><span>Net Annual Income</span><span id="netVal">$0</span></div></div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+    <script>
+    function updateLabels() {
+        const types = {hourly:'Hourly Rate',daily:'Daily Rate',weekly:'Weekly Salary',monthly:'Monthly Salary',annual:'Annual Salary'};
+        const vals = {hourly:25,daily:200,weekly:1000,monthly:4333,annual:52000};
+        const t = document.getElementById('inputType').value;
+        document.getElementById('inputLabel').textContent = types[t];
+        document.getElementById('inputValue').value = vals[t];
+    }
+    function calcSalary() {
+        const type = document.getElementById('inputType').value;
+        const val = parseFloat(document.getElementById('inputValue').value)||0;
+        const hours = parseInt(document.getElementById('hoursPerWeek').value)||40;
+        const weeks = parseInt(document.getElementById('weeksPerYear').value)||52;
+        let annual = 0;
+        if(type==='hourly') annual = val * hours * weeks;
+        else if(type==='daily') annual = val * 5 * weeks;
+        else if(type==='weekly') annual = val * weeks;
+        else if(type==='monthly') annual = val * 12;
+        else annual = val;
+        const monthly = annual/12, biweekly = annual/26, weekly = annual/weeks, daily = annual/weeks/5, hourly = annual/hours/weeks;
+        const tax = annual*0.25, net = annual-tax;
+        document.getElementById('annualSal').textContent = '$'+fmt(Math.round(annual));
+        document.getElementById('monthlySal').textContent = '$'+fmt(Math.round(monthly));
+        document.getElementById('biweeklySal').textContent = '$'+fmt(Math.round(biweekly));
+        document.getElementById('weeklySal').textContent = '$'+fmt(Math.round(weekly));
+        document.getElementById('dailySal').textContent = '$'+fmt(Math.round(daily));
+        document.getElementById('hourlySal').textContent = '$'+fmt(hourly.toFixed(2));
+        document.getElementById('grossVal').textContent = '$'+fmt(Math.round(annual));
+        document.getElementById('taxVal').textContent = '$'+fmt(Math.round(tax));
+        document.getElementById('netVal').textContent = '$'+fmt(Math.round(net));
+    }
+    function fmt(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+    window.addEventListener('load', calcSalary);
+    </script>
+</body>
+</html>

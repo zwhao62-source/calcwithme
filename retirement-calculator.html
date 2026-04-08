@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retirement Calculator - Free Retirement Planning Tool | CalcWithMe</title>
+    <meta name="description" content="Free retirement calculator. Plan your retirement savings and see if you are on track to reach your retirement goals. Calculate how much to save each month.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/retirement-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Retirement Calculator","url":"https://calcwithme.com/retirement-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="retirement-calculator.html">Retirement</a></nav></div></header>
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Retirement Calculator</h1>
+                    <p class="page-desc">Plan your retirement and see if you are on track. Calculate how much you need to save, how your investments will grow, and when you can retire comfortably.</p>
+                    <div class="calc-form">
+                        <div class="form-group"><label for="currentAge">Current Age</label><input type="number" id="currentAge" value="30" min="18" max="80"></div>
+                        <div class="form-group"><label for="retireAge">Target Retirement Age</label><input type="number" id="retireAge" value="65" min="40" max="90"></div>
+                        <div class="form-group"><label for="currentSavings">Current Retirement Savings</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="currentSavings" class="has-prefix" value="50000" min="0"></div></div>
+                        <div class="form-group"><label for="monthlySave">Monthly Contribution</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="monthlySave" class="has-prefix" value="500" min="0"></div></div>
+                        <div class="form-row">
+                            <div class="form-group"><label for="retRate">Expected Annual Return</label><div class="input-wrapper"><input type="number" id="retRate" value="7" min="0.1" max="20"><span class="input-suffix">%</span></div></div>
+                            <div class="form-group"><label for="inflationRate">Inflation Rate</label><div class="input-wrapper"><input type="number" id="inflationRate" value="2.5" min="0" max="10"><span class="input-suffix">%</span></div></div>
+                        </div>
+                        <div class="form-group"><label for="retireExpenses">Monthly Expenses in Retirement</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="retireExpenses" class="has-prefix" value="5000" min="0"></div></div>
+                        <button class="btn-calculate" onclick="calcRetirement()">Calculate Retirement</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>How Much Do You Need to Retire?</h2>
+                        <p>The widely-cited \"4% Rule\" suggests you need savings equal to 25 times your annual expenses. If you spend $50,000 per year in retirement, you would need approximately $1.25 million saved. Our calculator helps you see if you are on track to reach this goal.</p>
+                        <h3>Key Retirement Planning Numbers</h3>
+                        <ul>
+                            <li><strong>Retirement age</strong> — The earlier you retire, the more you need saved</li>
+                            <li><strong>Monthly savings rate</strong> — Aim for 15-20% of your income</li>
+                            <li><strong>Expected return</strong> — Historically, the S&amp;P 500 averages about 10% annually before inflation</li>
+                            <li><strong>Withdrawal rate</strong> — The 4% rule suggests withdrawing 4% of savings per year in retirement</li>
+                        </ul>
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="compound-interest-calculator.html">Compound Interest</a><a href="savings-goal-calculator.html">Savings Goal</a><a href="investment-roi-calculator.html">Investment ROI</a></div>
+                    </div>
+                </div>
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Your Results</h2>
+                    <div class="result-item"><p class="result-label">Retirement Savings at Age <span id="retAgeLabel">65</span></p><p class="result-value" id="retBalance">$0</p></div>
+                    <div class="result-item"><p class="result-label">Real Value (Inflation Adjusted)</p><p class="result-value secondary" id="realValue">$0</p></div>
+                    <div class="result-item"><p class="result-label">Years Until Retirement</p><p class="result-value secondary" id="yearsToRetire">0</p></div>
+                    <div class="result-item"><p class="result-label">Monthly Safe Withdrawal</p><p class="result-value secondary" id="monthlyWithdrawal">$0</p></div>
+                    <div class="result-item"><p class="result-label">On Track?</p><p class="result-value secondary" id="onTrack">-</p></div>
+                    <div class="results-breakdown"><h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Milestones</h3><div class="breakdown-row"><span>By Age 40</span><span id="age40">$0</span></div><div class="breakdown-row"><span>By Age 50</span><span id="age50">$0</span></div><div class="breakdown-row"><span>By Age 60</span><span id="age60">$0</span></div><div class="breakdown-row"><span>By Target Age</span><span id="ageTarget">$0</span></div></div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+    <script>
+    function calcRetirement() {
+        const age = parseInt(document.getElementById('currentAge').value)||30;
+        const retireAge = parseInt(document.getElementById('retireAge').value)||65;
+        const savings = parseFloat(document.getElementById('currentSavings').value)||0;
+        const monthly = parseFloat(document.getElementById('monthlySave').value)||0;
+        const retRate = parseFloat(document.getElementById('retRate').value)||7;
+        const inflRate = parseFloat(document.getElementById('inflationRate').value)||2.5;
+        const expenses = parseFloat(document.getElementById('retireExpenses').value)||0;
+
+        const years = retireAge - age;
+        const mr = retRate/100/12;
+        let bal = savings;
+        const milestones = {};
+        for (let m=0; m<years*12; m++) {
+            bal = bal*(1+mr) + monthly;
+            const y=Math.floor(m/12);
+            if(m%12===0 && y>age-1) {
+                milestones['age'+y]=bal;
+            }
+        }
+        const realRate = (1+retRate/100)/(1+inflRate/100)-1;
+        const realVal = bal / Math.pow(1+realRate, 20);
+        const targetNeeded = expenses * 12 * 25;
+        const onTrack = bal >= targetNeeded;
+        const safeMonthly = bal * 0.04 / 12;
+
+        document.getElementById('retAgeLabel').textContent = retireAge;
+        document.getElementById('retBalance').textContent = '$'+fmt(Math.round(bal));
+        document.getElementById('realValue').textContent = '$'+fmt(Math.round(realVal));
+        document.getElementById('yearsToRetire').textContent = years + ' years';
+        document.getElementById('monthlyWithdrawal').textContent = '$'+fmt(Math.round(safeMonthly));
+        document.getElementById('onTrack').innerHTML = onTrack ? '<span style="color:#10b981">&#x2714; On Track!</span>' : '<span style="color:#dc2626">&#x2718; Needs Attention</span>';
+        document.getElementById('age40').textContent = milestones[40] ? '$'+fmt(Math.round(milestones[40])) : 'N/A';
+        document.getElementById('age50').textContent = milestones[50] ? '$'+fmt(Math.round(milestones[50])) : 'N/A';
+        document.getElementById('age60').textContent = milestones[60] ? '$'+fmt(Math.round(milestones[60])) : 'N/A';
+        document.getElementById('ageTarget').textContent = '$'+fmt(Math.round(bal));
+    }
+    function fmt(n){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+    window.addEventListener('load', calcRetirement);
+    </script>
+</body>
+</html>
