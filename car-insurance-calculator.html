@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Insurance Calculator - Estimate Your Auto Insurance Costs | CalcWithMe</title>
+    <meta name="description" content="Free car insurance calculator to estimate your auto insurance premiums. See how car type, location, and driving history affect your rates.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/car-insurance-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Car Insurance Calculator",
+      "url": "https://calcwithme.com/car-insurance-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "What affects car insurance rates?", "acceptedAnswer": {"@type": "Answer", "text": "Key factors include: driving record, location, vehicle type, credit score, age, and coverage levels."}},
+        {"@type": "Question", "name": "How much car insurance do I need?", "acceptedAnswer": {"@type": "Answer", "text": "Most states require minimum liability coverage. Full coverage is recommended if your car is valuable."}},
+        {"@type": "Question", "name": "When should I shop for new insurance?", "acceptedAnswer": {"@type": "Answer", "text": "Shop around every 1-2 years, before your policy expires, or after major life changes (new car, move, marriage)."}}
+      ]
+    }
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a>
+            <nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/savings-tips.html">💰 Money Tips</a></nav>
+        </div>
+    </header>
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Car Insurance Calculator</h1>
+                    <p class="page-desc">Estimate your auto insurance costs. See how different factors affect your premiums and find ways to save on coverage.</p>
+                    <div class="calc-form">
+                        <div class="form-group">
+                            <label for="driverAge">Driver Age</label>
+                            <select id="driverAge">
+                                <option value="16">16-19 years</option>
+                                <option value="22">20-24 years</option>
+                                <option value="30" selected>25-34 years</option>
+                                <option value="40">35-44 years</option>
+                                <option value="50">45-54 years</option>
+                                <option value="60">55-64 years</option>
+                                <option value="70">65+ years</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="carType">Vehicle Type</label>
+                                <select id="carType">
+                                    <option value="1.0" selected>Sedan (Economy)</option>
+                                    <option value="1.1">Sedan (Luxury)</option>
+                                    <option value="1.3">SUV (Compact)</option>
+                                    <option value="1.5">SUV (Full-size)</option>
+                                    <option value="0.8">Hybrid/Electric</option>
+                                    <option value="1.6">Sports Car</option>
+                                    <option value="0.7">Compact Car</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="carAge">Vehicle Age</label>
+                                <select id="carAge">
+                                    <option value="1.2" selected>0-3 years</option>
+                                    <option value="1.0">4-10 years</option>
+                                    <option value="0.8">10+ years</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="location">Location Type</label>
+                                <select id="location">
+                                    <option value="0.9">Rural/Suburban</option>
+                                    <option value="1.2" selected>Urban</option>
+                                    <option value="1.4">City Center</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="drivingRecord">Driving Record</label>
+                                <select id="drivingRecord">
+                                    <option value="0.8" selected>Clean (no accidents)</option>
+                                    <option value="1.2">Minor violation (ticket)</option>
+                                    <option value="1.5">At-fault accident</option>
+                                    <option value="2.0">DUI/DWI</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="coverage">Coverage Level</label>
+                            <select id="coverage">
+                                <option value="0.7">Minimum (Liability only)</option>
+                                <option value="1.0" selected>Standard (Liability + Comprehensive)</option>
+                                <option value="1.3">Full (Low deductible)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="creditScore">Credit Score Range</label>
+                            <select id="creditScore">
+                                <option value="0.8">Excellent (750+)</option>
+                                <option value="1.0" selected>Good (700-749)</option>
+                                <option value="1.2">Fair (650-699)</option>
+                                <option value="1.5">Poor (Below 650)</option>
+                            </select>
+                        </div>
+                        <button class="btn-calculate" onclick="calcInsurance()">Calculate Insurance Cost</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>Understanding Auto Insurance Costs</h2>
+                        <p>Auto insurance is required by law in most states, but your premium varies significantly based on personal factors. Understanding what affects your rate helps you find the best deal.</p>
+                        <h3>Key Factors That Impact Your Premium</h3>
+                        <ul>
+                            <li><strong>Driving record</strong> — Clean records get the best rates</li>
+                            <li><strong>Vehicle type</strong> — Sports cars and luxury vehicles cost more to insure</li>
+                            <li><strong>Location</strong> — Urban areas have higher rates due to more accidents and theft</li>
+                            <li><strong>Credit score</strong> — Better credit typically means lower premiums</li>
+                            <li><strong>Age</strong> — Young drivers (especially teens) pay more</li>
+                        </ul>
+                        <h3>Ways to Lower Your Insurance Premium</h3>
+                        <ul>
+                            <li>Shop around and compare quotes from multiple insurers</li>
+                            <li>Take advantage of discounts (safe driver, multi-policy, good student)</li>
+                            <li>Increase your deductible</li>
+                            <li>Maintain a good credit score</li>
+                            <li>Take a defensive driving course</li>
+                        </ul>
+                        <div class="related-calcs">
+                            <h3>Related Calculators</h3>
+                            <a href="auto-loan-calculator.html">Auto Loan Calculator</a>
+                            <a href="gas-calculator.html">Gas Calculator</a>
+                            <a href="parking-cost-calculator.html">Parking Cost Calculator</a>
+                            <a href="total-car-cost-calculator.html">Total Car Ownership Cost</a>
+                        </div>
+                    </div>
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <details class="faq-item">
+                            <summary>What factors affect car insurance rates the most?</summary>
+                            <p>Your driving record is the biggest factor, followed by your location, vehicle type, age, and credit score. Even your annual mileage matters.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>How much car insurance do I really need?</summary>
+                            <p>Most states require minimum liability coverage (typically $25,000/$50,000 for bodily injury and $25,000 for property damage). However, most financial experts recommend full coverage if you can afford it.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>When should I switch insurance companies?</summary>
+                            <p>Shop for new quotes every 1-2 years, before your policy renewal, or after major life changes like moving, buying a new car, or adding a teenage driver.</p>
+                        </details>
+                    </div>
+                </div>
+                <aside class="results-panel">
+                    <h2>📊 Your Results</h2>
+                    <div class="result-item"><p class="result-label">Estimated Monthly Premium</p><p class="result-value" id="monthlyPremium">$0</p></div>
+                    <div class="result-item"><p class="result-label">Estimated Annual Premium</p><p class="result-value secondary" id="annualPremium">$0</p></div>
+                    <div class="results-breakdown">
+                        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Rate Factors</h3>
+                        <div class="breakdown-row"><span>Base Rate</span><span id="baseRate">$1,200/yr</span></div>
+                        <div class="breakdown-row"><span>Age Factor</span><span id="ageFactor">1.0x</span></div>
+                        <div class="breakdown-row"><span>Car Factor</span><span id="carFactor">1.0x</span></div>
+                        <div class="breakdown-row"><span>Location Factor</span><span id="locFactor">1.0x</span></div>
+                        <div class="breakdown-row"><span>Record Factor</span><span id="recordFactor">1.0x</span></div>
+                        <div class="breakdown-row"><span>Coverage Factor</span><span id="coverageFactor">1.0x</span></div>
+                    </div>
+                    <p style="font-size:0.8rem;color:#666;margin-top:12px;">* Estimates based on national averages. Actual rates vary by insurer and state.</p>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div>
+                <div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="auto-loan-calculator.html">Auto Loan</a><a href="car-insurance-calculator.html">Car Insurance</a></div>
+            </div>
+            <div class="footer-bottom"><p>© 2026 CalcWithMe.com</p></div>
+        </div>
+    </footer>
+    <script>
+    const BASE_RATE = 1200; // Annual base rate
+    const AGE_FACTORS = {'16':2.0,'22':1.5,'30':1.0,'40':0.9,'50':0.85,'60':0.8,'70':1.0};
+    
+    function calcInsurance() {
+        const age = document.getElementById('driverAge').value;
+        const carType = parseFloat(document.getElementById('carType').value);
+        const carAge = parseFloat(document.getElementById('carAge').value);
+        const location = parseFloat(document.getElementById('location').value);
+        const record = parseFloat(document.getElementById('drivingRecord').value);
+        const coverage = parseFloat(document.getElementById('coverage').value);
+        const credit = parseFloat(document.getElementById('creditScore').value);
+        
+        const ageFactor = AGE_FACTORS[age] || 1.0;
+        const totalFactor = ageFactor * carType * carAge * location * record * coverage * credit;
+        const annualPremium = Math.round(BASE_RATE * totalFactor);
+        const monthlyPremium = Math.round(annualPremium / 12);
+        
+        document.getElementById('monthlyPremium').textContent = '$' + monthlyPremium.toLocaleString();
+        document.getElementById('annualPremium').textContent = '$' + annualPremium.toLocaleString();
+        document.getElementById('baseRate').textContent = '$' + BASE_RATE + '/yr';
+        document.getElementById('ageFactor').textContent = ageFactor + 'x';
+        document.getElementById('carFactor').textContent = carType + 'x';
+        document.getElementById('locFactor').textContent = location + 'x';
+        document.getElementById('recordFactor').textContent = record + 'x';
+        document.getElementById('coverageFactor').textContent = coverage + 'x';
+    }
+    window.addEventListener('load', calcInsurance);
+    </script>
+    <div class="visitor-counter"><span>👁️ Visitors: </span><span id="visitor-counter">0</span></div>
+    <script src="js/visitor-counter.js"></script>
+</body>
+</html>

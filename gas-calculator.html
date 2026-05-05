@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gas/Fuel Cost Calculator - Calculate Your Monthly Fuel Expenses | CalcWithMe</title>
+    <meta name="description" content="Free gas calculator to estimate your monthly and annual fuel costs. Calculate based on miles driven, fuel efficiency, and gas prices.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/gas-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Gas/Fuel Cost Calculator",
+      "url": "https://calcwithme.com/gas-calculator.html",
+      "applicationCategory": "FinanceApplication",
+      "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "How is fuel cost calculated?", "acceptedAnswer": {"@type": "Answer", "text": "Fuel cost = (Miles driven ÷ Fuel efficiency) × Gas price per gallon"}},
+        {"@type": "Question", "name": "What is a good fuel efficiency?", "acceptedAnswer": {"@type": "Answer", "text": "For gas cars: 25+ MPG is good, 40+ MPG is excellent. For hybrids: 50+ MPG is typical."}},
+        {"@type": "Question", "name": "How can I improve fuel efficiency?", "acceptedAnswer": {"@type": "Answer", "text": "Drive smoothly, maintain proper tire pressure, avoid excessive idling, and reduce excess weight in your vehicle."}}
+      ]
+    }
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a>
+            <nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/savings-tips.html">💰 Money Tips</a></nav>
+        </div>
+    </header>
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Gas & Fuel Cost Calculator</h1>
+                    <p class="page-desc">Estimate your monthly and yearly fuel expenses. Plan your budget for commuting, road trips, and daily driving.</p>
+                    <div class="calc-form">
+                        <div class="form-group">
+                            <label for="milesPerWeek">Miles Driven Per Week</label>
+                            <div class="input-wrapper"><input type="number" id="milesPerWeek" value="300" min="0"><span class="input-suffix">miles</span></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fuelEff">Fuel Efficiency</label>
+                                <div class="input-wrapper"><input type="number" id="fuelEff" value="25" min="1"><span class="input-suffix">MPG</span></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="gasPrice">Gas Price Per Gallon</label>
+                                <div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="gasPrice" class="has-prefix" value="3.50" min="0" step="0.01"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="drivingDays">Driving Days Per Week</label>
+                            <div class="input-wrapper"><input type="number" id="drivingDays" value="5" min="1" max="7"></div>
+                        </div>
+                        <button class="btn-calculate" onclick="calcGas()">Calculate Fuel Cost</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>Understanding Your Fuel Costs</h2>
+                        <p>Fuel is one of the biggest ongoing expenses for car owners. Understanding your actual fuel costs helps you budget better and identify opportunities to save.</p>
+                        <h3>Factors That Affect Fuel Efficiency</h3>
+                        <ul>
+                            <li><strong>Driving habits</strong> — Smooth acceleration and braking improve MPG</li>
+                            <li><strong>Vehicle maintenance</strong> — Properly inflated tires and regular oil changes help</li>
+                            <li><strong>Traffic conditions</strong> — Stop-and-go traffic burns more fuel</li>
+                            <li><strong>Weather</strong> — Cold weather and AC use increase consumption</li>
+                        </ul>
+                        <h3>Tips to Reduce Fuel Costs</h3>
+                        <ul>
+                            <li>Carpool or use public transportation when possible</li>
+                            <li>Combine multiple errands into one trip</li>
+                            <li>Consider a more fuel-efficient vehicle for your next car</li>
+                            <li>Use apps to find the cheapest gas stations in your area</li>
+                        </ul>
+                        <div class="related-calcs">
+                            <h3>Related Calculators</h3>
+                            <a href="auto-loan-calculator.html">Auto Loan Calculator</a>
+                            <a href="car-insurance-calculator.html">Car Insurance Calculator</a>
+                            <a href="parking-cost-calculator.html">Parking Cost Calculator</a>
+                            <a href="total-car-cost-calculator.html">Total Car Ownership Cost</a>
+                        </div>
+                    </div>
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <details class="faq-item">
+                            <summary>How is fuel cost calculated?</summary>
+                            <p>Fuel cost = (Miles driven per year ÷ Fuel efficiency) × Gas price. For monthly costs, divide the annual figure by 12.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>What is a good fuel efficiency rating?</summary>
+                            <p>For gas-powered cars: 25 MPG city / 30+ MPG highway is average. 40+ MPG is excellent. Hybrids typically get 50+ MPG.</p>
+                        </details>
+                        <details class="faq-item">
+                            <summary>How can I improve my fuel efficiency?</summary>
+                            <p>Drive at consistent speeds, avoid rapid acceleration, keep tires properly inflated, remove excess weight, and use cruise control on highways.</p>
+                        </details>
+                    </div>
+                </div>
+                <aside class="results-panel">
+                    <h2>📊 Your Results</h2>
+                    <div class="result-item"><p class="result-label">Monthly Fuel Cost</p><p class="result-value" id="monthlyCost">$0</p></div>
+                    <div class="result-item"><p class="result-label">Annual Fuel Cost</p><p class="result-value secondary" id="annualCost">$0</p></div>
+                    <div class="result-item"><p class="result-label">Gallons Per Month</p><p class="result-value secondary" id="gallonsPerMonth">0</p></div>
+                    <div class="result-item"><p class="result-label">Cost Per Mile</p><p class="result-value secondary" id="costPerMile">$0</p></div>
+                    <div class="results-breakdown">
+                        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Breakdown</h3>
+                        <div class="breakdown-row"><span>Weekly Miles</span><span id="weeklyMiles">0</span></div>
+                        <div class="breakdown-row"><span>Annual Miles</span><span id="annualMiles">0</span></div>
+                        <div class="breakdown-row"><span>MPG</span><span id="mpgVal">0</span></div>
+                        <div class="breakdown-row"><span>Gas Price</span><span id="gasVal">$0</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div>
+                <div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="auto-loan-calculator.html">Auto Loan</a><a href="gas-calculator.html">Gas Calculator</a></div>
+            </div>
+            <div class="footer-bottom"><p>© 2026 CalcWithMe.com</p></div>
+        </div>
+    </footer>
+    <script>
+    function calcGas() {
+        const milesPerWeek = parseFloat(document.getElementById('milesPerWeek').value) || 0;
+        const mpg = parseFloat(document.getElementById('fuelEff').value) || 1;
+        const gasPrice = parseFloat(document.getElementById('gasPrice').value) || 0;
+        const daysPerWeek = parseFloat(document.getElementById('drivingDays').value) || 5;
+        
+        const weeksPerYear = 52;
+        const annualMiles = milesPerWeek * weeksPerYear;
+        const annualGallons = annualMiles / mpg;
+        const annualCost = annualGallons * gasPrice;
+        const monthlyCost = annualCost / 12;
+        const gallonsPerMonth = annualGallons / 12;
+        const costPerMile = annualMiles > 0 ? annualCost / annualMiles : 0;
+        
+        document.getElementById('monthlyCost').textContent = '$' + fmt(Math.round(monthlyCost));
+        document.getElementById('annualCost').textContent = '$' + fmt(Math.round(annualCost));
+        document.getElementById('gallonsPerMonth').textContent = fmt(gallonsPerMonth.toFixed(1)) + ' gal';
+        document.getElementById('costPerMile').textContent = '$' + costPerMile.toFixed(2);
+        document.getElementById('weeklyMiles').textContent = fmt(milesPerWeek);
+        document.getElementById('annualMiles').textContent = fmt(annualMiles);
+        document.getElementById('mpgVal').textContent = mpg + ' MPG';
+        document.getElementById('gasVal').textContent = '$' + gasPrice.toFixed(2);
+    }
+    function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+    window.addEventListener('load', calcGas);
+    </script>
+    <div class="visitor-counter"><span>👁️ Visitors: </span><span id="visitor-counter">0</span></div>
+    <script src="js/visitor-counter.js"></script>
+</body>
+</html>
