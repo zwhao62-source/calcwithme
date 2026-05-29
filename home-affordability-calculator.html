@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Affordability Calculator - How Much House Can I Afford? | CalcWithMe</title>
+    <meta name="description" content="Free home affordability calculator. Find out how much house you can afford based on your income, debts, down payment, and current mortgage rates. Updated for 2026.">
+    <meta name="keywords" content="home affordability calculator, how much house can I afford, mortgage affordability, home buying budget, house affordability">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/home-affordability-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <meta property="og:title" content="Home Affordability Calculator - How Much House Can I Afford?">
+    <meta property="og:description" content="Calculate how much house you can afford. Free, based on income, debts, and current 2026 rates.">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Home Affordability Calculator",
+        "url": "https://calcwithme.com/home-affordability-calculator.html",
+        "description": "Free home affordability calculator based on income, debts, and current mortgage rates",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much house can I afford with a $80,000 salary?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "With an $80,000 salary and the 28/36 rule, you can afford a home priced around $280,000-$320,000 with a 20% down payment at a 6.5% interest rate. This assumes no significant existing debt."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the 28/36 rule?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The 28/36 rule is a guideline that suggests spending no more than 28% of gross monthly income on housing costs and no more than 36% on total debt (including housing, car loans, credit cards, etc.)."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does my credit score affect home affordability?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "A higher credit score (740+) gets you the best mortgage rates, which can increase your buying power by $20,000-$50,000+. A score below 620 may require FHA loans with higher rates and mortgage insurance."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Should I use my entire pre-approval amount?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. Lenders often pre-approve you for more than you can comfortably afford. Consider your full budget including property taxes, insurance, maintenance, and lifestyle expenses before deciding on a purchase price."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What costs besides the mortgage should I budget for?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Beyond the mortgage, budget for: property taxes (0.5-2.5% of home value/year), homeowners insurance ($1,000-$3,000/year), maintenance (1-2% of home value/year), HOA fees if applicable, and utilities."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much down payment do I need?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "While some loans allow 3-5% down, 20% is recommended to avoid PMI and get the best rates. For a $400,000 home: 3% down = $12,000, 10% = $40,000, 20% = $80,000. First-time buyer programs may offer lower down payments."
+                }
+            }
+        ]
+    }
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">&#x1F522;</span>
+                <span>Calc<span class="highlight">With</span>Me</span>
+            </a>
+            <nav>
+                <a href="/#calculators">Calculators</a>
+                <a href="/#about">About</a>
+                <a href="/blog">Blog</a>
+                <a href="/savings-tips.html">&#x1F4B0; Money Tips</a>
+                <a href="home-affordability-calculator.html" class="active">Home Affordability</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Home Affordability Calculator</h1>
+                    <p class="page-desc">Find out how much house you can afford based on your income, debts, down payment, and current 2026 mortgage rates.</p>
+
+                    <div class="calc-form">
+                        <div class="form-group">
+                            <label for="annualIncome">Annual Income</label>
+                            <div class="input-wrapper">
+                                <span class="input-prefix">$</span>
+                                <input type="number" id="annualIncome" class="has-prefix" value="90000" min="0" step="1000">
+                            </div>
+                            <p class="help-text">Your total gross annual household income</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="monthlyDebt">Monthly Debt Payments</label>
+                            <div class="input-wrapper">
+                                <span class="input-prefix">$</span>
+                                <input type="number" id="monthlyDebt" class="has-prefix" value="500" min="0" step="50">
+                            </div>
+                            <p class="help-text">Car loans, student loans, credit cards, etc.</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="downPayment">Down Payment</label>
+                            <div class="input-wrapper">
+                                <span class="input-prefix">$</span>
+                                <input type="number" id="downPayment" class="has-prefix" value="60000" min="0" step="1000">
+                            </div>
+                            <p class="help-text">Cash you have saved for a down payment</p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="interestRate">Interest Rate</label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="interestRate" value="6.5" min="0.1" max="25" step="0.05">
+                                    <span class="input-suffix">%</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="loanTerm">Loan Term</label>
+                                <select id="loanTerm">
+                                    <option value="30" selected>30 Years</option>
+                                    <option value="20">20 Years</option>
+                                    <option value="15">15 Years</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="propertyTaxRate">Property Tax Rate</label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="propertyTaxRate" value="1.2" min="0" max="5" step="0.1">
+                                    <span class="input-suffix">%</span>
+                                </div>
+                                <p class="help-text">National average is 1.2%</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="homeInsurance">Homeowners Insurance</label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix">$</span>
+                                    <input type="number" id="homeInsurance" class="has-prefix" value="1800" min="0" step="100">
+                                    <span class="input-suffix">/yr</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn-calculate" onclick="calculateAffordability()">Calculate How Much I Can Afford</button>
+                    </div>
+
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+
+                    <div class="calc-content">
+                        <h2>How Much House Can I Afford?</h2>
+                        <p>Buying a home is one of the biggest financial decisions you'll make. Our affordability calculator helps you determine a realistic budget based on your actual financial situation — not just what a lender will approve you for.</p>
+
+                        <h3>Understanding the 28/36 Rule</h3>
+                        <p>The <strong>28/36 rule</strong> is the gold standard for determining home affordability:</p>
+                        <ul>
+                            <li><strong>28% rule:</strong> Your monthly housing payment (mortgage + taxes + insurance) should not exceed 28% of your gross monthly income</li>
+                            <li><strong>36% rule:</strong> Your total monthly debt payments (housing + car loans + student loans + credit cards) should not exceed 36% of your gross monthly income</li>
+                        </ul>
+                        <p>Your maximum housing payment is the <strong>lower</strong> of these two limits. If you have significant existing debt, the 36% rule will be your binding constraint.</p>
+
+                        <h3>Factors That Affect Home Affordability</h3>
+                        <ul>
+                            <li><strong>Credit score:</strong> A score of 740+ gets you the best rates. Below 620 may require FHA loans</li>
+                            <li><strong>Down payment:</strong> 20% avoids PMI, but 3-5% is possible with some loan programs</li>
+                            <li><strong>Debt-to-income ratio:</strong> Lower existing debt = more buying power</li>
+                            <li><strong>Interest rates:</strong> Even 0.5% rate difference can change affordability by $20,000+</li>
+                            <li><strong>Property taxes:</strong> Vary widely by location (0.3% in Hawaii vs 2.5% in New Jersey)</li>
+                        </ul>
+
+                        <h3>Tips to Afford More Home</h3>
+                        <ul>
+                            <li><strong>Improve your credit score</strong> — Pay down credit cards, fix errors on your credit report</li>
+                            <li><strong>Reduce existing debt</strong> — Pay off car loans or student loans before applying</li>
+                            <li><strong>Increase your down payment</strong> — More down = lower monthly payment = more buying power</li>
+                            <li><strong>Consider first-time buyer programs</strong> — Many states offer down payment assistance and lower rates</li>
+                            <li><strong>Look in lower-tax areas</strong> — Same house price, lower taxes = more affordable</li>
+                        </ul>
+
+                        <div class="related-calcs">
+                            <h3>Related Calculators</h3>
+                            <a href="mortgage-calculator.html">Mortgage Calculator</a>
+                            <a href="rent-vs-buy-calculator.html">Rent vs Buy Calculator</a>
+                            <a href="loan-calculator.html">Loan Calculator</a>
+                            <a href="compound-interest-calculator.html">Compound Interest Calculator</a>
+                        </div>
+
+                        <div class="faq-section">
+                            <h3>Frequently Asked Questions</h3>
+
+                            <details class="faq-item">
+                                <summary>How much house can I afford with an $80,000 salary?</summary>
+                                <p>With an $80,000 salary and the 28/36 rule, you can afford a home priced around $280,000-$320,000 with a 20% down payment at a 6.5% interest rate. This assumes no significant existing debt. Use our calculator above with your specific details for a more accurate estimate.</p>
+                            </details>
+
+                            <details class="faq-item">
+                                <summary>What is the 28/36 rule?</summary>
+                                <p>The 28/36 rule suggests spending no more than 28% of gross monthly income on housing costs (mortgage, taxes, insurance) and no more than 36% on total debt (housing + car loans + student loans + credit cards). Lenders use these guidelines to determine how much they'll lend you.</p>
+                            </details>
+
+                            <details class="faq-item">
+                                <summary>How does my credit score affect home affordability?</summary>
+                                <p>A higher credit score gets you lower interest rates, which directly increases your buying power. A score of 740+ qualifies for the best rates. The difference between a 620 and 760 score could mean $20,000-$50,000+ in additional buying power over the life of the loan.</p>
+                            </details>
+
+                            <details class="faq-item">
+                                <summary>Should I use my entire pre-approval amount?</summary>
+                                <p>No. Lenders often pre-approve you for the maximum they think you can repay, which may stretch your budget too thin. Consider your full financial picture: retirement savings, emergency fund, childcare, and lifestyle before committing to a purchase price.</p>
+                            </details>
+
+                            <details class="faq-item">
+                                <summary>What costs besides the mortgage should I budget for?</summary>
+                                <p>Beyond the mortgage payment, budget for: property taxes (0.5-2.5% of home value/year), homeowners insurance ($1,000-$3,000/year), maintenance and repairs (1-2% of home value/year), HOA fees if applicable, utilities, and potential PMI if down payment is under 20%.</p>
+                            </details>
+
+                            <details class="faq-item">
+                                <summary>How much down payment do I need?</summary>
+                                <p>While some loan programs allow as little as 3% down (Conventional 97) or 3.5% (FHA), putting down 20% eliminates PMI and gets you the best rates. For a $400,000 home: 3% = $12,000, 5% = $20,000, 10% = $40,000, 20% = $80,000. First-time buyer programs may offer down payment assistance.</p>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="results-panel" id="resultsPanel">
+                    <h2>&#x1F4CA; Your Home Budget</h2>
+
+                    <div class="result-item">
+                        <p class="result-label">Maximum Home Price</p>
+                        <p class="result-value" id="maxHomePrice">$0</p>
+                    </div>
+
+                    <div class="result-item">
+                        <p class="result-label">Maximum Loan Amount</p>
+                        <p class="result-value secondary" id="maxLoanAmount">$0</p>
+                    </div>
+
+                    <div class="result-item">
+                        <p class="result-label">Estimated Monthly Payment (PITI)</p>
+                        <p class="result-value secondary" id="monthlyPayment">$0</p>
+                    </div>
+
+                    <div class="results-breakdown">
+                        <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px;">Monthly Payment Breakdown</h3>
+                        <div class="breakdown-row">
+                            <span>Principal & Interest</span>
+                            <span id="monthlyPI">$0</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Property Tax</span>
+                            <span id="monthlyTax">$0</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Homeowners Insurance</span>
+                            <span id="monthlyInsurance">$0</span>
+                        </div>
+                        <div class="breakdown-row" style="border-top: 2px solid #e5e7eb; padding-top: 8px;">
+                            <span>Total Monthly Housing</span>
+                            <span id="totalHousing">$0</span>
+                        </div>
+                    </div>
+
+                    <div class="results-breakdown" style="margin-top: 16px;">
+                        <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px;">28/36 Rule Check</h3>
+                        <div class="breakdown-row">
+                            <span>Housing / Income</span>
+                            <span id="housingRatio">0%</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Total Debt / Income</span>
+                            <span id="debtRatio">0%</span>
+                        </div>
+                        <div class="breakdown-row" style="font-weight: 700;">
+                            <span>28% Rule (Housing)</span>
+                            <span id="rule28Check">-</span>
+                        </div>
+                        <div class="breakdown-row" style="font-weight: 700;">
+                            <span>36% Rule (Total Debt)</span>
+                            <span id="rule36Check">-</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Down Payment %</span>
+                            <span id="downPaymentPct">0%</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="logo-icon">&#x1F522;</span>
+                    <span>CalcWithMe</span>
+                    <p>Free online financial calculators for everyone.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Popular Calculators</h4>
+                    <a href="mortgage-calculator.html">Mortgage Calculator</a>
+                    <a href="home-affordability-calculator.html">Home Affordability</a>
+                    <a href="rent-vs-buy-calculator.html">Rent vs Buy</a>
+                    <a href="tax-calculator.html">Tax Calculator</a>
+                </div>
+                <div class="footer-links">
+                    <h4>More Tools</h4>
+                    <a href="auto-loan-calculator.html">Auto Loan Calculator</a>
+                    <a href="credit-card-payoff-calculator.html">Credit Card Payoff</a>
+                    <a href="salary-calculator.html">Salary Calculator</a>
+                    <a href="bmi-calculator.html">BMI Calculator</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&#169; 2026 CalcWithMe.com. All rights reserved.</p>
+                <p class="disclaimer">Disclaimer: Calculator results are for informational purposes only. Consult a mortgage lender for pre-approval and a financial advisor for professional advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    function calculateAffordability() {
+        const annualIncome = parseFloat(document.getElementById('annualIncome').value) || 0;
+        const monthlyDebt = parseFloat(document.getElementById('monthlyDebt').value) || 0;
+        const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+        const annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
+        const loanTermYears = parseInt(document.getElementById('loanTerm').value) || 30;
+        const propertyTaxRate = parseFloat(document.getElementById('propertyTaxRate').value) || 0;
+        const homeInsurance = parseFloat(document.getElementById('homeInsurance').value) || 0;
+
+        if (annualIncome <= 0 || annualRate <= 0) {
+            alert('Please enter valid values for income and interest rate.');
+            return;
+        }
+
+        const monthlyIncome = annualIncome / 12;
+        const monthlyInsurance = homeInsurance / 12;
+
+        // 28/36 Rule
+        const maxHousingPayment = monthlyIncome * 0.28;
+        const maxTotalDebt = monthlyIncome * 0.36;
+        const maxHousingFromDebt = maxTotalDebt - monthlyDebt;
+
+        // The binding constraint is the lower of the two
+        const maxMonthlyHousing = Math.min(maxHousingPayment, maxHousingFromDebt);
+
+        if (maxMonthlyHousing <= 0) {
+            alert('Your existing debt is too high relative to your income. Consider paying down debt before buying a home.');
+            return;
+        }
+
+        // We need to solve for home price, but property tax depends on home price
+        // Use iterative approach
+        const monthlyRate = annualRate / 100 / 12;
+        const numPayments = loanTermYears * 12;
+
+        // Start with an estimate
+        let estimatedHomePrice = maxMonthlyHousing * 12 / (annualRate / 100 + propertyTaxRate / 100 + homeInsurance / (downPayment * 5));
+
+        // Iterate to converge
+        for (let i = 0; i < 20; i++) {
+            const loanAmount = Math.max(0, estimatedHomePrice - downPayment);
+            const monthlyTax = estimatedHomePrice * (propertyTaxRate / 100) / 12;
+            const nonPIPayment = monthlyTax + monthlyInsurance;
+
+            if (maxMonthlyHousing <= nonPIPayment) {
+                estimatedHomePrice *= 0.8;
+                continue;
+            }
+
+            const maxPI = maxMonthlyHousing - nonPIPayment;
+
+            // Solve for loan amount from PI: Loan = PMT * [(1+r)^n - 1] / [r * (1+r)^n]
+            let loanFromPI;
+            if (monthlyRate === 0) {
+                loanFromPI = maxPI * numPayments;
+            } else {
+                loanFromPI = maxPI * (Math.pow(1 + monthlyRate, numPayments) - 1) / (monthlyRate * Math.pow(1 + monthlyRate, numPayments));
+            }
+
+            const newHomePrice = loanFromPI + downPayment;
+
+            if (Math.abs(newHomePrice - estimatedHomePrice) < 1) break;
+            estimatedHomePrice = newHomePrice;
+        }
+
+        // Final calculation
+        const homePrice = Math.round(estimatedHomePrice);
+        const loanAmount = Math.max(0, homePrice - downPayment);
+        const monthlyTax = homePrice * (propertyTaxRate / 100) / 12;
+
+        let monthlyPI;
+        if (monthlyRate === 0) {
+            monthlyPI = loanAmount / numPayments;
+        } else {
+            monthlyPI = loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
+        }
+
+        const totalMonthlyPayment = monthlyPI + monthlyTax + monthlyInsurance;
+        const housingRatio = (totalMonthlyPayment / monthlyIncome * 100);
+        const debtRatio = ((totalMonthlyPayment + monthlyDebt) / monthlyIncome * 100);
+        const dpPct = homePrice > 0 ? (downPayment / homePrice * 100) : 0;
+
+        // Update results
+        document.getElementById('maxHomePrice').textContent = '$' + formatNumber(homePrice);
+        document.getElementById('maxLoanAmount').textContent = '$' + formatNumber(Math.round(loanAmount));
+        document.getElementById('monthlyPayment').textContent = '$' + formatNumber(Math.round(totalMonthlyPayment));
+
+        document.getElementById('monthlyPI').textContent = '$' + formatNumber(Math.round(monthlyPI));
+        document.getElementById('monthlyTax').textContent = '$' + formatNumber(Math.round(monthlyTax));
+        document.getElementById('monthlyInsurance').textContent = '$' + formatNumber(Math.round(monthlyInsurance));
+        document.getElementById('totalHousing').textContent = '$' + formatNumber(Math.round(totalMonthlyPayment));
+
+        document.getElementById('housingRatio').textContent = housingRatio.toFixed(1) + '%';
+        document.getElementById('debtRatio').textContent = debtRatio.toFixed(1) + '%';
+
+        const pass28 = housingRatio <= 28;
+        const pass36 = debtRatio <= 36;
+        document.getElementById('rule28Check').textContent = pass28 ? '✅ Pass' : '❌ Over';
+        document.getElementById('rule28Check').style.color = pass28 ? '#16a34a' : '#dc2626';
+        document.getElementById('rule36Check').textContent = pass36 ? '✅ Pass' : '❌ Over';
+        document.getElementById('rule36Check').style.color = pass36 ? '#16a34a' : '#dc2626';
+        document.getElementById('downPaymentPct').textContent = dpPct.toFixed(1) + '%';
+    }
+
+    function formatNumber(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    window.addEventListener('load', calculateAffordability);
+    </script>
+
+    <div class="visitor-counter">
+        <span>👁️ Visitors: </span>
+        <span id="visitor-counter" style="display:none;">0</span>
+    </div>
+    <script src="js/visitor-counter.js"></script>
+</body>
+</html>
