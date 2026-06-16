@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Percentage Calculator 2026 - Calculate Percentages Instantly | CalcWithMe</title>
+    <meta name="description" content="Free percentage calculator 2026. Calculate percentage of a number, percentage change, percentage difference, and more. Updated June 2026.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/percentage-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%25</text></svg>">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://calcwithme.com/"},
+      {"@type":"ListItem","position":2,"name":"Calculators","item":"https://calcwithme.com/#calculators"},
+      {"@type":"ListItem","position":3,"name":"Percentage Calculator","item":"https://calcwithme.com/percentage-calculator.html"}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Percentage Calculator","url":"https://calcwithme.com/percentage-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"How do you calculate X% of Y?","acceptedAnswer":{"@type":"Answer","text":"Multiply Y by X and divide by 100. Example: 25% of $200 = 200 × 25 ÷ 100 = $50."}},
+      {"@type":"Question","name":"What is the difference between percent and percentage points?","acceptedAnswer":{"@type":"Answer","text":"Percent is a relative change; percentage points are absolute differences between two percentages. Going from 5% to 7% is a 40% increase (percent) but only a 2 percentage point difference."}},
+      {"@type":"Question","name":"How do I calculate percentage change?","acceptedAnswer":{"@type":"Answer","text":"Percentage change = (new value - old value) ÷ old value × 100. Example: $80 to $100 = (100-80)/80 × 100 = 25% increase."}},
+      {"@type":"Question","name":"What is a good tip percentage?","acceptedAnswer":{"@type":"Answer","text":"15-20% at restaurants, 15-20% for delivery, $1-2 per drink at bars, 15-20% for rideshare. See our tip calculator for full 2026 guide."}},
+      {"@type":"Question","name":"How do percentages work in personal finance?","acceptedAnswer":{"@type":"Answer","text":"Credit card APR 24%, mortgage rate 6.5%, savings APY 4.5%, 401(k) match 5%, tax bracket 22%. Each affects your money differently — a 1% difference on a $300K mortgage = $30,000 over 30 years."}}
+    ]}
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+    <style>
+    .tab-bar { display:flex; border-bottom:2px solid #e5e7eb; margin-bottom:20px; }
+    .tab-btn { padding:10px 20px; cursor:pointer; border:none; background:none; font-size:0.95rem; font-weight:500; color:#6b7280; border-bottom:3px solid transparent; margin-bottom:-2px; }
+    .tab-btn.active { color:#2563eb; border-bottom-color:#2563eb; font-weight:600; }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
+    </style>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/savings-tips.html">&#x1F4B0; Money Tips</a><a href="/rent-vs-buy-calculator.html">Rent vs Buy</a></nav></div></header>
+
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Free Percentage Calculator 2026</h1>
+                    <p class="page-desc">Calculate any percentage instantly. <strong>What is X% of Y?</strong> <strong>Percentage change?</strong> <strong>Percentage difference?</strong> All in one tool. Updated June 2026.</p>
+
+                    <div class="calc-form">
+                        <div class="tab-bar">
+                            <button class="tab-btn active" onclick="switchTab('pctOf')">X% of Y</button>
+                            <button class="tab-btn" onclick="switchTab('pctIs')">X is ?% of Y</button>
+                            <button class="tab-btn" onclick="switchTab('pctChange')">% Change</button>
+                        </div>
+
+                        <div id="pctOf" class="tab-panel active">
+                            <div class="form-group"><label>Percentage</label><div class="input-wrapper"><input type="number" id="pctX" value="25" min="0" step="0.01"><span class="input-suffix">%</span></div></div>
+                            <div class="form-group"><label>of Number</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="numY" class="has-prefix" value="200" min="0" step="0.01"></div></div>
+                            <button class="btn-calculate" onclick="calcPctOf()">Calculate</button>
+                        </div>
+
+                        <div id="pctIs" class="tab-panel">
+                            <div class="form-group"><label>Number A</label><div class="input-wrapper"><input type="number" id="numA" value="40" min="0" step="0.01"></div></div>
+                            <div class="form-group"><label>is what % of Number B</label><div class="input-wrapper"><input type="number" id="numB" value="200" min="0" step="0.01"></div></div>
+                            <button class="btn-calculate" onclick="calcPctIs()">Calculate</button>
+                        </div>
+
+                        <div id="pctChange" class="tab-panel">
+                            <div class="form-group"><label>Original Value (Old)</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="oldVal" class="has-prefix" value="100" min="0" step="0.01"></div></div>
+                            <div class="form-group"><label>New Value</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="newVal" class="has-prefix" value="125" min="0" step="0.01"></div></div>
+                            <button class="btn-calculate" onclick="calcPctChange()">Calculate</button>
+                        </div>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+
+                    <div class="calc-content">
+                        <h2>What Is a Percentage?</h2>
+                        <p>A percentage (%) means "per hundred." It's a way to express a fraction or ratio as parts of 100. Percentages are everywhere in daily life: <strong>sales discounts, tax rates, interest rates, credit scores, grade point averages, inflation, investment returns, and tip calculations</strong>. Understanding percentages helps you make smarter financial decisions.</p>
+
+                        <h2>Common Percentage Calculations in Daily Life</h2>
+                        <ul>
+                            <li><strong>Shopping discount:</strong> 25% off $80 = $20 savings, pay $60</li>
+                            <li><strong>Sales tax:</strong> 8.5% tax on $100 = $8.50 extra</li>
+                            <li><strong>Restaurant tip:</strong> 18% of $85 = $15.30</li>
+                            <li><strong>Salary raise:</strong> 5% raise on $60K = $3,000/year extra</li>
+                            <li><strong>Investment return:</strong> $10K grew to $13K = 30% gain</li>
+                            <li><strong>Credit card interest:</strong> 24% APR on $5K balance = $1,200/year interest</li>
+                            <li><strong>Down payment:</strong> 20% of $400K home = $80,000 down</li>
+                            <li><strong>BMI calculation:</strong> Body mass index uses percentage of height vs weight</li>
+                        </ul>
+
+                        <h2>Percentage vs Percentage Points — The Critical Difference</h2>
+                        <p>This is one of the most commonly misunderstood concepts in finance:</p>
+                        <ul>
+                            <li><strong>Percentage change:</strong> A relative measure. Going from 5% to 7% = a <strong>40% increase</strong> in the rate (because 2/5 = 0.40)</li>
+                            <li><strong>Percentage points:</strong> An absolute difference. Going from 5% to 7% = a <strong>2 percentage point</strong> increase</li>
+                        </ul>
+                        <p><strong>Real example:</strong> If the Federal Reserve raises interest rates from 4% to 5%, that's a 25% increase in rates (1/4) but only a 1 percentage point change. Mortgage rates going from 6% to 7% means your payment goes up significantly — that's 1 percentage point, but a 16.7% relative increase in the rate.</p>
+
+                        <h2>Percentage Formulas</h2>
+                        <ul>
+                            <li><strong>X% of Y</strong> = X × Y ÷ 100</li>
+                            <li><strong>X is what % of Y</strong> = X ÷ Y × 100</li>
+                            <li><strong>Percentage change</strong> = (New − Old) ÷ Old × 100</li>
+                            <li><strong>Percentage difference</strong> = |A − B| ÷ ((A + B) ÷ 2) × 100</li>
+                            <li><strong>Reverse percentage</strong>: What was X% of Y? → Y = Original, X% = Reduction?</li>
+                            <li><strong>Compound percentage</strong>: 10% increase then 10% decrease ≠ original (e.g., $100 +10% = $110, then -10% = $99)</li>
+                        </ul>
+
+                        <h2>Real-World Percentage Examples</h2>
+                        <ul>
+                            <li><strong>Sale price:</strong> $120 item with 30% off → $120 × 0.70 = $84</li>
+                            <li><strong>Salary raise:</strong> $55,000 with 4% raise → $55,000 × 1.04 = $57,200</li>
+                            <li><strong>Investment growth:</strong> $10,000 → $13,500 = 35% return</li>
+                            <li><strong>Population change:</strong> 8.2 billion from 7.9 billion = 3.8% increase</li>
+                            <li><strong>Grade improvement:</strong> 72% to 85% = 13 percentage point improvement, or 18% relative improvement</li>
+                            <li><strong>Weight loss:</strong> 180 lbs to 162 lbs = 10% weight loss</li>
+                            <li><strong>Gas price spike:</strong> $3.50 to $4.55 = 30% increase</li>
+                        </ul>
+
+                        <h2>Percentages in Personal Finance</h2>
+                        <p>Every financial decision involves percentages. Here's what they mean for your money:</p>
+                        <ul>
+                            <li><strong>Credit card APR 24%:</strong> If you carry $5,000, paying minimums costs $1,200+/year in interest</li>
+                            <li><strong>Mortgage rate 6.5%:</strong> On a $300K loan, that's $520K total paid over 30 years</li>
+                            <li><strong>Savings account APY 4.5%:</strong> $10,000 earns $450/year in interest</li>
+                            <li><strong>401(k) match 5%:</strong> On $70K salary, employer adds $3,500/year — free money</li>
+                            <li><strong>Federal tax bracket 22%:</strong> Only applies to income above $47,150 (single); first $47,150 is taxed at 10-12%</li>
+                            <li><strong>Student loan rate 6.5%:</strong> $30K loan at 6.5% for 10 years = $9,700 in total interest</li>
+                        </ul>
+
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="salary-calculator.html">Salary Calculator</a><a href="tax-calculator.html">Tax Calculator</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="tip-calculator.html">Tip Calculator</a></div>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <details class="faq-item"><summary>How do you calculate X% of Y?</summary><p>Multiply Y by X and divide by 100. Example: 25% of $200 = 200 × 25 ÷ 100 = $50. Or use our calculator — select "X% of Y" tab and enter your numbers.</p></details>
+                        <details class="faq-item"><summary>What is the difference between percent and percentage points?</summary><p>Percent is a relative change; percentage points are absolute differences between two percentages. Going from 5% to 7% is a 40% increase (percent) but only a 2 percentage point difference. Always check which one is being used when comparing rates.</p></details>
+                        <details class="faq-item"><summary>How do I calculate percentage change?</summary><p>Percentage change = (new value - old value) ÷ old value × 100. Example: $80 to $100 = (100-80)/80 × 100 = 25% increase. A negative result means a decrease.</p></details>
+                        <details class="faq-item"><summary>What is compound percentage?</summary><p>When a percentage applies multiple times (year over year), it's called compound growth. Example: $100 grows 10% = $110, then $110 grows 10% = $121. Two 10% increases = 21% total, not 20%. This is the same principle as compound interest.</p></details>
+                        <details class="faq-item"><summary>How do percentages work in personal finance?</summary><p>Credit card APR 24%, mortgage rate 6.5%, savings APY 4.5%, 401(k) match 5%, tax bracket 22%. A 1% difference on a $300K mortgage = $30,000 extra over 30 years. Small percentages on large numbers matter enormously.</p></details>
+                    </div>
+                </div>
+
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Result</h2>
+                    <div class="result-item"><p class="result-label" id="resultLabel">X% of Y</p><p class="result-value" id="pctResult" style="color:#2563eb;font-size:1.5rem;">$0</p></div>
+                    <div class="results-breakdown" id="resultDetails" style="margin-top:12px;">
+                        <div class="breakdown-row"><span>Calculation</span><span id="calcDetail">—</span></div>
+                        <div class="breakdown-row"><span>Result</span><span id="pctNumResult">$0</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+
+    <script>
+    function switchTab(id) {
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        event.target.classList.add('active');
+    }
+    function fmt(n) {
+        if (Math.abs(n) >= 1000) return '$' + Math.round(n).toLocaleString();
+        return '$' + n.toFixed(2).replace(/\.?0+$/, '');
+    }
+    function calcPctOf() {
+        const x = parseFloat(document.getElementById('pctX').value) || 0;
+        const y = parseFloat(document.getElementById('numY').value) || 0;
+        const result = x * y / 100;
+        document.getElementById('resultLabel').textContent = x + '% of ' + (y >= 1000 ? '$'+(y/1000).toFixed(1)+'K' : '$'+y);
+        document.getElementById('pctResult').textContent = fmt(result);
+        document.getElementById('calcDetail').textContent = x + '% × $' + y;
+        document.getElementById('pctNumResult').textContent = fmt(result);
+    }
+    function calcPctIs() {
+        const a = parseFloat(document.getElementById('numA').value) || 0;
+        const b = parseFloat(document.getElementById('numB').value) || 0;
+        const result = b > 0 ? (a / b * 100) : 0;
+        document.getElementById('resultLabel').textContent = a + ' is ?% of ' + b;
+        document.getElementById('pctResult').textContent = result.toFixed(2) + '%';
+        document.getElementById('calcDetail').textContent = '$' + a + ' ÷ $' + b + ' × 100';
+        document.getElementById('pctNumResult').textContent = result.toFixed(2) + '%';
+    }
+    function calcPctChange() {
+        const oldV = parseFloat(document.getElementById('oldVal').value) || 0;
+        const newV = parseFloat(document.getElementById('newVal').value) || 0;
+        const result = oldV > 0 ? ((newV - oldV) / oldV * 100) : 0;
+        const isUp = newV >= oldV;
+        document.getElementById('resultLabel').textContent = '% Change';
+        document.getElementById('pctResult').innerHTML = (isUp ? '▲' : '▼') + ' ' + Math.abs(result).toFixed(2) + '%';
+        document.getElementById('pctResult').style.color = isUp ? '#10b981' : '#dc2626';
+        document.getElementById('calcDetail').textContent = '($' + newV + ' - $' + oldV + ') ÷ $' + oldV + ' × 100';
+        document.getElementById('pctNumResult').textContent = (isUp ? '▲' : '▼') + ' ' + Math.abs(result).toFixed(2) + '%';
+    }
+    window.addEventListener('load', calcPctOf);
+    </script>
+
+    <div class="visitor-counter"><span>👁️ Visitors: </span><span id="visitor-counter" style="display:none;">0</span></div>
+    <script src="js/visitor-counter.js"></script>
+</body>
+</html>

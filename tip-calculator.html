@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Tip Calculator 2026 - Calculate Tips & Split Bills | CalcWithMe</title>
+    <meta name="description" content="Free tip calculator 2026. Calculate tip amount, split bills between friends, and see total per person. Updated June 2026.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/tip-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💵</text></svg>">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcwithme.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calcwithme.com/#calculators"},
+        {"@type": "ListItem", "position": 3, "name": "Tip Calculator", "item": "https://calcwithme.com/tip-calculator.html"}
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Tip Calculator","url":"https://calcwithme.com/tip-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type":"Question","name":"How much should I tip at a restaurant in 2026?","acceptedAnswer":{"@type":"Answer","text":"For sit-down restaurants in the US, tip 15-20% of the pre-tax bill. 18% is the most common tip. For buffets, 10% is standard. For takeout, tipping is optional but $1-3 is appreciated."}},
+        {"@type":"Question","name":"Should I tip on the pre-tax or post-tax amount?","acceptedAnswer":{"@type":"Answer","text":"Etiquette experts recommend tipping on the pre-tax amount. However, many people tip on the total including tax. The difference is small — on a $100 bill with 8% tax, it's about $1.60 difference at 20%."}},
+        {"@type":"Question","name":"How do I split a bill with tip?","acceptedAnswer":{"@type":"Answer","text":"Calculate the total bill + tip, then divide by the number of people. For fairness, some prefer to split proportionally based on what each person ordered. Our calculator handles equal splits automatically."}},
+        {"@type":"Question","name":"Is tipping mandatory in the US?","acceptedAnswer":{"@type":"Answer","text":"Tipping is technically voluntary, but it's a strong social norm. In many states, servers earn a tipped minimum wage of just $2.13/hour, so tips make up the majority of their income. Some restaurants add automatic gratuities for large parties (usually 18-20%)."}},
+        {"@type":"Question","name":"What is the tipping etiquette outside the US?","acceptedAnswer":{"@type":"Answer","text":"Tipping customs vary widely: Canada 15-18%, UK 10-15% (service charge often included), France service included by law, Germany 5-10%, Japan no tipping (can be offensive), Australia 10% optional, China no tipping expected."}}
+      ]
+    }
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/savings-tips.html">&#x1F4B0; Money Tips</a><a href="/rent-vs-buy-calculator.html">Rent vs Buy</a></nav></div></header>
+
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Free Tip Calculator 2026</h1>
+                    <p class="page-desc">Calculate the perfect tip and split the bill between friends. <strong>Updated with 2026 US tipping standards.</strong></p>
+                    <div class="calc-form">
+                        <div class="form-group"><label for="billAmount">Bill Amount</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="billAmount" class="has-prefix" value="85" min="0" step="0.01"></div></div>
+                        <div class="form-group">
+                            <label for="tipPercent">Tip Percentage</label>
+                            <div class="input-wrapper"><input type="number" id="tipPercent" value="18" min="0" max="100" step="1"><span class="input-suffix">%</span></div>
+                            <div style="display:flex;gap:8px;margin-top:8px;">
+                                <button onclick="setTip(15)" style="padding:6px 14px;border:1px solid #ddd;border-radius:6px;cursor:pointer;background:#f9fafb;">15%</button>
+                                <button onclick="setTip(18)" style="padding:6px 14px;border:1px solid #2563eb;border-radius:6px;cursor:pointer;background:#eff6ff;color:#2563eb;font-weight:600;">18%</button>
+                                <button onclick="setTip(20)" style="padding:6px 14px;border:1px solid #ddd;border-radius:6px;cursor:pointer;background:#f9fafb;">20%</button>
+                                <button onclick="setTip(25)" style="padding:6px 14px;border:1px solid #ddd;border-radius:6px;cursor:pointer;background:#f9fafb;">25%</button>
+                            </div>
+                        </div>
+                        <div class="form-group"><label for="splitCount">Split Between</label><input type="number" id="splitCount" value="1" min="1" max="50"></div>
+                        <button class="btn-calculate" onclick="calcTip()">Calculate Tip</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>How Much Should You Tip in 2026?</h2>
+                        <p>Tipping in the United States is a strong social custom, and in many states servers earn a <strong>tipped minimum wage of just $2.13/hour</strong> — tips make up the majority of their income. Here's the 2026 standard tipping guide:</p>
+                        <ul>
+                            <li><strong>Restaurants (sit-down):</strong> 15-20% (18% is the most common)</li>
+                            <li><strong>Bars:</strong> $1-2 per drink or 15-20% of the tab</li>
+                            <li><strong>Food delivery:</strong> 15-20% or $3-5 minimum</li>
+                            <li><strong>Rideshare (Uber/Lyft):</strong> 15-20%</li>
+                            <li><strong>Hair salon / barber:</strong> 15-20%</li>
+                            <li><strong>Hotel housekeeping:</strong> $3-5 per night</li>
+                            <li><strong>Tour guides:</strong> 10-20% of the tour cost</li>
+                            <li><strong>Valet parking:</strong> $2-5</li>
+                            <li><strong>Coffee shops:</strong> $1-2 or round up (optional)</li>
+                            <li><strong>Buffet restaurants:</strong> 10%</li>
+                        </ul>
+
+                        <h2>Tip Calculator: How It Works</h2>
+                        <p>Our tip calculator uses a simple formula:</p>
+                        <ul>
+                            <li><strong>Tip Amount</strong> = Bill × (Tip% ÷ 100)</li>
+                            <li><strong>Total Bill</strong> = Bill + Tip Amount</li>
+                            <li><strong>Per Person</strong> = Total Bill ÷ Number of People</li>
+                        </ul>
+                        <p><strong>Example:</strong> $85 bill at 18% tip, split 3 ways:</p>
+                        <ul>
+                            <li>Tip = $85 × 0.18 = $15.30</li>
+                            <li>Total = $85 + $15.30 = $100.30</li>
+                            <li>Per person = $100.30 ÷ 3 = $33.43</li>
+                        </ul>
+
+                        <h2>Tipping by Country — International Guide</h2>
+                        <p>Tipping customs vary dramatically around the world. What's expected in the US can be rude elsewhere:</p>
+                        <ul>
+                            <li><strong>United States:</strong> 15-20% expected at restaurants</li>
+                            <li><strong>Canada:</strong> 15-18% (similar to US)</li>
+                            <li><strong>United Kingdom:</strong> 10-15% (check if service charge is already added)</li>
+                            <li><strong>France:</strong> Service included by law (15% service compris); small extra tip (5%) appreciated</li>
+                            <li><strong>Germany:</strong> 5-10% (round up the bill)</li>
+                            <li><strong>Japan:</strong> No tipping — it can be considered offensive</li>
+                            <li><strong>China:</strong> No tipping expected (except in luxury hotels)</li>
+                            <li><strong>Australia:</strong> 10% optional, not expected</li>
+                            <li><strong>Mexico:</strong> 10-15% at restaurants</li>
+                            <li><strong>Brazil:</strong> 10% standard (often included as "couvert")</li>
+                        </ul>
+
+                        <h2>Split Bill Etiquette — How to Divide Fairly</h2>
+                        <p>Splitting the bill can be awkward. Here are the most common approaches:</p>
+                        <ul>
+                            <li><strong>Equal split:</strong> Simplest, works when everyone ordered similar amounts</li>
+                            <li><strong>Proportional split:</strong> Each person pays based on what they ordered — fairest but requires math</li>
+                            <li><strong>Split by couple:</strong> Pairs share one share</li>
+                            <li><strong>One person pays, others Venmo:</strong> Avoid the math at the table</li>
+                        </ul>
+                        <p><strong>Pro tip:</strong> Apps like Splitwise, Venmo, and Zelle make splitting easy. Our calculator handles the equal-split method instantly.</p>
+
+                        <h2>2026 Tipping Trends</h2>
+                        <ul>
+                            <li><strong>Tipping fatigue is real</strong> — 60% of Americans feel pressured by digital tipping screens at counter-service restaurants</li>
+                            <li><strong>Service charges vs tips</strong> — More restaurants are adding automatic 18-20% service charges instead of relying on tips</li>
+                            <li><strong>Digital tipping screens</strong> — Square, Toast, and other POS systems prompt 18/20/25% tips even for takeout</li>
+                            <li><strong>Livelihood debate</strong> — The "tip credit" system ($2.13/hr) is being challenged; 7 states now require full minimum wage for tipped workers</li>
+                            <li><strong>Gen Z tips more</strong> — Studies show Gen Z tips an average of 21% vs Boomers at 16%</li>
+                        </ul>
+
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="salary-calculator.html">Salary Calculator</a><a href="tax-calculator.html">Tax Calculator</a><a href="percentage-calculator.html">Percentage Calculator</a></div>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <details class="faq-item"><summary>How much should I tip at a restaurant in 2026?</summary><p>For sit-down restaurants in the US, tip 15-20% of the pre-tax bill. 18% is the most common tip. For buffets, 10% is standard. For takeout, tipping is optional but $1-3 is appreciated for the effort of packaging your order.</p></details>
+                        <details class="faq-item"><summary>Should I tip on the pre-tax or post-tax amount?</summary><p>Etiquette experts recommend tipping on the pre-tax amount. However, many people tip on the total including tax. The difference is small — on a $100 bill with 8% tax, it's about $1.60 difference at 20%.</p></details>
+                        <details class="faq-item"><summary>How do I split a bill with tip?</summary><p>Calculate the total bill + tip, then divide by the number of people. For fairness, some prefer to split proportionally based on what each person ordered. Our calculator handles equal splits automatically.</p></details>
+                        <details class="faq-item"><summary>Is tipping mandatory in the US?</summary><p>Tipping is technically voluntary, but it's a strong social norm. In many states, servers earn a tipped minimum wage of just $2.13/hour, so tips make up the majority of their income. Some restaurants add automatic gratuities for large parties (usually 18-20%).</p></details>
+                        <details class="faq-item"><summary>What is the tipping etiquette outside the US?</summary><p>Tipping customs vary widely: Canada 15-18%, UK 10-15% (service charge often included), France service included by law, Germany 5-10%, Japan no tipping (can be offensive), Australia 10% optional, China no tipping expected.</p></details>
+                    </div>
+                </div>
+
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Results</h2>
+                    <div class="result-item"><p class="result-label">Tip Amount</p><p class="result-value" id="tipAmount" style="color:#10b981;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Total Bill</p><p class="result-value" id="totalBill">$0</p></div>
+                    <div class="result-item"><p class="result-label">Per Person</p><p class="result-value" id="perPerson" style="color:#2563eb;">$0</p></div>
+                    <div class="results-breakdown">
+                        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Breakdown</h3>
+                        <div class="breakdown-row"><span>Bill Amount</span><span id="billShow">$0</span></div>
+                        <div class="breakdown-row"><span>Tip (<span id="tipPctShow">18</span>%)</span><span id="tipShow">$0</span></div>
+                        <div class="breakdown-row"><span>Total</span><span id="totalShow">$0</span></div>
+                        <div class="breakdown-row"><span>Split (<span id="splitShow">1</span> people)</span><span id="eachShow">$0</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+
+    <script>
+    function setTip(pct) {
+        document.getElementById('tipPercent').value = pct;
+        document.querySelectorAll('.calc-form button[onclick^="setTip"]').forEach(b => {
+            b.style.background = '#f9fafb'; b.style.color = 'inherit'; b.style.fontWeight = 'normal'; b.style.borderColor = '#ddd';
+        });
+        event.target.style.background = '#eff6ff'; event.target.style.color = '#2563eb'; event.target.style.fontWeight = '600'; event.target.style.borderColor = '#2563eb';
+        calcTip();
+    }
+    function calcTip() {
+        const bill = parseFloat(document.getElementById('billAmount').value) || 0;
+        const pct = parseFloat(document.getElementById('tipPercent').value) || 0;
+        const split = parseInt(document.getElementById('splitCount').value) || 1;
+        const tip = bill * pct / 100;
+        const total = bill + tip;
+        const each = total / split;
+        const fmt = n => '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        document.getElementById('tipAmount').textContent = fmt(tip);
+        document.getElementById('totalBill').textContent = fmt(total);
+        document.getElementById('perPerson').textContent = fmt(each);
+        document.getElementById('billShow').textContent = fmt(bill);
+        document.getElementById('tipPctShow').textContent = pct;
+        document.getElementById('tipShow').textContent = fmt(tip);
+        document.getElementById('totalShow').textContent = fmt(total);
+        document.getElementById('splitShow').textContent = split;
+        document.getElementById('eachShow').textContent = fmt(each);
+    }
+    window.addEventListener('load', calcTip);
+    </script>
+
+    <div class="visitor-counter"><span>👁️ Visitors: </span><span id="visitor-counter" style="display:none;">0</span></div>
+    <script src="js/visitor-counter.js"></script>
+</body>
+</html>

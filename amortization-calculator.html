@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Amortization Calculator 2026 - Loan Payment Schedule | CalcWithMe</title>
+    <meta name="description" content="Free amortization calculator 2026. Generate a complete loan payment schedule showing principal vs interest for each month. Updated June 2026.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/amortization-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://calcwithme.com/"},
+      {"@type":"ListItem","position":2,"name":"Calculators","item":"https://calcwithme.com/#calculators"},
+      {"@type":"ListItem","position":3,"name":"Amortization Calculator","item":"https://calcwithme.com/amortization-calculator.html"}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Amortization Calculator","url":"https://calcwithme.com/amortization-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What is amortization?","acceptedAnswer":{"@type":"Answer","text":"Amortization is the process of spreading a loan into a series of fixed payments over time. Each payment covers both interest and principal. In the early years, most of the payment goes to interest; over time, more goes to principal."}},
+      {"@type":"Question","name":"How much can extra payments save on my mortgage?","acceptedAnswer":{"@type":"Answer","text":"On a $300,000 mortgage at 6.5% for 30 years, adding $200/month extra saves about $82,000 in interest and pays off 6 years early. Adding $500/month extra saves about $140,000 and pays off 11 years early."}},
+      {"@type":"Question","name":"What is the difference between amortized and interest-only loans?","acceptedAnswer":{"@type":"Answer","text":"Amortized loans require both principal and interest in each payment, gradually paying off the loan. Interest-only loans require only interest payments for a set period (5-10 years), then either convert to amortized payments or require a balloon payment of the full principal."}},
+      {"@type":"Question","name":"When should I refinance based on my amortization schedule?","acceptedAnswer":{"@type":"Answer","text":"If you're early in the loan (first 5-7 years), most payments went to interest. Refinancing resets the amortization clock. The break-even point is typically when you can lower your rate by 0.75-1% and plan to stay in the home long enough to recoup closing costs (usually 2-3 years)."}},
+      {"@type":"Question","name":"How does loan term affect total interest paid?","acceptedAnswer":{"@type":"Answer","text":"On a $300,000 loan at 6.5%: 30-year term = $382,000 total interest; 15-year term = $170,000 total interest. The 15-year term saves $212,000 in interest but costs $780 more per month. Total paid: $682K (30yr) vs $470K (15yr)."}}
+    ]}
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+    <style>
+    .amort-table { width:100%; border-collapse:collapse; font-size:0.85rem; margin-top:16px; }
+    .amort-table th { background:#f1f5f9; padding:8px 6px; text-align:right; font-weight:600; border-bottom:2px solid #e2e8f0; }
+    .amort-table th:first-child { text-align:center; }
+    .amort-table td { padding:6px; text-align:right; border-bottom:1px solid #f1f5f9; }
+    .amort-table td:first-child { text-align:center; font-weight:500; }
+    .amort-table tr:nth-child(even) { background:#fafbfc; }
+    </style>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/savings-tips.html">&#x1F4B0; Money Tips</a><a href="/rent-vs-buy-calculator.html">Rent vs Buy</a></nav></div></header>
+
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Free Amortization Calculator 2026</h1>
+                    <p class="page-desc">See exactly where your money goes each month — <strong>principal vs interest breakdown</strong> with optional extra payments. Updated June 2026.</p>
+                    <div class="calc-form">
+                        <div class="form-group"><label for="amLoan">Loan Amount</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="amLoan" class="has-prefix" value="300000" min="0"></div></div>
+                        <div class="form-row">
+                            <div class="form-group"><label for="amRate">Annual Interest Rate</label><div class="input-wrapper"><input type="number" id="amRate" value="6.5" step="0.1"><span class="input-suffix">%</span></div></div>
+                            <div class="form-group"><label for="amTerm">Loan Term</label><select id="amTerm"><option value="10">10 Years</option><option value="15">15 Years</option><option value="20">20 Years</option><option value="25">25 Years</option><option value="30" selected>30 Years</option></select></div>
+                        </div>
+                        <div class="form-group"><label for="amExtra">Extra Monthly Payment</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="amExtra" class="has-prefix" value="0" min="0"></div></div>
+                        <button class="btn-calculate" onclick="calcAmort()">Generate Schedule</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div id="amortTableContainer" style="display:none;margin-bottom:20px;">
+                        <h3 style="font-size:1rem;font-weight:700;margin-bottom:8px;">Annual Amortization Schedule</h3>
+                        <div style="overflow-x:auto;"><table class="amort-table"><thead><tr><th>Year</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead><tbody id="amortBody"></tbody></table></div>
+                    </div>
+                    <div class="calc-content">
+                        <h2>What Is Amortization?</h2>
+                        <p>Amortization is the process of <strong>spreading a loan into a series of fixed payments over time</strong>. Each payment covers two things:</p>
+                        <ul>
+                            <li><strong>Interest</strong> — The cost of borrowing money (based on the remaining balance)</li>
+                            <li><strong>Principal</strong> — Reducing the actual amount you owe</li>
+                        </ul>
+                        <p>In the early years, most of your payment goes to interest. As the balance decreases, more goes to principal. This is why extra payments early in the loan save the most money.</p>
+
+                        <h2>How Amortization Works on a $300K Mortgage</h2>
+                        <p>Here's a year-by-year breakdown of a $300,000 mortgage at 6.5% for 30 years ($1,896/month):</p>
+                        <ul>
+                            <li><strong>Year 1:</strong> $22,744 interest / $3,975 principal — 85% of payments go to interest!</li>
+                            <li><strong>Year 5:</strong> $21,044 interest / $5,675 principal</li>
+                            <li><strong>Year 10:</strong> $18,175 interest / $8,544 principal</li>
+                            <li><strong>Year 15:</strong> $14,429 interest / $12,290 principal</li>
+                            <li><strong>Year 20:</strong> $9,427 interest / $17,292 principal</li>
+                            <li><strong>Year 25:</strong> $4,361 interest / $22,358 principal</li>
+                            <li><strong>Year 30:</strong> $713 interest / $26,006 principal — almost all principal</li>
+                        </ul>
+                        <p><strong>Total paid:</strong> $682,633 ($300,000 principal + $382,633 interest). You pay more in interest than the house cost!</p>
+
+                        <h2>Extra Payments: Save Thousands and Years</h2>
+                        <p>Adding even a small extra payment each month can dramatically reduce total interest and pay off your loan years early:</p>
+                        <ul>
+                            <li><strong>$100 extra/month:</strong> Saves ~$45,000 interest, pays off 3.5 years early</li>
+                            <li><strong>$200 extra/month:</strong> Saves ~$82,000 interest, pays off 6 years early</li>
+                            <li><strong>$500 extra/month:</strong> Saves ~$140,000 interest, pays off 11 years early</li>
+                            <li><strong>1 extra payment/year:</strong> Saves ~$40,000 interest, pays off 4 years early</li>
+                        </ul>
+                        <p><strong>Best strategy:</strong> Make extra payments in the early years when they have the biggest impact. Every extra dollar reduces the balance that future interest is calculated on.</p>
+
+                        <h2>2026 Amortization by Loan Type</h2>
+                        <ul>
+                            <li><strong>30-year mortgage at 6.5%:</strong> $300K loan → $682K total ($382K interest = 127% of principal)</li>
+                            <li><strong>15-year mortgage at 5.8%:</strong> $300K loan → $470K total ($170K interest = 57% of principal)</li>
+                            <li><strong>5-year auto loan at 7%:</strong> $30K loan → $35.6K total ($5.6K interest = 19% of principal)</li>
+                            <li><strong>3-year personal loan at 10%:</strong> $15K loan → $17.4K total ($2.4K interest = 16% of principal)</li>
+                            <li><strong>10-year student loan at 6%:</strong> $30K loan → $40K total ($10K interest = 33% of principal)</li>
+                        </ul>
+                        <p><strong>Key insight:</strong> Longer terms and higher rates mean dramatically more total interest. A 30-year mortgage at 6.5% costs 2.3x the loan amount.</p>
+
+                        <h2>Amortized vs Interest-Only Loans</h2>
+                        <ul>
+                            <li><strong>Amortized loan:</strong> Each payment covers both interest and principal. The loan is fully paid off by the end of the term. This is how most mortgages, auto loans, and personal loans work.</li>
+                            <li><strong>Interest-only loan:</strong> You pay only interest for a set period (typically 5-10 years). The principal doesn't decrease. After the interest-only period, payments jump significantly or you owe a balloon payment.</li>
+                        </ul>
+                        <p><strong>Why interest-only is risky:</strong> On a $300K interest-only loan at 6.5%, you pay $1,625/month for 10 years ($195,000 total) and still owe the full $300K. If home values decline, you could owe more than the home is worth.</p>
+
+                        <h2>When to Refinance Based on Amortization</h2>
+                        <ul>
+                            <li><strong>Early in the loan (years 1-7):</strong> Most payments went to interest. Refinancing at a lower rate can save a lot, but you restart the amortization clock. Consider a shorter term to avoid paying more total interest.</li>
+                            <li><strong>Middle of the loan (years 8-20):</strong> More of your payment goes to principal. Run the numbers — a rate drop of 0.75-1% usually makes sense if you'll stay 2-3+ years.</li>
+                            <li><strong>Late in the loan (years 20-30):</strong> Most payment goes to principal. Refinancing rarely makes sense — you'd restart paying mostly interest. Better to make extra payments instead.</li>
+                        </ul>
+                        <p><strong>The refinance rule of thumb:</strong> Recoup closing costs within 2-3 years. Closing costs are typically 2-5% of the loan amount ($6,000-15,000 on a $300K refinance).</p>
+
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="mortgage-calculator.html">Mortgage Calculator</a><a href="loan-calculator.html">Loan Calculator</a><a href="auto-loan-calculator.html">Auto Loan</a><a href="investment-roi-calculator.html">Investment ROI</a></div>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <details class="faq-item"><summary>What is amortization?</summary><p>Amortization is the process of spreading a loan into a series of fixed payments over time. Each payment covers both interest and principal. In the early years, most of the payment goes to interest; over time, more goes to principal. By the end, almost all goes to principal.</p></details>
+                        <details class="faq-item"><summary>How much can extra payments save on my mortgage?</summary><p>On a $300,000 mortgage at 6.5% for 30 years, adding $200/month extra saves about $82,000 in interest and pays off 6 years early. Adding $500/month extra saves about $140,000 and pays off 11 years early. Extra payments early in the loan have the biggest impact.</p></details>
+                        <details class="faq-item"><summary>What is the difference between amortized and interest-only loans?</summary><p>Amortized loans require both principal and interest in each payment, gradually paying off the loan. Interest-only loans require only interest for a set period, then either convert to amortized payments or require a balloon payment. Interest-only loans are riskier because you build no equity during the interest-only period.</p></details>
+                        <details class="faq-item"><summary>When should I refinance based on my amortization schedule?</summary><p>If you're early in the loan, most payments went to interest, so a rate reduction saves a lot. The break-even point is when you can lower your rate by 0.75-1% and plan to stay long enough to recoup closing costs (2-3 years). Late in the loan, refinancing rarely makes sense because most payments go to principal.</p></details>
+                        <details class="faq-item"><summary>How does loan term affect total interest paid?</summary><p>On a $300,000 loan at 6.5%: 30-year term = $382,000 total interest; 15-year term = $170,000 total interest (at a lower rate of 5.8%). The 15-year term saves $212,000 in interest but costs $780 more per month. Shorter terms always save dramatically on interest.</p></details>
+                    </div>
+                </div>
+
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Results</h2>
+                    <div class="result-item"><p class="result-label">Monthly Payment</p><p class="result-value" id="amMonthly" style="color:#2563eb;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Total Interest</p><p class="result-value" id="amTotalInt" style="color:#dc2626;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Total Paid</p><p class="result-value" id="amTotalPaid">$0</p></div>
+                    <div class="result-item"><p class="result-label">Payoff Time</p><p class="result-value secondary" id="amPayoff">0 years</p></div>
+                    <div id="extraResults" style="display:none;">
+                        <h3 style="font-size:0.9rem;font-weight:700;margin:12px 0 8px;color:#10b981;">With Extra Payments</h3>
+                        <div class="result-item"><p class="result-label">Interest Saved</p><p class="result-value" id="amSaved" style="color:#10b981;">$0</p></div>
+                        <div class="result-item"><p class="result-label">Years Saved</p><p class="result-value" id="amYearsSaved" style="color:#10b981;">0</p></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+
+    <script>
+    function calcAmort() {
+        const loan = parseFloat(document.getElementById('amLoan').value) || 0;
+        const rate = parseFloat(document.getElementById('amRate').value) || 0;
+        const term = parseInt(document.getElementById('amTerm').value) || 30;
+        const extra = parseFloat(document.getElementById('amExtra').value) || 0;
+        const mr = rate / 100 / 12;
+        const n = term * 12;
+        const fmt = v => '$' + Math.round(v).toLocaleString();
+
+        // Standard monthly payment
+        let monthly = 0;
+        if (mr > 0 && n > 0) {
+            monthly = loan * (mr * Math.pow(1+mr, n)) / (Math.pow(1+mr, n) - 1);
+        } else if (n > 0) {
+            monthly = loan / n;
+        }
+        document.getElementById('amMonthly').textContent = fmt(monthly);
+
+        // Without extra payments
+        const totalPaidBase = monthly * n;
+        const totalIntBase = totalPaidBase - loan;
+        document.getElementById('amTotalInt').textContent = fmt(totalIntBase);
+        document.getElementById('amTotalPaid').textContent = fmt(totalPaidBase);
+        document.getElementById('amPayoff').textContent = term + ' years';
+
+        // With extra payments - build amortization schedule
+        let balance = loan;
+        let totalIntExtra = 0;
+        let totalPaidExtra = 0;
+        let monthsActual = 0;
+        let yearlyData = [];
+        let yearPrincipal = 0, yearInterest = 0, yearPayment = 0;
+
+        while (balance > 0 && monthsActual < n + 1) {
+            monthsActual++;
+            const intPmt = balance * mr;
+            let princPmt = monthly - intPmt + extra;
+            if (princPmt > balance) princPmt = balance;
+            const actualPayment = intPmt + princPmt;
+            balance = Math.max(0, balance - princPmt);
+            totalIntExtra += intPmt;
+            totalPaidExtra += actualPayment;
+            yearPrincipal += princPmt;
+            yearInterest += intPmt;
+            yearPayment += actualPayment;
+
+            if (monthsActual % 12 === 0 || balance <= 0) {
+                yearlyData.push({
+                    year: Math.ceil(monthsActual / 12),
+                    payment: yearPayment,
+                    principal: yearPrincipal,
+                    interest: yearInterest,
+                    balance: balance
+                });
+                yearPrincipal = 0; yearInterest = 0; yearPayment = 0;
+            }
+            if (balance <= 0.01) break;
+        }
+
+        const interestSaved = totalIntBase - totalIntExtra;
+        const yearsSaved = term - monthsActual / 12;
+
+        if (extra > 0) {
+            document.getElementById('extraResults').style.display = 'block';
+            document.getElementById('amSaved').textContent = fmt(interestSaved);
+            document.getElementById('amYearsSaved').textContent = yearsSaved.toFixed(1) + ' yrs';
+            document.getElementById('amPayoff').textContent = (monthsActual / 12).toFixed(1) + ' yrs';
+        } else {
+            document.getElementById('extraResults').style.display = 'none';
+        }
+
+        // Render amortization table
+        const tbody = document.getElementById('amortBody');
+        tbody.innerHTML = '';
+        yearlyData.forEach(row => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${row.year}</td><td>${fmt(row.payment)}</td><td>${fmt(row.principal)}</td><td>${fmt(row.interest)}</td><td>${fmt(row.balance)}</td>`;
+            tbody.appendChild(tr);
+        });
+        document.getElementById('amortTableContainer').style.display = 'block';
+    }
+    window.addEventListener('load', calcAmort);
+    </script>
+
+    <div class="visitor-counter"><span>👁️ Visitors: </span><span id="visitor-counter" style="display:none;">0</span></div>
+    <script src="js/visitor-counter.js"></script>
+</body>
+</html>

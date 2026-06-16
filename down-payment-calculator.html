@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Down Payment Calculator 2026 - How Much to Put Down on a House | CalcWithMe</title>
+    <meta name="description" content="Free down payment calculator 2026. Calculate how much you need for a down payment and how long it will take to save. Updated June 2026.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/down-payment-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏠</text></svg>">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://calcwithme.com/"},
+      {"@type":"ListItem","position":2,"name":"Calculators","item":"https://calcwithme.com/#calculators"},
+      {"@type":"ListItem","position":3,"name":"Down Payment Calculator","item":"https://calcwithme.com/down-payment-calculator.html"}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"Down Payment Calculator","url":"https://calcwithme.com/down-payment-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"How much down payment do I need to buy a house?","acceptedAnswer":{"@type":"Answer","text":"It depends on the loan type: 3% minimum for conventional (Fannie Mae/Freddie Mac), 3.5% for FHA, 0% for VA and USDA loans, and 20% to avoid PMI (Private Mortgage Insurance). On a $400,000 home, 20% down = $80,000."}},
+      {"@type":"Question","name":"What is PMI and how can I avoid it?","acceptedAnswer":{"@type":"Answer","text":"PMI (Private Mortgage Insurance) costs 0.5-1.5% of the loan annually when you put less than 20% down. On a $320,000 loan, that's $133-400/month. PMI automatically cancels when you reach 78% loan-to-value. Put 20% down to avoid it entirely."}},
+      {"@type":"Question","name":"How long does it take to save for a down payment?","acceptedAnswer":{"@type":"Answer","text":"For a $400,000 home with 20% down ($80,000), saving $1,500/month in a high-yield savings account at 4.5% APY takes about 4 years. With 5% down ($20,000), saving $1,500/month takes about 13 months."}},
+      {"@type":"Question","name":"Are there first-time homebuyer programs that help with down payments?","acceptedAnswer":{"@type":"Answer","text":"Yes! FHA loans require only 3.5% down. Fannie Mae and Freddie Mac offer 3% down programs. Many states and cities offer down payment assistance grants of $5,000-25,000. VA and USDA loans require 0% down for eligible buyers."}},
+      {"@type":"Question","name":"Is it better to put 20% down or less?","acceptedAnswer":{"@type":"Answer","text":"20% down avoids PMI and gets the best rate, but it takes much longer to save. With 5-10% down, you start building equity sooner and home appreciation may offset the PMI cost. Run the numbers — in a market with 5% annual appreciation, waiting 3 extra years to save 20% means the home costs 15% more."}}
+    ]}
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/savings-tips.html">&#x1F4B0; Money Tips</a><a href="/rent-vs-buy-calculator.html">Rent vs Buy</a></nav></div></header>
+
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Free Down Payment Calculator 2026</h1>
+                    <p class="page-desc">Calculate how much you need for a down payment and <strong>how long it will take to save</strong>. Updated with 2026 mortgage rates.</p>
+                    <div class="calc-form">
+                        <div class="form-group"><label for="homePrice">Home Price</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="homePrice" class="has-prefix" value="400000" min="0"></div></div>
+                        <div class="form-group">
+                            <label for="dpPercent">Down Payment Percentage</label>
+                            <div class="input-wrapper"><input type="number" id="dpPercent" value="20" min="0" max="100"><span class="input-suffix">%</span></div>
+                            <div style="display:flex;gap:8px;margin-top:8px;">
+                                <button onclick="setDP(3)" style="padding:6px 12px;border:1px solid #ddd;border-radius:6px;cursor:pointer;background:#f9fafb;font-size:0.85rem;">3%</button>
+                                <button onclick="setDP(5)" style="padding:6px 12px;border:1px solid #ddd;border-radius:6px;cursor:pointer;background:#f9fafb;font-size:0.85rem;">5%</button>
+                                <button onclick="setDP(10)" style="padding:6px 12px;border:1px solid #ddd;border-radius:6px;cursor:pointer;background:#f9fafb;font-size:0.85rem;">10%</button>
+                                <button onclick="setDP(20)" style="padding:6px 12px;border:1px solid #2563eb;border-radius:6px;cursor:pointer;background:#eff6ff;color:#2563eb;font-weight:600;font-size:0.85rem;">20%</button>
+                            </div>
+                        </div>
+                        <div class="form-group"><label for="monthlySavings">Monthly Savings</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="monthlySavings" class="has-prefix" value="1500" min="0"></div></div>
+                        <div class="form-group"><label for="savingsRate">Expected Return on Savings (APY)</label><div class="input-wrapper"><input type="number" id="savingsRate" value="4.5" step="0.1"><span class="input-suffix">%</span></div></div>
+                        <button class="btn-calculate" onclick="calcDP()">Calculate</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>How Much Down Payment Do You Need in 2026?</h2>
+                        <p>The down payment you need depends on the type of mortgage you get:</p>
+                        <ul>
+                            <li><strong>3% minimum</strong> — Conventional (Fannie Mae HomeReady / Freddie Mac Home Possible)</li>
+                            <li><strong>3.5% minimum</strong> — FHA loan (credit score 580+)</li>
+                            <li><strong>0% down</strong> — VA loan (veterans and active military)</li>
+                            <li><strong>0% down</strong> — USDA loan (rural and suburban areas)</li>
+                            <li><strong>20% down</strong> — To avoid PMI (Private Mortgage Insurance)</li>
+                        </ul>
+                        <p><strong>Reality check:</strong> The median down payment for first-time homebuyers in 2026 is <strong>6-8%</strong>, not 20%. Most buyers put less than 20% down.</p>
+
+                        <h2>Why 20% Down Payment Matters</h2>
+                        <ul>
+                            <li><strong>No PMI:</strong> Saves $100-300/month on a typical loan</li>
+                            <li><strong>Lower interest rate:</strong> Lenders offer better rates with more equity</li>
+                            <li><strong>Lower monthly payment:</strong> Less principal = less payment</li>
+                            <li><strong>Instant equity:</strong> You own 20% from day one</li>
+                            <li><strong>Stronger offer:</strong> Sellers prefer buyers with larger down payments</li>
+                            <li><strong>No upside-down risk:</strong> If home values dip, you still have equity</li>
+                        </ul>
+
+                        <h2>Down Payment by Home Price</h2>
+                        <ul>
+                            <li><strong>$200,000 home:</strong> 20% = $40,000 / 5% = $10,000 / 3% = $6,000</li>
+                            <li><strong>$300,000 home:</strong> 20% = $60,000 / 5% = $15,000 / 3% = $9,000</li>
+                            <li><strong>$400,000 home:</strong> 20% = $80,000 / 5% = $20,000 / 3% = $12,000</li>
+                            <li><strong>$500,000 home:</strong> 20% = $100,000 / 5% = $25,000 / 3% = $15,000</li>
+                            <li><strong>$600,000 home:</strong> 20% = $120,000 / 5% = $30,000 / 3% = $18,000</li>
+                        </ul>
+
+                        <h2>First-Time Homebuyer Programs 2026</h2>
+                        <ul>
+                            <li><strong>FHA Loan:</strong> 3.5% down, credit score 580+ (500-579 requires 10% down). Mortgage insurance required for the life of the loan</li>
+                            <li><strong>Fannie Mae HomeReady:</strong> 3% down, income ≤ 80% of area median. PMI cancels at 20% equity</li>
+                            <li><strong>Freddie Mac Home Possible:</strong> 3% down for low-to-moderate income buyers</li>
+                            <li><strong>VA Loan:</strong> 0% down, no PMI, for veterans, active military, and surviving spouses</li>
+                            <li><strong>USDA Loan:</strong> 0% down for homes in eligible rural/suburban areas. Income limits apply</li>
+                            <li><strong>State & local programs:</strong> Many offer $5,000-$25,000 down payment assistance grants or low-interest second mortgages. Check with your state housing finance agency</li>
+                        </ul>
+
+                        <h2>How to Save for a Down Payment Faster</h2>
+                        <ul>
+                            <li><strong>1. Automate savings</strong> — Set up automatic transfer on payday to a high-yield savings account</li>
+                            <li><strong>2. Use a high-yield savings account</strong> — 4-5% APY in 2026 earns meaningful interest while you save</li>
+                            <li><strong>3. Cut major expenses</strong> — Housing is the biggest lever; consider a cheaper apartment for 1-2 years</li>
+                            <li><strong>4. Side income</strong> — Freelancing, part-time work, or selling items can add $500-2,000/month</li>
+                            <li><strong>5. Down payment assistance</strong> — Many programs offer grants that don't need repayment</li>
+                            <li><strong>6. IRA withdrawal for first home</strong> — Withdraw up to $10,000 from a traditional IRA penalty-free for a first home purchase</li>
+                            <li><strong>7. Gift funds</strong> — Family members can gift down payment money; just need a gift letter</li>
+                            <li><strong>8. Employer programs</strong> — Some employers offer homebuyer assistance as a benefit</li>
+                        </ul>
+
+                        <h2>PMI: The Hidden Cost of Low Down Payments</h2>
+                        <p>If you put less than 20% down, you'll pay <strong>Private Mortgage Insurance (PMI)</strong>:</p>
+                        <ul>
+                            <li><strong>PMI cost:</strong> 0.5-1.5% of the loan amount annually</li>
+                            <li><strong>On a $320,000 loan:</strong> $133-400/month ($1,600-4,800/year)</li>
+                            <li><strong>When it cancels:</strong> Automatically at 78% LTV, or you can request removal at 80% LTV</li>
+                            <li><strong>Example:</strong> $40K down (20%) vs $20K down (5%) on a $400K home: The $20K "saved" costs you $24,000+ in PMI over the years before it cancels</li>
+                        </ul>
+
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="mortgage-calculator.html">Mortgage Calculator</a><a href="home-affordability-calculator.html">Home Affordability</a><a href="rent-vs-buy-calculator.html">Rent vs Buy</a><a href="savings-goal-calculator.html">Savings Goal</a></div>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <details class="faq-item"><summary>How much down payment do I need to buy a house?</summary><p>It depends on the loan type: 3% minimum for conventional (Fannie Mae/Freddie Mac), 3.5% for FHA, 0% for VA and USDA loans, and 20% to avoid PMI. On a $400,000 home, 20% down = $80,000; 5% down = $20,000; 3% down = $12,000.</p></details>
+                        <details class="faq-item"><summary>What is PMI and how can I avoid it?</summary><p>PMI (Private Mortgage Insurance) costs 0.5-1.5% of the loan annually when you put less than 20% down. On a $320,000 loan, that's $133-400/month. PMI automatically cancels when you reach 78% loan-to-value. Put 20% down to avoid it entirely.</p></details>
+                        <details class="faq-item"><summary>How long does it take to save for a down payment?</summary><p>For a $400,000 home with 20% down ($80,000), saving $1,500/month in a high-yield savings account at 4.5% APY takes about 4 years. With 5% down ($20,000), saving $1,500/month takes about 13 months.</p></details>
+                        <details class="faq-item"><summary>Are there first-time homebuyer programs?</summary><p>Yes! FHA loans require only 3.5% down. Fannie Mae and Freddie Mac offer 3% down programs. Many states and cities offer down payment assistance grants of $5,000-25,000. VA and USDA loans require 0% down for eligible buyers.</p></details>
+                        <details class="faq-item"><summary>Is it better to put 20% down or less?</summary><p>20% down avoids PMI and gets the best rate, but takes much longer to save. With 5-10% down, you start building equity sooner and home appreciation may offset the PMI cost. In a market with 5% annual appreciation, waiting 3 extra years to save 20% means the home costs 15% more.</p></details>
+                    </div>
+                </div>
+
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Results</h2>
+                    <div class="result-item"><p class="result-label">Down Payment Amount</p><p class="result-value" id="dpAmount" style="color:#2563eb;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Months to Save</p><p class="result-value" id="monthsToSave" style="color:#10b981;">0</p></div>
+                    <div class="result-item"><p class="result-label">Years to Save</p><p class="result-value" id="yearsToSave">0</p></div>
+                    <div class="result-item"><p class="result-label">Interest Earned</p><p class="result-value secondary" id="interestEarned">$0</p></div>
+                    <div class="results-breakdown">
+                        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Breakdown</h3>
+                        <div class="breakdown-row"><span>Home Price</span><span id="hpShow">$0</span></div>
+                        <div class="breakdown-row"><span>Down Payment %</span><span id="dpPctShow">20%</span></div>
+                        <div class="breakdown-row"><span>Down Payment</span><span id="dpValShow">$0</span></div>
+                        <div class="breakdown-row"><span>Loan Amount</span><span id="loanShow">$0</span></div>
+                        <div class="breakdown-row"><span>Monthly Savings</span><span id="msShow">$0</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+
+    <script>
+    function setDP(pct) {
+        document.getElementById('dpPercent').value = pct;
+        document.querySelectorAll('.calc-form button[onclick^="setDP"]').forEach(b => {
+            b.style.background='#f9fafb'; b.style.color='inherit'; b.style.fontWeight='normal'; b.style.borderColor='#ddd';
+        });
+        event.target.style.background='#eff6ff'; event.target.style.color='#2563eb'; event.target.style.fontWeight='600'; event.target.style.borderColor='#2563eb';
+        calcDP();
+    }
+    function calcDP() {
+        const price = parseFloat(document.getElementById('homePrice').value) || 0;
+        const pct = parseFloat(document.getElementById('dpPercent').value) || 0;
+        const ms = parseFloat(document.getElementById('monthlySavings').value) || 0;
+        const apy = parseFloat(document.getElementById('savingsRate').value) || 0;
+        const dp = price * pct / 100;
+        const loan = price - dp;
+        const fmt = v => '$' + Math.round(v).toLocaleString();
+        // Calculate months to save with compound interest
+        let months = 0;
+        if (ms > 0 && dp > 0) {
+            const mr = apy / 100 / 12;
+            if (mr > 0) {
+                // FV = ms * ((1+mr)^n - 1) / mr, solve for n where FV >= dp
+                const n = Math.log(1 + dp * mr / ms) / Math.log(1 + mr);
+                months = Math.ceil(n);
+            } else {
+                months = Math.ceil(dp / ms);
+            }
+        }
+        const years = (months / 12).toFixed(1);
+        const totalSaved = ms * months;
+        const interestEarned = Math.max(0, dp - totalSaved + (dp * (apy/100/12) * months * (months+1) / 2 - dp));
+        // Simple interest earned approximation
+        let balance = 0;
+        const mr = apy / 100 / 12;
+        for (let i = 0; i < months; i++) { balance = (balance + ms) * (1 + mr); }
+        const intEarned = balance - ms * months;
+
+        document.getElementById('dpAmount').textContent = fmt(dp);
+        document.getElementById('monthsToSave').textContent = months + ' months';
+        document.getElementById('yearsToSave').textContent = years + ' years';
+        document.getElementById('interestEarned').textContent = fmt(Math.round(intEarned));
+        document.getElementById('hpShow').textContent = fmt(price);
+        document.getElementById('dpPctShow').textContent = pct + '%';
+        document.getElementById('dpValShow').textContent = fmt(dp);
+        document.getElementById('loanShow').textContent = fmt(loan);
+        document.getElementById('msShow').textContent = fmt(ms);
+    }
+    window.addEventListener('load', calcDP);
+    </script>
+
+    <div class="visitor-counter"><span>👁️ Visitors: </span><span id="visitor-counter" style="display:none;">0</span></div>
+    <script src="js/visitor-counter.js"></script>
+</body>
+</html>

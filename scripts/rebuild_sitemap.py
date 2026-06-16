@@ -24,6 +24,11 @@ main_pages = [
     ('savings-tips.html', 0.7, 'weekly'),
     ('bmi-calculator.html', 0.7, 'monthly'),
     ('calorie-calculator.html', 0.7, 'monthly'),
+    ('tip-calculator.html', 0.8, 'weekly'),
+    ('percentage-calculator.html', 0.8, 'weekly'),
+    ('car-payment-calculator.html', 0.8, 'weekly'),
+    ('down-payment-calculator.html', 0.8, 'weekly'),
+    ('amortization-calculator.html', 0.8, 'weekly'),
 ]
 
 states = [
