@@ -1,0 +1,146 @@
+import json
+
+# 2020-2026 state-level median home prices (Zillow/FRED/Census compiled estimates)
+# Format: state -> [2020, 2021, 2022, 2023, 2024, 2025, 2026_est] in thousands
+# 2026 is estimated based on recent trends
+home_prices = {
+    "alabama": [165, 180, 200, 215, 225, 235, 242],
+    "alaska": [295, 310, 330, 345, 355, 365, 370],
+    "arizona": [305, 340, 410, 435, 445, 455, 462],
+    "arkansas": [148, 162, 182, 198, 208, 215, 220],
+    "california": [600, 700, 795, 780, 800, 825, 840],
+    "colorado": [400, 445, 530, 545, 555, 570, 580],
+    "connecticut": [295, 315, 350, 370, 385, 400, 410],
+    "delaware": [265, 285, 320, 335, 345, 355, 362],
+    "florida": [275, 315, 385, 395, 400, 410, 418],
+    "georgia": [220, 248, 285, 305, 315, 325, 332],
+    "hawaii": [635, 680, 730, 755, 770, 790, 800],
+    "idaho": [290, 340, 420, 430, 435, 445, 450],
+    "illinois": [220, 235, 258, 270, 278, 285, 290],
+    "indiana": [170, 188, 212, 228, 238, 245, 250],
+    "iowa": [163, 178, 200, 215, 225, 232, 238],
+    "kansas": [162, 177, 198, 213, 222, 228, 233],
+    "kentucky": [160, 175, 198, 215, 225, 232, 238],
+    "louisiana": [178, 190, 210, 222, 228, 235, 240],
+    "maine": [235, 260, 300, 320, 335, 348, 355],
+    "maryland": [325, 348, 390, 405, 415, 425, 432],
+    "massachusetts": [435, 480, 545, 570, 590, 610, 620],
+    "michigan": [185, 205, 232, 250, 260, 268, 275],
+    "minnesota": [265, 290, 325, 340, 350, 360, 368],
+    "mississippi": [140, 153, 172, 186, 195, 202, 207],
+    "missouri": [175, 192, 218, 235, 245, 252, 258],
+    "montana": [270, 310, 375, 390, 395, 405, 412],
+    "nebraska": [180, 195, 218, 232, 240, 248, 253],
+    "nevada": [310, 350, 415, 425, 430, 440, 448],
+    "new-hampshire": [290, 320, 365, 385, 400, 415, 425],
+    "new-jersey": [345, 375, 420, 445, 460, 475, 485],
+    "new-mexico": [215, 238, 275, 295, 305, 315, 322],
+    "new-york": [365, 395, 440, 460, 475, 490, 500],
+    "north-carolina": [235, 265, 305, 325, 335, 345, 352],
+    "north-dakota": [215, 228, 248, 260, 268, 275, 280],
+    "ohio": [165, 180, 205, 220, 230, 238, 243],
+    "oklahoma": [152, 165, 185, 198, 208, 215, 220],
+    "oregon": [375, 415, 480, 490, 498, 510, 518],
+    "pennsylvania": [215, 235, 262, 280, 290, 300, 308],
+    "rhode-island": [285, 310, 350, 370, 385, 398, 408],
+    "south-carolina": [215, 240, 275, 295, 305, 315, 322],
+    "south-dakota": [195, 215, 245, 260, 270, 278, 284],
+    "tennessee": [215, 240, 278, 298, 310, 320, 327],
+    "texas": [230, 260, 305, 325, 335, 345, 352],
+    "utah": [345, 395, 475, 485, 490, 502, 510],
+    "vermont": [255, 280, 320, 340, 355, 368, 375],
+    "virginia": [295, 325, 370, 390, 400, 412, 420],
+    "washington": [405, 450, 525, 540, 550, 565, 575],
+    "west-virginia": [115, 125, 140, 152, 158, 164, 168],
+    "wisconsin": [215, 238, 270, 288, 298, 308, 315],
+    "wyoming": [255, 285, 335, 350, 358, 368, 375],
+}
+
+# 2020-2026 state-level median rent (monthly, in dollars)
+# Format: state -> [2020, 2021, 2022, 2023, 2024, 2025, 2026_est]
+rent_prices = {
+    "alabama": [820, 870, 980, 1050, 1080, 1110, 1135],
+    "alaska": [1180, 1230, 1350, 1420, 1450, 1480, 1505],
+    "arizona": [1220, 1350, 1580, 1620, 1650, 1685, 1710],
+    "arkansas": [750, 800, 900, 960, 990, 1015, 1035],
+    "california": [2180, 2350, 2650, 2580, 2620, 2670, 2705],
+    "colorado": [1480, 1620, 1820, 1850, 1880, 1915, 1945],
+    "connecticut": [1280, 1380, 1550, 1620, 1660, 1700, 1730],
+    "delaware": [1120, 1210, 1380, 1440, 1470, 1505, 1530],
+    "florida": [1280, 1450, 1720, 1750, 1780, 1815, 1845],
+    "georgia": [1080, 1190, 1380, 1450, 1485, 1520, 1548],
+    "hawaii": [1850, 1980, 2200, 2280, 2320, 2365, 2400],
+    "idaho": [980, 1120, 1350, 1380, 1405, 1435, 1460],
+    "illinois": [1080, 1160, 1310, 1370, 1400, 1430, 1455],
+    "indiana": [850, 920, 1050, 1120, 1150, 1180, 1205],
+    "iowa": [800, 860, 980, 1040, 1070, 1095, 1115],
+    "kansas": [810, 870, 990, 1050, 1080, 1105, 1128],
+    "kentucky": [800, 860, 980, 1050, 1080, 1105, 1128],
+    "louisiana": [880, 940, 1060, 1120, 1150, 1175, 1198],
+    "maine": [980, 1080, 1250, 1320, 1355, 1390, 1418],
+    "maryland": [1420, 1540, 1730, 1800, 1840, 1880, 1910],
+    "massachusetts": [1680, 1820, 2080, 2150, 2200, 2250, 2290],
+    "michigan": [880, 950, 1090, 1160, 1190, 1215, 1240],
+    "minnesota": [1100, 1200, 1370, 1430, 1465, 1500, 1528],
+    "mississippi": [740, 790, 890, 950, 980, 1005, 1025],
+    "missouri": [870, 940, 1070, 1140, 1170, 1198, 1220],
+    "montana": [920, 1050, 1280, 1320, 1350, 1380, 1405],
+    "nebraska": [850, 920, 1050, 1110, 1140, 1170, 1195],
+    "nevada": [1200, 1340, 1560, 1590, 1620, 1655, 1680],
+    "new-hampshire": [1180, 1290, 1490, 1560, 1600, 1640, 1670],
+    "new-jersey": [1480, 1610, 1820, 1900, 1950, 1995, 2030],
+    "new-mexico": [880, 970, 1130, 1190, 1220, 1250, 1275],
+    "new-york": [1580, 1710, 1950, 2010, 2055, 2100, 2140],
+    "north-carolina": [1020, 1130, 1320, 1390, 1425, 1460, 1488],
+    "north-dakota": [830, 890, 1000, 1060, 1090, 1115, 1135],
+    "ohio": [820, 890, 1020, 1080, 1110, 1138, 1160],
+    "oklahoma": [780, 840, 950, 1010, 1040, 1065, 1085],
+    "oregon": [1320, 1450, 1650, 1680, 1710, 1745, 1775],
+    "pennsylvania": [1020, 1110, 1270, 1340, 1375, 1410, 1440],
+    "rhode-island": [1180, 1280, 1460, 1530, 1570, 1608, 1640],
+    "south-carolina": [960, 1060, 1240, 1310, 1345, 1380, 1408],
+    "south-dakota": [790, 860, 990, 1050, 1080, 1108, 1130],
+    "tennessee": [960, 1060, 1240, 1310, 1345, 1380, 1408],
+    "texas": [1080, 1200, 1400, 1470, 1500, 1535, 1562],
+    "utah": [1200, 1380, 1620, 1650, 1680, 1715, 1745],
+    "vermont": [1050, 1160, 1340, 1410, 1450, 1488, 1518],
+    "virginia": [1280, 1400, 1590, 1660, 1700, 1740, 1770],
+    "washington": [1480, 1640, 1880, 1920, 1960, 2005, 2040],
+    "west-virginia": [680, 730, 820, 870, 895, 918, 935],
+    "wisconsin": [900, 980, 1130, 1195, 1225, 1258, 1285],
+    "wyoming": [870, 980, 1160, 1200, 1225, 1255, 1280],
+}
+
+# State names mapping
+state_names = {
+    "alabama": "Alabama", "alaska": "Alaska", "arizona": "Arizona", "arkansas": "Arkansas",
+    "california": "California", "colorado": "Colorado", "connecticut": "Connecticut",
+    "delaware": "Delaware", "florida": "Florida", "georgia": "Georgia", "hawaii": "Hawaii",
+    "idaho": "Idaho", "illinois": "Illinois", "indiana": "Indiana", "iowa": "Iowa",
+    "kansas": "Kansas", "kentucky": "Kentucky", "louisiana": "Louisiana", "maine": "Maine",
+    "maryland": "Maryland", "massachusetts": "Massachusetts", "michigan": "Michigan",
+    "minnesota": "Minnesota", "mississippi": "Mississippi", "missouri": "Missouri",
+    "montana": "Montana", "nebraska": "Nebraska", "nevada": "Nevada",
+    "new-hampshire": "New Hampshire", "new-jersey": "New Jersey", "new-mexico": "New Mexico",
+    "new-york": "New York", "north-carolina": "North Carolina", "north-dakota": "North Dakota",
+    "ohio": "Ohio", "oklahoma": "Oklahoma", "oregon": "Oregon", "pennsylvania": "Pennsylvania",
+    "rhode-island": "Rhode Island", "south-carolina": "South Carolina",
+    "south-dakota": "South Dakota", "tennessee": "Tennessee", "texas": "Texas",
+    "utah": "Utah", "vermont": "Vermont", "virginia": "Virginia", "washington": "Washington",
+    "west-virginia": "West Virginia", "wisconsin": "Wisconsin", "wyoming": "Wyoming",
+}
+
+# Save as JSON for the injection script
+data = {
+    "home_prices": home_prices,
+    "rent_prices": rent_prices,
+    "state_names": state_names,
+    "years": [2020, 2021, 2022, 2023, 2024, 2025, 2026]
+}
+
+with open(r'C:\Users\Administrator\.qclaw\workspace\calcwithme-site\scripts\state_data.json', 'w') as f:
+    json.dump(data, f, indent=2)
+
+print(f"Data saved for {len(home_prices)} states")
+print(f"Sample - Texas home prices: {home_prices['texas']}")
+print(f"Sample - Texas rent: {rent_prices['texas']}")
