@@ -34,6 +34,8 @@ main_pages = [
     ('pmi-calculator.html', 0.8, 'weekly'),
     ('fha-loan-calculator.html', 0.8, 'weekly'),
     ('heloc-calculator.html', 0.8, 'weekly'),
+    ('va-loan-calculator.html', 0.8, 'weekly'),
+    ('home-equity-calculator.html', 0.8, 'weekly'),
 ]
 
 states = [
@@ -84,6 +86,22 @@ for prov in canada_provinces:
     fpath = os.path.join(site_dir, 'canada', fname)
     if os.path.exists(fpath):
         add_url(f'https://calcwithme.com/canada/{fname}', '0.6', 'monthly')
+
+state_abbrevs = ['al','ak','az','ar','ca','co','ct','de','fl','ga','hi','id','il','in','ia','ks','ky','la','me','md','ma','mi','mn','ms','mo','mt','ne','nv','nh','nj','nm','ny','nc','nd','oh','ok','or','pa','ri','sc','sd','tn','tx','ut','vt','va','wa','wv','wi','wy']
+
+# State property tax pages
+for ab in state_abbrevs:
+    fname = f'{ab}-property-tax.html'
+    fpath = os.path.join(site_dir, fname)
+    if os.path.exists(fpath):
+        add_url(f'https://calcwithme.com/{fname}', '0.6', 'monthly')
+
+# State first-time homebuyer pages
+for ab in state_abbrevs:
+    fname = f'{ab}-first-time-home-buyer.html'
+    fpath = os.path.join(site_dir, fname)
+    if os.path.exists(fpath):
+        add_url(f'https://calcwithme.com/{fname}', '0.6', 'monthly')
 
 # Blog pages
 blog_dir = os.path.join(site_dir, 'blog')

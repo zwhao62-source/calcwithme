@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free VA Loan Calculator 2026 - VA Mortgage Payment Calculator | CalcWithMe</title>
+    <meta name="description" content="Free VA loan calculator 2026. Calculate VA mortgage payments including funding fee. Compare VA vs conventional. Zero down payment. Updated June 2026.">
+    <meta name="keywords" content="VA loan calculator, VA mortgage calculator, VA funding fee, VA loan vs conventional, veteran home loan calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/va-loan-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎖️</text></svg>">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://calcwithme.com/"},
+      {"@type":"ListItem","position":2,"name":"Calculators","item":"https://calcwithme.com/#calculators"},
+      {"@type":"ListItem","position":3,"name":"VA Loan Calculator","item":"https://calcwithme.com/va-loan-calculator.html"}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"VA Loan Calculator","url":"https://calcwithme.com/va-loan-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What is a VA loan and who is eligible?","acceptedAnswer":{"@type":"Answer","text":"VA loans are mortgages guaranteed by the Department of Veterans Affairs. Eligible: veterans with 90+ days active duty, 181+ days peacetime, 6 years National Guard/Reserves, surviving spouses of veterans who died in service. No down payment, no PMI, competitive rates."}},
+      {"@type":"Question","name":"What is the VA funding fee?","acceptedAnswer":{"@type":"Answer","text":"The VA funding fee is 2.15% for first-time use with 0% down, 3.3% for subsequent use. With 5-9.99% down: 1.5%. With 10%+ down: 1.25%. Disabled veterans (10%+ rating) are exempt from the funding fee entirely. It can be rolled into the loan."}},
+      {"@type":"Question","name":"VA loan vs conventional — which is better?","acceptedAnswer":{"@type":"Answer","text":"VA wins for eligible borrowers: 0% down, no PMI, lower rates (typically 0.25-0.5% below conventional), no minimum credit score (lender sets, often 620), lower closing costs, no prepayment penalty. Conventional wins only if you have 20%+ down and want to avoid the funding fee."}},
+      {"@type":"Question","name":"Can I use a VA loan more than once?","acceptedAnswer":{"@type":"Answer","text":"Yes, VA loan entitlement restores after you sell the home and pay off the loan. You can have multiple VA loans simultaneously if you have enough remaining entitlement. The funding fee increases to 3.3% for subsequent use with 0% down."}},
+      {"@type":"Question","name":"What are the VA loan limits in 2026?","acceptedAnswer":{"@type":"Answer","text":"For veterans with full entitlement, there is NO loan limit — you can borrow any amount with 0% down. For veterans with partial entitlement (using VA loan again before restoring), limits align with conforming loan limits: $766,550 in most areas, up to $1,149,825 in high-cost areas."}}
+    ]}
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/savings-tips.html">&#x1F4B0; Money Tips</a><a href="/mortgage-calculator.html">Mortgage</a></nav></div></header>
+
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Free VA Loan Calculator 2026</h1>
+                    <p class="page-desc">Calculate VA mortgage payments including <strong>funding fee, no PMI, zero down payment</strong>. Compare VA vs conventional. Updated June 2026.</p>
+                    <div class="calc-form">
+                        <div class="form-group"><label for="vaHome">Home Price</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="vaHome" class="has-prefix" value="400000" min="0"></div></div>
+                        <div class="form-group"><label for="vaDown">Down Payment (0% is allowed)</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="vaDown" class="has-prefix" value="0" min="0"></div></div>
+                        <div class="form-group"><label for="vaRate">Interest Rate</label><div class="input-wrapper"><input type="number" id="vaRate" value="6.0" step="0.1"><span class="input-suffix">%</span></div><small style="color:#6b7280;font-size:0.8rem;margin-top:4px;display:block;">VA rates are typically 0.25-0.5% lower than conventional</small></div></div>
+                        <div class="form-row">
+                            <div class="form-group"><label for="vaUsage">VA Loan Usage</label><select id="vaUsage"><option value="first">First-time VA loan</option><option value="subsequent">Subsequent VA loan</option></select></div>
+                            <div class="form-group"><label for="vaDisability">Disability Rating</label><select id="vaDisability"><option value="0">No disability rating</option><option value="1">10%+ disabled (funding fee exempt)</option></select></div>
+                        </div>
+                        <div class="form-group"><label for="vaTerm">Loan Term</label><select id="vaTerm"><option value="30" selected>30 Years</option><option value="15">15 Years</option></select></div>
+                        <button class="btn-calculate" onclick="calcVA()">Calculate VA Payment</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>What Is a VA Loan?</h2>
+                        <p>VA loans are <strong>mortgages guaranteed by the U.S. Department of Veterans Affairs</strong> — the most powerful home financing tool available to veterans, active-duty service members, and surviving spouses.</p>
+                        <p>Key advantages that set VA loans apart:</p>
+                        <ul>
+                            <li><strong>0% down payment</strong> — Buy a home with nothing down</li>
+                            <li><strong>No PMI</strong> — Save $100-400/month vs conventional with less than 20% down</li>
+                            <li><strong>Lower interest rates</strong> — Typically 0.25-0.5% below conventional rates</li>
+                            <li><strong>No prepayment penalty</strong> — Pay off early without fees</li>
+                            <li><strong>Lenient credit requirements</strong> — No VA minimum; lenders typically require 620+</li>
+                            <li><strong>Assumable</strong> — Future buyer can take over your low rate</li>
+                        </ul>
+
+                        <h2>VA Loan Eligibility (2026)</h2>
+                        <ul>
+                            <li><strong>Active duty:</strong> 90+ consecutive days during wartime, 181+ days during peacetime</li>
+                            <li><strong>National Guard/Reserves:</strong> 6 years of service, or 90+ days activated under Title 10/32</li>
+                            <li><strong>Surviving spouses:</strong> Unremarried spouse of veteran who died in service or from service-connected disability</li>
+                            <li><strong>Service-connected disability:</strong> Veterans discharged for service-connected disability may qualify with less service time</li>
+                            <li><strong>Get COE:</strong> Certificate of Eligibility required — apply online at va.gov or through your lender</li>
+                        </ul>
+
+                        <h2>VA Funding Fee (2026)</h2>
+                        <p>The VA funding fee is a one-time cost that funds the VA loan program. It can be paid cash at closing or rolled into the loan:</p>
+                        <ul>
+                            <li><strong>First use, 0% down:</strong> 2.15% of loan ($8,600 on $400K)</li>
+                            <li><strong>First use, 5-9.99% down:</strong> 1.50% ($6,000 on $400K)</li>
+                            <li><strong>First use, 10%+ down:</strong> 1.25% ($5,000 on $400K)</li>
+                            <li><strong>Subsequent use, 0% down:</strong> 3.30% ($13,200 on $400K)</li>
+                            <li><strong>Subsequent use, 5-9.99% down:</strong> 1.50%</li>
+                            <li><strong>Subsequent use, 10%+ down:</strong> 1.25%</li>
+                            <li><strong>Disabled veterans (10%+ rating):</strong> 0% — <strong>completely exempt</strong></li>
+                        </ul>
+
+                        <h2>VA vs Conventional Loan: Side-by-Side</h2>
+                        <p>On a $400,000 home with 0% down (VA) vs 5% down (Conventional):</p>
+                        <ul>
+                            <li><strong>Down payment:</strong> VA $0 vs Conventional $20,000</li>
+                            <li><strong>Interest rate:</strong> VA ~6.0% vs Conventional ~6.5%</li>
+                            <li><strong>PMI:</strong> VA $0 vs Conventional ~$210/month</li>
+                            <li><strong>Monthly P&I:</strong> VA $2,398 vs Conventional $2,429 (on $380K loan)</li>
+                            <li><strong>Monthly total:</strong> VA $2,398 vs Conventional $2,639 (P&I + PMI)</li>
+                            <li><strong>First year savings:</strong> VA saves ~$20,000+ (no down payment + no PMI)</li>
+                        </ul>
+
+                        <h2>VA Loan Entitlement Explained</h2>
+                        <ul>
+                            <li><strong>Full entitlement:</strong> Basic entitlement = $50,750 (25% of conforming limit). With full entitlement, you can borrow any amount with 0% down</li>
+                            <li><strong>Bonus entitlement:</strong> Additional entitlement in high-cost areas</li>
+                            <li><strong>Restoring entitlement:</strong> Sell your home and pay off the VA loan to restore full entitlement</li>
+                            <li><strong>Two VA loans at once:</strong> Possible if remaining entitlement covers the new loan. Example: Used $200K of entitlement, have $200K+ remaining — can get another VA loan</li>
+                            <li><strong>Partial entitlement:</strong> If you still own the home with a VA loan, you can use remaining entitlement for a second home</li>
+                        </ul>
+
+                        <h2>Common VA Loan Mistakes to Avoid</h2>
+                        <ul>
+                            <li><strong>Not getting COE first:</strong> Start with your Certificate of Eligibility — it tells you your entitlement status</li>
+                            <li><strong>Not shopping lenders:</strong> VA rates and fees vary significantly. Get 3+ quotes</li>
+                            <li><strong>Assuming VA is always cheapest:</strong> With 20% down and 780+ credit, conventional may beat VA (no funding fee)</li>
+                            <li><strong>Overlooking funding fee exemption:</strong> If you're 10%+ disabled, you're exempt — always claim this</li>
+                            <li><strong>Not using entitlement again:</strong> Many vets don't realize they can use VA loans multiple times</li>
+                            <li><strong>Ignoring VA appraisal issues:</strong> VA appraisals are stricter (Minimum Property Requirements). Be prepared for repair requests</li>
+                        </ul>
+
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="mortgage-calculator.html">Mortgage Calculator</a><a href="fha-loan-calculator.html">FHA Loan</a><a href="pmi-calculator.html">PMI Calculator</a><a href="down-payment-calculator.html">Down Payment</a></div>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <details class="faq-item"><summary>What is a VA loan and who is eligible?</summary><p>VA loans are mortgages guaranteed by the VA. Eligible: veterans with 90+ days active duty (wartime) or 181+ days (peacetime), 6 years Guard/Reserves, or surviving spouses. No down payment, no PMI, competitive rates.</p></details>
+                        <details class="faq-item"><summary>What is the VA funding fee?</summary><p>2.15% for first-time use with 0% down, 3.3% for subsequent use. Lower with down payment: 1.5% at 5% down, 1.25% at 10%+ down. Disabled veterans (10%+ rating) are completely exempt. Can be rolled into the loan.</p></details>
+                        <details class="faq-item"><summary>VA loan vs conventional — which is better?</summary><p>VA wins for eligible borrowers: 0% down, no PMI, lower rates, no prepayment penalty. Conventional only wins with 20%+ down and excellent credit where the VA funding fee costs more than rate differences.</p></details>
+                        <details class="faq-item"><summary>Can I use a VA loan more than once?</summary><p>Yes. Entitlement restores after selling and paying off the loan. You can have multiple VA loans with enough remaining entitlement. Funding fee increases to 3.3% for subsequent use with 0% down.</p></details>
+                        <details class="faq-item"><summary>What are the VA loan limits in 2026?</summary><p>With full entitlement, there is NO loan limit — 0% down on any price. With partial entitlement, limits align with conforming limits: $766,550 most areas, up to $1,149,825 in high-cost areas.</p></details>
+                    </div>
+                </div>
+
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; VA Loan Results</h2>
+                    <div class="result-item"><p class="result-label">Loan Amount</p><p class="result-value" id="vaLoan" style="color:#2563eb;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Funding Fee</p><p class="result-value" id="vaFF">$0</p></div>
+                    <div class="result-item"><p class="result-label">Monthly P&amp;I</p><p class="result-value" id="vaPI">$0</p></div>
+                    <div class="result-item"><p class="result-label">PMI</p><p class="result-value" style="color:#10b981;">$0 (VA = No PMI!)</p></div>
+                    <div class="result-item"><p class="result-label">Total Monthly</p><p class="result-value" id="vaTotal" style="color:#2563eb;">$0</p></div>
+                    <div class="results-breakdown">
+                        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">VA vs Conventional</h3>
+                        <div class="breakdown-row"><span>VA Monthly</span><span id="vaMo">$0</span></div>
+                        <div class="breakdown-row"><span>Conv. Monthly (5% down)</span><span id="convMo">$0</span></div>
+                        <div class="breakdown-row" style="border-top:2px solid #e2e8f0;padding-top:8px;margin-top:8px;color:#10b981;"><strong><span>Monthly Savings</span></strong><strong><span id="vaSavings">$0</span></strong></div>
+                    </div>
+                    <div style="margin-top:16px;padding:12px;background:#f0fdf4;border-radius:8px;border:1px solid #bbf7d0;">
+                        <p style="font-size:0.85rem;color:#166534;margin:0;"><strong>5-year savings:</strong> <span id="va5yr">$0</span> vs conventional (no PMI + lower rate + no down payment)</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+
+    <script>
+    function calcVA() {
+        const home = parseFloat(document.getElementById('vaHome').value) || 0;
+        const down = parseFloat(document.getElementById('vaDown').value) || 0;
+        const rate = parseFloat(document.getElementById('vaRate').value) / 100 || 0;
+        const term = parseInt(document.getElementById('vaTerm').value) || 30;
+        const usage = document.getElementById('vaUsage').value;
+        const disabled = parseInt(document.getElementById('vaDisability').value);
+        const fmt = v => '$' + Math.round(v).toLocaleString();
+
+        const baseLoan = home - down;
+        const downPct = down / home;
+
+        // Funding fee
+        let ffRate = 0;
+        if (!disabled) {
+            if (usage === 'first') {
+                if (downPct >= 0.10) ffRate = 0.0125;
+                else if (downPct >= 0.05) ffRate = 0.015;
+                else ffRate = 0.0215;
+            } else {
+                if (downPct >= 0.10) ffRate = 0.0125;
+                else if (downPct >= 0.05) ffRate = 0.015;
+                else ffRate = 0.033;
+            }
+        }
+        const fundingFee = baseLoan * ffRate;
+        const totalLoan = baseLoan + fundingFee; // most roll funding fee into loan
+
+        // VA monthly P&I
+        const n = term * 12;
+        const mr = rate / 12;
+        let vaPI = 0;
+        if (mr > 0 && n > 0) {
+            vaPI = totalLoan * (mr * Math.pow(1+mr, n)) / (Math.pow(1+mr, n) - 1);
+        }
+
+        // Conventional comparison: 5% down, 6.5% rate, PMI at 0.7%
+        const convDown = home * 0.05;
+        const convLoan = home - convDown;
+        const convRate = (rate + 0.005); // conventional typically 0.5% higher
+        const convMr = convRate / 12;
+        let convPI = 0;
+        if (convMr > 0 && n > 0) {
+            convPI = convLoan * (convMr * Math.pow(1+convMr, n)) / (Math.pow(1+convMr, n) - 1);
+        }
+        const convPMI = convLoan * 0.007 / 12;
+        const convTotal = convPI + convPMI;
+        const savings = convTotal - vaPI;
+        const savings5yr = savings * 60;
+
+        document.getElementById('vaLoan').textContent = fmt(totalLoan);
+        document.getElementById('vaFF').textContent = disabled ? '$0 (Exempt!)' : fmt(fundingFee);
+        document.getElementById('vaPI').textContent = fmt(vaPI);
+        document.getElementById('vaTotal').textContent = fmt(vaPI);
+        document.getElementById('vaMo').textContent = fmt(vaPI);
+        document.getElementById('convMo').textContent = fmt(convTotal);
+        document.getElementById('vaSavings').textContent = savings > 0 ? fmt(savings) : '$0';
+        document.getElementById('va5yr').textContent = savings5yr > 0 ? fmt(savings5yr) : '$0';
+    }
+    window.addEventListener('load', calcVA);
+    </script>
+
+    <div class="visitor-counter"><span>👁️ Visitors: </span><span id="visitor-counter" style="display:none;">0</span></div>
+    <script src="js/visitor-counter.js"></script>
+</body>
+</html>
