@@ -29,6 +29,11 @@ main_pages = [
     ('car-payment-calculator.html', 0.8, 'weekly'),
     ('down-payment-calculator.html', 0.8, 'weekly'),
     ('amortization-calculator.html', 0.8, 'weekly'),
+    ('closing-cost-calculator.html', 0.9, 'weekly'),
+    ('property-tax-calculator.html', 0.8, 'weekly'),
+    ('pmi-calculator.html', 0.8, 'weekly'),
+    ('fha-loan-calculator.html', 0.8, 'weekly'),
+    ('heloc-calculator.html', 0.8, 'weekly'),
 ]
 
 states = [

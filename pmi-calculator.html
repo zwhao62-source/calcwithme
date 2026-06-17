@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free PMI Calculator 2026 - Private Mortgage Insurance Cost | CalcWithMe</title>
+    <meta name="description" content="Free PMI calculator 2026. Calculate Private Mortgage Insurance cost when putting less than 20% down. See how much PMI adds to your monthly payment. Updated June 2026.">
+    <meta name="keywords" content="PMI calculator, private mortgage insurance calculator, mortgage insurance cost, PMI rate, how much is PMI">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/pmi-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://calcwithme.com/"},
+      {"@type":"ListItem","position":2,"name":"Calculators","item":"https://calcwithme.com/#calculators"},
+      {"@type":"ListItem","position":3,"name":"PMI Calculator","item":"https://calcwithme.com/pmi-calculator.html"}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebApplication","name":"PMI Calculator","url":"https://calcwithme.com/pmi-calculator.html","applicationCategory":"FinanceApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"How much is PMI per month?","acceptedAnswer":{"@type":"Answer","text":"PMI costs $30-70 per $100,000 borrowed per month, or 0.5-1.5% of the loan amount annually. On a $320,000 mortgage (80% of $400K home), expect $133-400/month. Exact rate depends on credit score, down payment, and loan type."}},
+      {"@type":"Question","name":"How can I avoid PMI?","acceptedAnswer":{"@type":"Answer","text":"Put 20% down or more. Or use a piggyback loan (80-10-10): 80% first mortgage, 10% second mortgage, 10% down. VA and USDA loans have no PMI. Or accept lender-paid PMI with a higher interest rate."}},
+      {"@type":"Question","name":"When does PMI go away?","acceptedAnswer":{"@type":"Answer","text":"PMI automatically cancels when you reach 78% loan-to-value (based on original amortization schedule). You can request cancellation at 80% LTV. This typically takes 5-10 years depending on your down payment and extra payments."}},
+      {"@type":"Question","name":"Is PMI tax deductible?","acceptedAnswer":{"@type":"Answer","text":"PMI was tax deductible through 2025 for households with AGI under $109,000. The deduction phases out between $100,000-109,000 AGI. It's an itemized deduction, not a credit. Check current tax law as this provision may be extended."}},
+      {"@type":"Question","name":"Is it better to pay PMI or wait until I have 20% down?","acceptedAnswer":{"@type":"Answer","text":"It depends. If home prices are rising 5%+/year, waiting 3 years to save 20% could cost more in appreciation than PMI. Run the numbers: On a $400K home with 5% appreciation, waiting 3 years means the home costs $63K more. PMI for 7 years costs ~$25K. Sometimes PMI is the cheaper option."}}
+    ]}
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/savings-tips.html">&#x1F4B0; Money Tips</a><a href="/mortgage-calculator.html">Mortgage</a></nav></div></header>
+
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Free PMI Calculator 2026</h1>
+                    <p class="page-desc">Calculate Private Mortgage Insurance (PMI) costs when you put <strong>less than 20% down</strong>. See how much PMI adds to your monthly payment.</p>
+                    <div class="calc-form">
+                        <div class="form-group"><label for="pmiHome">Home Price</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="pmiHome" class="has-prefix" value="400000" min="0"></div></div>
+                        <div class="form-group"><label for="pmiDown">Down Payment</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="pmiDown" class="has-prefix" value="40000" min="0"></div></div>
+                        <div class="form-row">
+                            <div class="form-group"><label for="pmiRate">Interest Rate</label><div class="input-wrapper"><input type="number" id="pmiRate" value="6.5" step="0.1"><span class="input-suffix">%</span></div></div>
+                            <div class="form-group"><label for="pmiCredit">Credit Score</label><select id="pmiCredit"><option value="0.012">620-659</option><option value="0.009">660-699</option><option value="0.007" selected>700-739</option><option value="0.005">740-759</option><option value="0.004">760+</option></select></div>
+                        </div>
+                        <div class="form-group"><label for="pmiTerm">Loan Term</label><select id="pmiTerm"><option value="30" selected>30 Years</option><option value="20">20 Years</option><option value="15">15 Years</option></select></div>
+                        <button class="btn-calculate" onclick="calcPMI()">Calculate PMI</button>
+                    </div>
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+                    <div class="calc-content">
+                        <h2>What Is PMI (Private Mortgage Insurance)?</h2>
+                        <p>PMI is <strong>insurance you pay to protect the lender</strong> if you put less than 20% down on a conventional mortgage. It doesn't protect you — it protects the lender if you default.</p>
+                        <p>PMI is required on conventional loans with less than 20% down. It typically costs <strong>$30-70 per month per $100,000 borrowed</strong>, or 0.5-1.5% of the loan amount annually.</p>
+
+                        <h2>PMI Rates by Credit Score (2026)</h2>
+                        <p>Your credit score has a major impact on your PMI rate:</p>
+                        <ul>
+                            <li><strong>760+ credit:</strong> 0.35-0.45% annual rate ($29-38/month per $100K loan)</li>
+                            <li><strong>740-759 credit:</strong> 0.45-0.55% annual ($38-46/month per $100K)</li>
+                            <li><strong>700-739 credit:</strong> 0.55-0.75% annual ($46-63/month per $100K)</li>
+                            <li><strong>660-699 credit:</strong> 0.75-1.0% annual ($63-83/month per $100K)</li>
+                            <li><strong>620-659 credit:</strong> 1.0-1.5% annual ($83-125/month per $100K)</li>
+                        </ul>
+                        <p><strong>Tip:</strong> Raising your credit score from 680 to 740 can cut your PMI in half — saving $50-100/month on a typical loan.</p>
+
+                        <h2>How PMI Affects Your Monthly Payment</h2>
+                        <p>On a $400,000 home with 10% down ($360,000 loan):</p>
+                        <ul>
+                            <li><strong>Principal & Interest (6.5%, 30yr):</strong> $2,275/month</li>
+                            <li><strong>PMI (0.7% rate, 700 credit):</strong> $210/month</li>
+                            <li><strong>Total:</strong> $2,485/month</li>
+                            <li><strong>PMI increases payment by 9.2%</strong></li>
+                        </ul>
+                        <p>Over 7 years (typical time to reach 78% LTV), you'll pay ~$17,640 in PMI.</p>
+
+                        <h2>When Does PMI Go Away?</h2>
+                        <ul>
+                            <li><strong>Automatic cancellation:</strong> When loan balance reaches 78% of original home value (based on amortization schedule)</li>
+                            <li><strong>Request cancellation:</strong> When loan balance reaches 80% LTV — you can request early if you've made extra payments or home value increased</li>
+                            <li><strong>Typical timeline:</strong> 5-10 years depending on down payment and extra payments</li>
+                            <li><strong>With 5% down:</strong> Takes ~9 years to reach 78% LTV with normal payments</li>
+                            <li><strong>With 10% down:</strong> Takes ~7 years</li>
+                            <li><strong>With 15% down:</strong> Takes ~4 years</li>
+                        </ul>
+
+                        <h2>Ways to Avoid PMI</h2>
+                        <ul>
+                            <li><strong>Put 20% down</strong> — The simplest solution. No PMI, lower monthly payment, better rate</li>
+                            <li><strong>Piggyback loan (80-10-10):</strong> 80% first mortgage + 10% HELOC/second + 10% down. Higher total payment but no PMI</li>
+                            <li><strong>Lender-paid PMI:</strong> Lender pays PMI in exchange for 0.25-0.5% higher rate. Cannot be cancelled</li>
+                            <li><strong>VA loan:</strong> 0% down, no PMI. Only for veterans and active military</li>
+                            <li><strong>USDA loan:</strong> 0% down, no PMI (but has a guarantee fee). Only for eligible rural areas</li>
+                            <li><strong>FHA loan:</strong> Has MIP (Mortgage Insurance Premium) instead of PMI. Required for the life of the loan if down payment under 10%</li>
+                        </ul>
+
+                        <h2>PMI vs Waiting to Save 20% Down</h2>
+                        <p>Is it better to pay PMI now or wait until you have 20% down?</p>
+                        <ul>
+                            <li><strong>Scenario A — Pay PMI now:</strong> Buy $400K home with 10% down. Pay $210/month PMI for 7 years = $17,640 total PMI cost</li>
+                            <li><strong>Scenario B — Wait 3 years for 20% down:</strong> Home appreciates 5%/year = $63K price increase. You saved $17K PMI but paid $63K more for the home. <em>PMI wins by $46K</em></li>
+                            <li><strong>Scenario C — Wait 3 years, 2% appreciation:</strong> Home costs $24K more. PMI cost $17K. <em>Waiting wins by $7K</em></li>
+                        </ul>
+                        <p><strong>Rule of thumb:</strong> In a market with 4%+ annual appreciation, paying PMI now is usually cheaper than waiting. In slow markets (under 2% appreciation), waiting may be better.</p>
+
+                        <h2>PMI vs MIP vs Funding Fee</h2>
+                        <ul>
+                            <li><strong>PMI:</strong> Conventional loans, 0.5-1.5%/year, cancellable at 78-80% LTV</li>
+                            <li><strong>MIP (FHA):</strong> 1.75% upfront + 0.55%/year. Required for life of loan if down payment under 10% (or 11 years if 10%+ down)</li>
+                            <li><strong>VA Funding Fee:</strong> 2.15-3.3% upfront (can be rolled into loan). No ongoing mortgage insurance</li>
+                            <li><strong>USDA Guarantee Fee:</strong> 1% upfront + 0.35%/year. Lower than PMI</li>
+                        </ul>
+
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="mortgage-calculator.html">Mortgage Calculator</a><a href="down-payment-calculator.html">Down Payment</a><a href="closing-cost-calculator.html">Closing Costs</a><a href="home-affordability-calculator.html">Home Affordability</a></div>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <details class="faq-item"><summary>How much is PMI per month?</summary><p>PMI costs $30-70 per $100,000 borrowed per month (0.5-1.5% annually). On a $320,000 mortgage, expect $133-400/month. Exact rate depends on credit score, down payment, and loan type.</p></details>
+                        <details class="faq-item"><summary>How can I avoid PMI?</summary><p>Put 20% down or more. Or use a piggyback loan (80-10-10). VA and USDA loans have no PMI. Or accept lender-paid PMI with a higher rate.</p></details>
+                        <details class="faq-item"><summary>When does PMI go away?</summary><p>PMI automatically cancels at 78% loan-to-value. You can request cancellation at 80% LTV. Typically takes 5-10 years depending on down payment and extra payments.</p></details>
+                        <details class="faq-item"><summary>Is PMI tax deductible?</summary><p>PMI was deductible through 2025 for AGI under $109,000. The deduction phases out between $100K-109K AGI. Check current tax law as this provision may be extended.</p></details>
+                        <details class="faq-item"><summary>Is it better to pay PMI or wait for 20% down?</summary><p>Depends on appreciation. If home prices rise 4%+/year, paying PMI now is usually cheaper (the home costs more later). In slow markets under 2% appreciation, waiting may be better. Run the numbers for your market.</p></details>
+                    </div>
+                </div>
+
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; PMI Results</h2>
+                    <div class="result-item"><p class="result-label">Loan Amount</p><p class="result-value" id="pmiLoan">$0</p></div>
+                    <div class="result-item"><p class="result-label">Down Payment %</p><p class="result-value" id="pmiPct" style="color:#10b981;">0%</p></div>
+                    <div class="result-item"><p class="result-label">PMI Rate (Annual)</p><p class="result-value" id="pmiRateShow">0%</p></div>
+                    <div class="result-item"><p class="result-label">Monthly PMI</p><p class="result-value" id="pmiMonthly" style="color:#dc2626;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Annual PMI</p><p class="result-value" id="pmiAnnual">$0</p></div>
+                    <div class="results-breakdown">
+                        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Total Cost Analysis</h3>
+                        <div class="breakdown-row"><span>Principal &amp; Interest</span><span id="pmiPni">$0</span></div>
+                        <div class="breakdown-row"><span>PMI</span><span id="pmiShow">$0</span></div>
+                        <div class="breakdown-row" style="border-top:2px solid #e2e8f0;padding-top:8px;margin-top:8px;"><strong><span>Total Monthly</span></strong><strong><span id="pmiTotal">$0</span></strong></div>
+                    </div>
+                    <div style="margin-top:16px;padding:12px;background:#fef3c7;border-radius:8px;border:1px solid #fcd34d;">
+                        <p style="font-size:0.85rem;color:#92400e;margin:0;"><strong>To reach 78% LTV:</strong> Estimated <span id="pmiYears">0</span> years with normal payments. Make extra payments to cancel PMI sooner.</p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+
+    <script>
+    function calcPMI() {
+        const home = parseFloat(document.getElementById('pmiHome').value) || 0;
+        const down = parseFloat(document.getElementById('pmiDown').value) || 0;
+        const rate = parseFloat(document.getElementById('pmiRate').value) / 100 || 0;
+        const pmiRate = parseFloat(document.getElementById('pmiCredit').value) || 0;
+        const term = parseInt(document.getElementById('pmiTerm').value) || 30;
+        const loan = home - down;
+        const downPct = (down / home * 100);
+        const fmt = v => '$' + Math.round(v).toLocaleString();
+
+        // Monthly principal & interest
+        const n = term * 12;
+        const mr = rate / 12;
+        let pni = 0;
+        if (mr > 0 && n > 0) {
+            pni = loan * (mr * Math.pow(1+mr, n)) / (Math.pow(1+mr, n) - 1);
+        }
+
+        // PMI
+        const pmiMonthly = loan * pmiRate / 12;
+        const pmiAnnual = pmiMonthly * 12;
+
+        // Years to 78% LTV (rough estimate)
+        // LTV starts at loan/home, need to reach 0.78
+        // Simplified: assume 3% annual amortization + 2% appreciation = 5% LTV reduction per year
+        const startLTV = loan / home;
+        const yearsTo78 = Math.ceil((startLTV - 0.78) / 0.05);
+
+        document.getElementById('pmiLoan').textContent = fmt(loan);
+        document.getElementById('pmiPct').textContent = downPct.toFixed(1) + '%';
+        document.getElementById('pmiRateShow').textContent = (pmiRate * 100).toFixed(2) + '%';
+        document.getElementById('pmiMonthly').textContent = fmt(pmiMonthly);
+        document.getElementById('pmiAnnual').textContent = fmt(pmiAnnual);
+        document.getElementById('pmiPni').textContent = fmt(pni);
+        document.getElementById('pmiShow').textContent = fmt(pmiMonthly);
+        document.getElementById('pmiTotal').textContent = fmt(pni + pmiMonthly);
+        document.getElementById('pmiYears').textContent = Math.max(1, yearsTo78);
+    }
+    window.addEventListener('load', calcPMI);
+    </script>
+
+    <div class="visitor-counter"><span>👁️ Visitors: </span><span id="visitor-counter" style="display:none;">0</span></div>
+    <script src="js/visitor-counter.js"></script>
+</body>
+</html>
