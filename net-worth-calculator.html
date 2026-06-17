@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Net Worth Calculator 2026 - Calculate Your Wealth | CalcWithMe</title>
+    <meta name="description" content="Free net worth calculator 2026. Calculate your total assets minus liabilities. Compare your net worth by age. See how you stack up against US averages. Updated June 2026.">
+    <meta name="keywords" content="net worth calculator, calculate net worth, net worth by age, average net worth, wealth calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/net-worth-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://calcwithme.com/"},
+      {"@type":"ListItem","position":2,"name":"Calculators","item":"https://calcwithme.com/#calculators"},
+      {"@type":"ListItem","position":3,"name":"Net Worth Calculator","item":"https://calcwithme.com/net-worth-calculator.html"}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What is the average net worth by age in the US?","acceptedAnswer":{"@type":"Answer","text":"Median net worth by age (2026): Under 35: $14,000; 35-44: $91,000; 45-54: $169,000; 55-64: $213,000; 65-74: $266,000; 75+: $257,000. Mean (average) is much higher due to ultra-wealthy outliers."}},
+      {"@type":"Question","name":"What is a good net worth at 30?","acceptedAnswer":{"@type":"Answer","text":"A good net worth at 30 is $30,000-$50,000. This typically includes retirement savings ($15-30K), emergency fund ($5-10K), and some home equity or investments. The median is about $14,000."}}
+    ]}
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/savings-tips.html">&#x1F4B0; Money Tips</a><a href="/mortgage-calculator.html">Mortgage</a></nav></div></header>
+
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Net Worth Calculator 2026</h1>
+                    <p class="page-desc">Calculate your net worth — <strong>total assets minus total liabilities</strong>. Compare with US averages by age.</p>
+
+                    <div class="calc-form">
+                        <h3 style="margin-top:0;">Assets (What You Own)</h3>
+                        <div class="form-group"><label for="nwHome">Home Equity (home value minus mortgage)</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="nwHome" class="has-prefix" value="80000" min="0"></div></div>
+                        <div class="form-group"><label for="nwRetire">Retirement Accounts (401k, IRA, Roth)</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="nwRetire" class="has-prefix" value="45000" min="0"></div></div>
+                        <div class="form-group"><label for="nwInvest">Investment Accounts (brokerage, stocks)</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="nwInvest" class="has-prefix" value="10000" min="0"></div></div>
+                        <div class="form-group"><label for="nwBank">Bank Accounts (checking, savings, CDs)</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="nwBank" class="has-prefix" value="12000" min="0"></div></div>
+                        <div class="form-group"><label for="nwCar">Vehicles (current market value)</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="nwCar" class="has-prefix" value="15000" min="0"></div></div>
+                        <div class="form-group"><label for="nwOther">Other Assets (real estate, business, valuables)</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="nwOther" class="has-prefix" value="0" min="0"></div></div>
+
+                        <h3>Liabilities (What You Owe)</h3>
+                        <div class="form-group"><label for="nwMortgage">Mortgage Balance</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="nwMortgage" class="has-prefix" value="0" min="0"></div></div>
+                        <div class="form-group"><label for="nwStudent">Student Loans</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="nwStudent" class="has-prefix" value="25000" min="0"></div></div>
+                        <div class="form-group"><label for="nwCarLoan">Auto Loans</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="nwCarLoan" class="has-prefix" value="8000" min="0"></div></div>
+                        <div class="form-group"><label for="nwCC">Credit Card Debt</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="nwCC" class="has-prefix" value="3000" min="0"></div></div>
+                        <div class="form-group"><label for="nwOtherDebt">Other Debts (personal loans, medical)</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="nwOtherDebt" class="has-prefix" value="0" min="0"></div></div>
+
+                        <div class="form-group"><label for="nwAge">Your Age</label><div class="input-wrapper"><input type="number" id="nwAge" value="32" min="18" max="100"></div></div>
+                        <button class="btn-calculate" onclick="calcNW()">Calculate Net Worth</button>
+                    </div>
+
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+
+                    <div class="calc-content">
+                        <h2>Average Net Worth by Age (US, 2026)</h2>
+                        <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:0.9rem;">
+                            <tr style="background:#f1f5f9;"><th style="padding:8px;border:1px solid #e2e8f0;">Age</th><th style="padding:8px;border:1px solid #e2e8f0;">Median</th><th style="padding:8px;border:1px solid #e2e8f0;">Mean (Average)</th><th style="padding:8px;border:1px solid #e2e8f0;">Top 10%</th></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">Under 35</td><td style="padding:8px;border:1px solid #e2e8f0;">$14,000</td><td style="padding:8px;border:1px solid #e2e8f0;">$76,000</td><td style="padding:8px;border:1px solid #e2e8f0;">$280,000</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">35-44</td><td style="padding:8px;border:1px solid #e2e8f0;">$91,000</td><td style="padding:8px;border:1px solid #e2e8f0;">$436,000</td><td style="padding:8px;border:1px solid #e2e8f0;">$1,200,000</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">45-54</td><td style="padding:8px;border:1px solid #e2e8f0;">$169,000</td><td style="padding:8px;border:1px solid #e2e8f0;">$533,000</td><td style="padding:8px;border:1px solid #e2e8f0;">$1,600,000</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">55-64</td><td style="padding:8px;border:1px solid #e2e8f0;">$213,000</td><td style="padding:8px;border:1px solid #e2e8f0;">$678,000</td><td style="padding:8px;border:1px solid #e2e8f0;">$2,000,000</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">65-74</td><td style="padding:8px;border:1px solid #e2e8f0;">$266,000</td><td style="padding:8px;border:1px solid #e2e8f0;">$763,000</td><td style="padding:8px;border:1px solid #e2e8f0;">$2,200,000</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">75+</td><td style="padding:8px;border:1px solid #e2e8f0;">$257,000</td><td style="padding:8px;border:1px solid #e2e8f0;">$635,000</td><td style="padding:8px;border:1px solid #e2e8f0;">$1,900,000</td></tr>
+                        </table>
+                        <p><strong>Median vs Mean:</strong> Median is the "middle" — half above, half below. Mean is skewed up by billionaires. Use median as your benchmark.</p>
+
+                        <h2>Net Worth Milestones by Age</h2>
+                        <ul>
+                            <li><strong>Age 25:</strong> $5,000-$15,000 (building emergency fund, starting retirement savings)</li>
+                            <li><strong>Age 30:</strong> $30,000-$60,000 (6-month emergency fund, $15-30K in retirement)</li>
+                            <li><strong>Age 35:</strong> $75,000-$120,000 (2x salary in retirement accounts, home equity starting)</li>
+                            <li><strong>Age 40:</strong> $150,000-$250,000 (3x salary in retirement, significant home equity)</li>
+                            <li><strong>Age 50:</strong> $300,000-$500,000 (6x salary in retirement, investments compounding)</li>
+                            <li><strong>Age 60:</strong> $500,000-$800,000 (8-10x salary in retirement, mortgage paid down)</li>
+                        </ul>
+
+                        <h2>How to Increase Your Net Worth</h2>
+                        <ul>
+                            <li><strong>Pay off high-interest debt first:</strong> Credit cards at 20%+ interest destroy net worth faster than anything. Every $1,000 paid off saves $200+/year.</li>
+                            <li><strong>Automate retirement contributions:</strong> 401(k) up to employer match (free money!), then max Roth IRA ($7,000 in 2026), then back to 401(k).</li>
+                            <li><strong>Build an emergency fund:</strong> 3-6 months expenses in a high-yield savings account (4-5% APY in 2026). This prevents debt spirals.</li>
+                            <li><strong>Invest consistently:</strong> Dollar-cost averaging into low-cost index funds (S&P 500: ~10% average annual return). Even $200/month becomes $150K+ in 20 years.</li>
+                            <li><strong>Buy a home strategically:</strong> Only if you plan to stay 5+ years and can afford 20% down. Home equity is the largest asset for most Americans.</li>
+                            <li><strong>Increase income:</strong> Side hustles, career advancement, negotiation. A $10K raise invested at 7% = $200K in 30 years.</li>
+                        </ul>
+
+                        <h2>Common Net Worth Mistakes</h2>
+                        <ul>
+                            <li><strong>Counting home value but not mortgage:</strong> Your home equity = value minus mortgage. A $500K home with a $400K mortgage is $100K net worth, not $500K.</li>
+                            <li><strong>Forgetting vehicles depreciate:</strong> Cars lose 20-30% in year one. Don't count the purchase price — use current market value (Kelley Blue Book).</li>
+                            <li><strong>Ignoring retirement account taxes:</strong> Traditional 401(k)/IRA withdrawals are taxed. A $100K balance is worth ~$75K after taxes. Roth accounts are tax-free.</li>
+                            <li><strong>Not tracking progress:</strong> Calculate net worth quarterly. What gets measured gets managed.</li>
+                        </ul>
+
+                        <h2>Net Worth by Percentile</h2>
+                        <p>Where do you stand? US net worth percentiles (all ages):</p>
+                        <ul>
+                            <li><strong>Bottom 25%:</strong> Below $12,000 (many are negative due to student debt)</li>
+                            <li><strong>25th-50th:</strong> $12,000 - $122,000 (median)</li>
+                            <li><strong>50th-75th:</strong> $122,000 - $464,000</li>
+                            <li><strong>75th-90th:</strong> $464,000 - $1,200,000</li>
+                            <li><strong>Top 10%:</strong> Above $1,200,000</li>
+                            <li><strong>Top 1%:</strong> Above $11,000,000</li>
+                        </ul>
+
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="retirement-calculator.html">Retirement Calculator</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="investment-roi-calculator.html">Investment ROI</a><a href="savings-goal-calculator.html">Savings Goal</a></div>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <details class="faq-item"><summary>What is the average net worth by age in the US?</summary><p>Median net worth by age: Under 35: $14K; 35-44: $91K; 45-54: $169K; 55-64: $213K; 65-74: $266K; 75+: $257K. Mean (average) is much higher due to ultra-wealthy outliers. Always compare to median.</p></details>
+                        <details class="faq-item"><summary>What is a good net worth at 30?</summary><p>A good net worth at 30 is $30,000-$50,000. This typically includes retirement savings ($15-30K), emergency fund ($5-10K), and some investments. The median is about $14,000.</p></details>
+                        <details class="faq-item"><summary>Does net worth include my house?</summary><p>Yes — but only the equity (value minus mortgage). If your home is worth $400K and you owe $280K, your home equity is $120K. Don't count the full home value without subtracting the mortgage.</p></details>
+                    </div>
+                </div>
+
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Your Net Worth</h2>
+                    <div class="result-item"><p class="result-label">Total Assets</p><p class="result-value" id="resAssets" style="color:#2563eb;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Total Liabilities</p><p class="result-value" id="resLiab" style="color:#ef4444;">$0</p></div>
+                    <div style="padding:16px;background:#f0fdf4;border-radius:8px;margin:12px 0;text-align:center;">
+                        <p style="font-size:0.85rem;margin:0;color:#166534;"><strong>Net Worth</strong></p>
+                        <p class="result-value" id="resNW" style="color:#16a34a;font-size:2rem;">$0</p>
+                    </div>
+                    <div class="results-breakdown">
+                        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">vs. US Median (Your Age)</h3>
+                        <div class="breakdown-row"><span>Your Net Worth</span><span id="resYourNW">$0</span></div>
+                        <div class="breakdown-row"><span>US Median</span><span id="resMedNW">$0</span></div>
+                        <div class="breakdown-row"><span>Percentile (est.)</span><span id="resPctile">-</span></div>
+                        <div class="breakdown-row" style="border-top:2px solid #e2e8f0;padding-top:8px;margin-top:8px;"><span>Debt-to-Asset Ratio</span><span id="resDTA">0%</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+
+    <script>
+    function calcNW() {
+        const assets = ['nwHome','nwRetire','nwInvest','nwBank','nwCar','nwOther'].reduce((s,id) => s + (parseFloat(document.getElementById(id).value)||0), 0);
+        const liabs = ['nwMortgage','nwStudent','nwCarLoan','nwCC','nwOtherDebt'].reduce((s,id) => s + (parseFloat(document.getElementById(id).value)||0), 0);
+        const nw = assets - liabs;
+        const age = parseInt(document.getElementById('nwAge').value) || 35;
+
+        const fmt = v => (v < 0 ? '-$' : '$') + Math.abs(Math.round(v)).toLocaleString();
+        document.getElementById('resAssets').textContent = fmt(assets);
+        document.getElementById('resLiab').textContent = fmt(liabs);
+        document.getElementById('resNW').textContent = fmt(nw);
+        document.getElementById('resNW').style.color = nw >= 0 ? '#16a34a' : '#ef4444';
+        document.getElementById('resYourNW').textContent = fmt(nw);
+
+        // Age-based comparison
+        const medians = {25:8000, 30:14000, 35:91000, 40:135000, 45:169000, 50:200000, 55:213000, 60:250000, 65:266000, 70:260000, 75:257000};
+        const ages = Object.keys(medians).map(Number).sort((a,b)=>a-b);
+        let median = medians[ages[ages.length-1]];
+        for (let i = 0; i < ages.length - 1; i++) {
+            if (age >= ages[i] && age < ages[i+1]) {
+                const t = (age - ages[i]) / (ages[i+1] - ages[i]);
+                median = medians[ages[i]] + t * (medians[ages[i+1]] - medians[ages[i]]);
+                break;
+            }
+        }
+        document.getElementById('resMedNW').textContent = fmt(median);
+
+        const dta = assets > 0 ? (liabs / assets * 100).toFixed(1) : 0;
+        document.getElementById('resDTA').textContent = dta + '%';
+
+        // Rough percentile estimate
+        const ratio = nw / median;
+        let pctile;
+        if (ratio < 0) pctile = 'Below 25th';
+        else if (ratio < 0.5) pctile = '25th-35th';
+        else if (ratio < 1) pctile = '35th-50th';
+        else if (ratio < 2) pctile = '50th-65th';
+        else if (ratio < 4) pctile = '65th-80th';
+        else if (ratio < 8) pctile = '80th-90th';
+        else pctile = 'Top 10%';
+        document.getElementById('resPctile').textContent = pctile;
+    }
+    window.addEventListener('load', calcNW);
+    </script>
+    <div class="visitor-counter"><span>👁️ Visitors: </span><span id="visitor-counter" style="display:none;">0</span></div>
+    <script src="js/visitor-counter.js"></script>
+</body>
+</html>

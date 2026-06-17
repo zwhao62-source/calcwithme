@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Capital Gains Tax Calculator 2026 - Short &amp; Long Term | CalcWithMe</title>
+    <meta name="description" content="Free capital gains tax calculator 2026. Calculate short-term and long-term capital gains tax rates, federal + state. Includes 2026 tax brackets and strategies to minimize tax.">
+    <meta name="keywords" content="capital gains tax calculator, capital gains tax rate, long term capital gains, short term capital gains, stock tax calculator">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/capital-gains-tax-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://calcwithme.com/"},
+      {"@type":"ListItem","position":2,"name":"Calculators","item":"https://calcwithme.com/#calculators"},
+      {"@type":"ListItem","position":3,"name":"Capital Gains Tax","item":"https://calcwithme.com/capital-gains-tax-calculator.html"}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What is the capital gains tax rate for 2026?","acceptedAnswer":{"@type":"Answer","text":"Long-term capital gains rates for 2026 are 0%, 15%, or 20% depending on your taxable income. Short-term gains are taxed at ordinary income rates (10%-37%). Income thresholds: 0% up to $94K (single), 15% up to $583K, 20% above $583K."}},
+      {"@type":"Question","name":"How do I avoid capital gains tax?","acceptedAnswer":{"@type":"Answer","text":"Hold assets 1+ year for long-term rates, harvest losses to offset gains, invest in tax-advantaged accounts (401k/IRA), use the home sale exclusion ($250K single, $500K married), and donate appreciated assets to charity."}}
+    ]}
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/savings-tips.html">&#x1F4B0; Money Tips</a><a href="/mortgage-calculator.html">Mortgage</a></nav></div></header>
+
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Capital Gains Tax Calculator 2026</h1>
+                    <p class="page-desc">Calculate your capital gains tax — <strong>short-term & long-term rates, federal + state, with 2026 brackets</strong>. Updated June 2026.</p>
+
+                    <div class="calc-form">
+                        <div class="form-group"><label for="cgFiling">Filing Status</label><select id="cgFiling"><option value="single">Single</option><option value="mfj" selected>Married Filing Jointly</option><option value="mfs">Married Filing Separately</option><option value="hoh">Head of Household</option></select></div>
+                        <div class="form-group"><label for="cgIncome">Annual Taxable Income (before gains)</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="cgIncome" class="has-prefix" value="100000" min="0"></div></div>
+                        <div class="form-group"><label for="cgPurchase">Purchase Price (Cost Basis)</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="cgPurchase" class="has-prefix" value="50000" min="0"></div></div>
+                        <div class="form-group"><label for="cgSell">Sale Price</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="cgSell" class="has-prefix" value="85000" min="0"></div></div>
+                        <div class="form-group"><label>Holding Period</label><select id="cgHolding"><option value="short">Short-Term (&lt;1 year)</option><option value="long" selected>Long-Term (1+ year)</option></select></div>
+                        <div class="form-group"><label for="cgState">State</label><select id="cgState"><option value="0">No state income tax (TX, FL, WA, etc.)</option><option value="0.01">California (13.3%)</option><option value="0.02">New York (10.9%)</option><option value="0.03">New Jersey (10.75%)</option><option value="0.04">Oregon (9.9%)</option><option value="0.05">Minnesota (9.85%)</option><option value="0.05">Illinois (4.95%)</option><option value="0.06">Colorado (4.4%)</option><option value="0.07">Virginia (5.75%)</option><option value="0.08">Georgia (5.49%)</option><option value="0.09">Pennsylvania (3.07%)</option><option value="0.10">Massachusetts (5%)</option><option value="0.11">Other state (4% avg)</option></select></div>
+                        <button class="btn-calculate" onclick="calcCG()">Calculate Capital Gains Tax</button>
+                    </div>
+
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+
+                    <div class="calc-content">
+                        <h2>2026 Long-Term Capital Gains Tax Brackets</h2>
+                        <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:0.9rem;">
+                            <tr style="background:#f1f5f9;"><th style="padding:8px;border:1px solid #e2e8f0;">Rate</th><th style="padding:8px;border:1px solid #e2e8f0;">Single</th><th style="padding:8px;border:1px solid #e2e8f0;">Married Filing Jointly</th><th style="padding:8px;border:1px solid #e2e8f0;">Head of Household</th></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;"><strong>0%</strong></td><td style="padding:8px;border:1px solid #e2e8f0;">Up to $47,025</td><td style="padding:8px;border:1px solid #e2e8f0;">Up to $94,050</td><td style="padding:8px;border:1px solid #e2e8f0;">Up to $63,000</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;"><strong>15%</strong></td><td style="padding:8px;border:1px solid #e2e8f0;">$47,026 – $518,900</td><td style="padding:8px;border:1px solid #e2e8f0;">$94,051 – $583,750</td><td style="padding:8px;border:1px solid #e2e8f0;">$63,001 – $551,350</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;"><strong>20%</strong></td><td style="padding:8px;border:1px solid #e2e8f0;">Over $518,900</td><td style="padding:8px;border:1px solid #e2e8f0;">Over $583,750</td><td style="padding:8px;border:1px solid #e2e8f0;">Over $551,350</td></tr>
+                        </table>
+                        <p><strong>3.8% Net Investment Income Tax (NIIT)</strong> applies if your modified AGI exceeds $250K (MFJ) or $200K (single/HOH). This is on top of the capital gains rate.</p>
+
+                        <h2>Short-Term vs Long-Term Capital Gains</h2>
+                        <ul>
+                            <li><strong>Short-term (&lt;1 year):</strong> Taxed as ordinary income at your marginal rate (10%-37%). Highest bracket: 37% on gains.</li>
+                            <li><strong>Long-term (1+ year):</strong> Taxed at preferential rates: 0%, 15%, or 20%. Holding just 1 day longer than 365 days can save you 17-37% in taxes.</li>
+                        </ul>
+                        <p style="background:#fef2f2;padding:12px 16px;border-radius:8px;margin:12px 0;"><strong>Example:</strong> A single filer earning $40,000 who sells stock with a $20,000 gain held for 10 months pays <strong>$3,600 at 18% ordinary rate</strong>. If held 13 months: <strong>$0 tax at 0% long-term rate</strong>. Holding period matters!</p>
+
+                        <h2>Strategies to Minimize Capital Gains Tax</h2>
+                        <ul>
+                            <li><strong>Tax-loss harvesting:</strong> Sell losing investments to offset up to $3,000/year in ordinary income. Unused losses carry forward indefinitely.</li>
+                            <li><strong>Hold 1+ year:</strong> The simplest strategy — long-term rates are 0-20% vs. 10-37% for short-term.</li>
+                            <li><strong>Home sale exclusion:</strong> $250K (single) or $500K (married) tax-free if you lived in the home 2 of 5 years.</li>
+                            <li><strong>Donate appreciated stock:</strong> Deduct the fair market value (not just your cost basis) and pay zero capital gains tax.</li>
+                            <li><strong>Use retirement accounts:</strong> Gains in 401(k), IRA, and HSA accounts are tax-deferred or tax-free.</li>
+                            <li><strong>Installment sale:</strong> Spread gains across multiple years by selling on an installment basis.</li>
+                            <li><strong>Charitable remainder trust:</strong> Defer capital gains while donating to charity — best for highly appreciated assets.</li>
+                        </ul>
+
+                        <h2>What Counts as a Capital Gain?</h2>
+                        <ul>
+                            <li><strong>Stocks & ETFs:</strong> Sale of individual stocks, mutual funds, and exchange-traded funds</li>
+                            <li><strong>Real estate:</strong> Sale of investment property (rental homes, land, commercial). Primary residence uses the $250K/$500K exclusion.</li>
+                            <li><strong>Cryptocurrency:</strong> Sale of Bitcoin, Ethereum, and other crypto — taxed as capital gains. Mining/staking income is ordinary income.</li>
+                            <li><strong>Collectibles:</strong> Art, coins, stamps taxed at 28% max long-term rate (higher than standard 20%)</li>
+                            <li><strong>Small business stock (Section 1202):</strong> Up to $10M or 10x basis excluded if held 5+ years in a qualified small business</li>
+                        </ul>
+
+                        <h2>State Capital Gains Tax Rates</h2>
+                        <p>Most states tax capital gains as ordinary income. Rates range from 0% (states with no income tax) to 13.3% (California). A few states offer partial exemptions or lower rates for capital gains.</p>
+                        <ul>
+                            <li><strong>No tax:</strong> Alaska, Florida, Nevada, New Hampshire, South Dakota, Tennessee, Texas, Washington, Wyoming</li>
+                            <li><strong>Highest:</strong> California (13.3%), New York (10.9%), New Jersey (10.75%), Oregon (9.9%), Minnesota (9.85%)</li>
+                            <li><strong>Lowest (with tax):</strong> North Dakota (2.5%), Pennsylvania (3.07%), Indiana (3.05%), Arizona (2.5%)</li>
+                        </ul>
+
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="tax-calculator.html">Tax Calculator</a><a href="salary-calculator.html">Salary Calculator</a><a href="investment-roi-calculator.html">Investment ROI</a><a href="retirement-calculator.html">Retirement</a></div>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <details class="faq-item"><summary>What is the capital gains tax rate for 2026?</summary><p>Long-term capital gains rates are 0%, 15%, or 20% depending on your taxable income. Short-term gains are taxed at ordinary income rates (10%-37%). Most middle-income earners pay 15% on long-term gains.</p></details>
+                        <details class="faq-item"><summary>Do I pay capital gains on my primary home?</summary><p>No, if you qualify for the exclusion: $250,000 (single) or $500,000 (married) tax-free gain if you owned and lived in the home 2 of the last 5 years. You can use this exclusion once every 2 years.</p></details>
+                        <details class="faq-item"><summary>How do I report capital gains on my tax return?</summary><p>Use IRS Form 8949 to report individual sales, then transfer totals to Schedule D. Your broker's 1099-B provides sale details. Tax software (TurboTax, H&R Block) handles this automatically.</p></details>
+                    </div>
+                </div>
+
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Capital Gains Tax</h2>
+                    <div class="result-item"><p class="result-label">Capital Gain</p><p class="result-value" id="resGain" style="color:#2563eb;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Federal Tax Rate</p><p class="result-value" id="resFedRate" style="color:#f59e0b;">0%</p></div>
+                    <div class="result-item"><p class="result-label">Federal Tax</p><p class="result-value" id="resFedTax" style="color:#ef4444;">$0</p></div>
+                    <div class="result-item"><p class="result-label">State Tax</p><p class="result-value" id="resStateTax" style="color:#8b5cf6;">$0</p></div>
+                    <div class="result-item"><p class="result-label">NIIT (3.8%)</p><p class="result-value" id="resNIIT" style="color:#6b7280;">$0</p></div>
+                    <div class="results-breakdown">
+                        <div class="breakdown-row" style="border-top:2px solid #e2e8f0;padding-top:8px;margin-top:8px;"><strong><span>Total Tax</span></strong><strong><span id="resTotalTax" style="color:#ef4444;">$0</span></strong></div>
+                        <div class="breakdown-row"><span>After-Tax Profit</span><span id="resAfterTax" style="color:#16a34a;">$0</span></div>
+                        <div class="breakdown-row"><span>Effective Rate</span><span id="resEffRate">0%</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+
+    <script>
+    function calcCG() {
+        const filing = document.getElementById('cgFiling').value;
+        const income = parseFloat(document.getElementById('cgIncome').value) || 0;
+        const purchase = parseFloat(document.getElementById('cgPurchase').value) || 0;
+        const sell = parseFloat(document.getElementById('cgSell').value) || 0;
+        const holding = document.getElementById('cgHolding').value;
+        const stateIdx = document.getElementById('cgState').selectedIndex;
+        const stateRates = [0, 0.133, 0.109, 0.1075, 0.099, 0.0985, 0.0495, 0.044, 0.0575, 0.0549, 0.0307, 0.05, 0.04];
+        const stateRate = stateRates[stateIdx] || 0;
+
+        const gain = sell - purchase;
+        if (gain <= 0) {
+            document.getElementById('resGain').textContent = '$' + Math.round(gain).toLocaleString();
+            document.getElementById('resGain').style.color = '#16a34a';
+            document.getElementById('resFedRate').textContent = 'N/A';
+            document.getElementById('resFedTax').textContent = '$0';
+            document.getElementById('resStateTax').textContent = '$0';
+            document.getElementById('resNIIT').textContent = '$0';
+            document.getElementById('resTotalTax').textContent = '$0';
+            document.getElementById('resAfterTax').textContent = '$' + Math.round(gain).toLocaleString();
+            document.getElementById('resEffRate').textContent = 'N/A (loss)';
+            return;
+        }
+        document.getElementById('resGain').textContent = '$' + gain.toLocaleString();
+
+        let fedRate, fedTax;
+        if (holding === 'short') {
+            // Short-term: ordinary income rates (simplified 2026 brackets)
+            const brackets = filing === 'mfj'
+                ? [[23200, 0.10], [94300, 0.12], [201050, 0.22], [383900, 0.24], [487450, 0.32], [731200, 0.35], [Infinity, 0.37]]
+                : filing === 'hoh'
+                ? [[16550, 0.10], [63100, 0.12], [100500, 0.22], [191950, 0.24], [243700, 0.32], [609350, 0.35], [Infinity, 0.37]]
+                : [[11600, 0.10], [47150, 0.12], [100525, 0.22], [191950, 0.24], [243725, 0.32], [609350, 0.35], [Infinity, 0.37]];
+            const totalInc = income + gain;
+            let tax = 0, prev = 0;
+            for (const [bracket, rate] of brackets) {
+                if (totalInc > prev) {
+                    const taxable = Math.min(totalInc, bracket) - prev;
+                    const gainInBracket = Math.min(taxable, Math.max(0, totalInc - prev - (income - prev > 0 ? income - prev : 0)));
+                    tax += gainInBracket * rate; // simplified: tax on gain portion
+                }
+                prev = bracket;
+            }
+            // Simpler approach: marginal rate
+            let marginalRate = 0.37;
+            for (const [bracket, rate] of brackets) {
+                if (totalInc <= bracket) { marginalRate = rate; break; }
+            }
+            fedRate = marginalRate;
+            fedTax = gain * marginalRate;
+        } else {
+            // Long-term capital gains
+            const thresholds = filing === 'mfj'
+                ? [47025, 583750]
+                : filing === 'hoh'
+                ? [63000, 551350]
+                : filing === 'mfs'
+                ? [47025, 291850]
+                : [47025, 518900];
+            if (income <= thresholds[0]) { fedRate = 0; }
+            else if (income <= thresholds[1]) { fedRate = 15; }
+            else { fedRate = 20; }
+            fedTax = gain * fedRate / 100;
+        }
+
+        // NIIT
+        const niitThreshold = filing === 'mfj' ? 250000 : 200000;
+        const totalIncome = income + gain;
+        let niit = 0;
+        if (totalIncome > niitThreshold) {
+            niit = gain * 0.038;
+        }
+
+        const stateTax = gain * stateRate;
+        const totalTax = fedTax + niit + stateTax;
+        const afterTax = gain - totalTax;
+        const effRate = gain > 0 ? (totalTax / gain * 100).toFixed(1) : 0;
+
+        document.getElementById('resFedRate').textContent = fedRate + '%';
+        document.getElementById('resFedTax').textContent = '$' + Math.round(fedTax).toLocaleString();
+        document.getElementById('resStateTax').textContent = '$' + Math.round(stateTax).toLocaleString();
+        document.getElementById('resNIIT').textContent = '$' + Math.round(niit).toLocaleString();
+        document.getElementById('resTotalTax').textContent = '$' + Math.round(totalTax).toLocaleString();
+        document.getElementById('resAfterTax').textContent = '$' + Math.round(afterTax).toLocaleString();
+        document.getElementById('resEffRate').textContent = effRate + '%';
+    }
+    window.addEventListener('load', calcCG);
+    </script>
+    <div class="visitor-counter"><span>👁️ Visitors: </span><span id="visitor-counter" style="display:none;">0</span></div>
+    <script src="js/visitor-counter.js"></script>
+</body>
+</html>

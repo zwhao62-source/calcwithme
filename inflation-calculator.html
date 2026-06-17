@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Inflation Calculator 2026 - CPI &amp; Purchasing Power | CalcWithMe</title>
+    <meta name="description" content="Free inflation calculator 2026. Calculate how inflation affects purchasing power over time. CPI data from 1913 to 2026. See what $100 in 2000 is worth today.">
+    <meta name="keywords" content="inflation calculator, purchasing power calculator, CPI calculator, dollar value over time, inflation rate">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/inflation-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📉</text></svg>">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://calcwithme.com/"},
+      {"@type":"ListItem","position":2,"name":"Calculators","item":"https://calcwithme.com/#calculators"},
+      {"@type":"ListItem","position":3,"name":"Inflation Calculator","item":"https://calcwithme.com/inflation-calculator.html"}
+    ]}
+    </script>
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"What is the current inflation rate in 2026?","acceptedAnswer":{"@type":"Answer","text":"US inflation (CPI) in 2026 is approximately 2.5-3.0% year-over-year as of June 2026. This is down from the 2022 peak of 9.1% and near the Federal Reserve's 2% target."}},
+      {"@type":"Question","name":"How much has the dollar lost to inflation since 2000?","acceptedAnswer":{"@type":"Answer","text":"Since 2000, cumulative inflation has been approximately 80-85%. This means $100 in 2000 has the same purchasing power as about $185 in 2026. The dollar has lost roughly 46% of its value."}}
+    ]}
+    </script>
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+</head>
+<body>
+    <header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/#calculators">Calculators</a><a href="/#about">About</a><a href="/blog">Blog</a><a href="/savings-tips.html">&#x1F4B0; Money Tips</a><a href="/mortgage-calculator.html">Mortgage</a></nav></div></header>
+
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Inflation Calculator 2026</h1>
+                    <p class="page-desc">How much has inflation changed the value of money? <strong>Calculate purchasing power from 1913 to 2026</strong> using CPI data.</p>
+
+                    <div class="calc-form">
+                        <div class="form-group"><label for="infAmount">Amount in Original Year</label><div class="input-wrapper"><span class="input-prefix">$</span><input type="number" id="infAmount" class="has-prefix" value="100" min="0"></div></div>
+                        <div class="form-group"><label for="infFromYear">From Year</label><div class="input-wrapper"><input type="number" id="infFromYear" value="2000" min="1913" max="2026"></div></div>
+                        <div class="form-group"><label for="infToYear">To Year</label><div class="input-wrapper"><input type="number" id="infToYear" value="2026" min="1913" max="2026"></div></div>
+                        <button class="btn-calculate" onclick="calcInflation()">Calculate Purchasing Power</button>
+                    </div>
+
+                    <div class="ad-container">Advertisement Space — Google AdSense</div>
+
+                    <div class="calc-content">
+                        <h2>How Inflation Erodes Purchasing Power</h2>
+                        <p>Inflation measures the rate at which prices increase over time, reducing what your money can buy. The US Bureau of Labor Statistics tracks this through the <strong>Consumer Price Index (CPI)</strong>.</p>
+                        <ul>
+                            <li><strong>1913:</strong> CPI baseline established at 9.9</li>
+                            <li><strong>1980:</strong> CPI = 82.4 (728% increase from 1913)</li>
+                            <li><strong>2000:</strong> CPI = 172.2 (1,640% increase from 1913)</li>
+                            <li><strong>2022:</strong> CPI = 296.8 (peak inflation, 9.1% YoY)</li>
+                            <li><strong>2026:</strong> CPI ≈ 318 (est. 2.5-3.0% YoY)</li>
+                        </ul>
+
+                        <h2>Historical Inflation by Decade</h2>
+                        <table style="width:100%;border-collapse:collapse;margin:16px 0;font-size:0.9rem;">
+                            <tr style="background:#f1f5f9;"><th style="padding:8px;border:1px solid #e2e8f0;">Decade</th><th style="padding:8px;border:1px solid #e2e8f0;">Avg Annual Rate</th><th style="padding:8px;border:1px solid #e2e8f0;">Cumulative</th><th style="padding:8px;border:1px solid #e2e8f0;">$100 Becomes</th></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">1950s</td><td style="padding:8px;border:1px solid #e2e8f0;">2.1%</td><td style="padding:8px;border:1px solid #e2e8f0;">23%</td><td style="padding:8px;border:1px solid #e2e8f0;">$81</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">1960s</td><td style="padding:8px;border:1px solid #e2e8f0;">2.4%</td><td style="padding:8px;border:1px solid #e2e8f0;">27%</td><td style="padding:8px;border:1px solid #e2e8f0;">$79</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">1970s</td><td style="padding:8px;border:1px solid #e2e8f0;">7.4%</td><td style="padding:8px;border:1px solid #e2e8f0;">105%</td><td style="padding:8px;border:1px solid #e2e8f0;">$49</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">1980s</td><td style="padding:8px;border:1px solid #e2e8f0;">5.1%</td><td style="padding:8px;border:1px solid #e2e8f0;">64%</td><td style="padding:8px;border:1px solid #e2e8f0;">$61</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">1990s</td><td style="padding:8px;border:1px solid #e2e8f0;">3.0%</td><td style="padding:8px;border:1px solid #e2e8f0;">34%</td><td style="padding:8px;border:1px solid #e2e8f0;">$75</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">2000s</td><td style="padding:8px;border:1px solid #e2e8f0;">2.5%</td><td style="padding:8px;border:1px solid #e2e8f0;">28%</td><td style="padding:8px;border:1px solid #e2e8f0;">$78</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">2010s</td><td style="padding:8px;border:1px solid #e2e8f0;">1.8%</td><td style="padding:8px;border:1px solid #e2e8f0;">19%</td><td style="padding:8px;border:1px solid #e2e8f0;">$84</td></tr>
+                            <tr><td style="padding:8px;border:1px solid #e2e8f0;">2020-2026</td><td style="padding:8px;border:1px solid #e2e8f0;">4.3%</td><td style="padding:8px;border:1px solid #e2e8f0;">30%</td><td style="padding:8px;border:1px solid #e2e8f0;">$77</td></tr>
+                        </table>
+
+                        <h2>Why Inflation Matters for Your Finances</h2>
+                        <ul>
+                            <li><strong>Savings erosion:</strong> At 3% inflation, $10,000 in a savings account earning 0.5% loses $250/year in purchasing power</li>
+                            <li><strong>Salary stagnation:</strong> A 3% raise with 3% inflation = 0% real wage growth. You need raises above inflation to get ahead</li>
+                            <li><strong>Investment returns:</strong> A 7% stock return minus 3% inflation = 4% real return. Always think in real (after-inflation) terms</li>
+                            <li><strong>Debt advantage:</strong> Fixed-rate debt gets "cheaper" over time — a $2,000 mortgage payment in 2040 will feel like $1,200 in today's dollars</li>
+                            <li><strong>Retirement planning:</strong> At 3% inflation, you need $2.43 at age 75 for every $1 you need at age 65 — plan for higher withdrawals</li>
+                        </ul>
+
+                        <h2>How to Protect Against Inflation</h2>
+                        <ul>
+                            <li><strong>I Bonds:</strong> Treasury bonds that adjust for inflation — 6.89% rate in 2023, now ~3.5% (rate resets every 6 months). $10K/year max.</li>
+                            <li><strong>TIPS:</strong> Treasury Inflation-Protected Securities — principal adjusts with CPI. No annual limit. Best in brokerage/IRA accounts.</li>
+                            <li><strong>Real estate:</strong> Property values and rents tend to rise with inflation. Mortgages with fixed rates get "cheaper" in real terms.</li>
+                            <li><strong>Stocks:</strong> Historically 7% real returns (after inflation) — the best long-term inflation hedge available to most investors.</li>
+                            <li><strong>Commodities/Gold:</strong> Traditional inflation hedge but volatile. Gold returned ~1% real return over the last 100 years.</li>
+                            <li><strong>Avoid long-term bonds:</strong> 10-30 year bonds lose value when inflation rises. Keep bond durations short (1-5 years).</li>
+                        </ul>
+
+                        <h2>2026 Inflation Outlook</h2>
+                        <p>After peaking at 9.1% in June 2022, inflation has moderated significantly:</p>
+                        <ul>
+                            <li><strong>Federal Reserve target:</strong> 2% (long-run)</li>
+                            <li><strong>2026 projection:</strong> 2.5-3.0% (CPI year-over-year)</li>
+                            <li><strong>Core inflation (ex-food/energy):</strong> 2.8-3.2%</li>
+                            <li><strong>Fed funds rate:</strong> 4.25-4.50% (down from 5.25-5.50% peak)</li>
+                            <li><strong>Risk factors:</strong> Tariff policy, energy prices, housing costs, wage growth</li>
+                        </ul>
+
+                        <div class="related-calcs"><h3>Related Calculators</h3><a href="compound-interest-calculator.html">Compound Interest</a><a href="investment-roi-calculator.html">Investment ROI</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div>
+                    </div>
+
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <details class="faq-item"><summary>What is the current inflation rate in 2026?</summary><p>US inflation (CPI) in 2026 is approximately 2.5-3.0% year-over-year as of June 2026. This is down from the 2022 peak of 9.1% and near the Federal Reserve's 2% target.</p></details>
+                        <details class="faq-item"><summary>How much has the dollar lost since 2000?</summary><p>Cumulative inflation since 2000 is approximately 80-85%. $100 in 2000 has the same purchasing power as about $185 in 2026. The dollar has lost roughly 46% of its value.</p></details>
+                        <details class="faq-item"><summary>What causes inflation?</summary><p>Three main causes: (1) Demand-pull — too much money chasing too few goods, (2) Cost-push — rising production costs (wages, materials, energy), (3) Built-in — workers demand higher wages to keep up with prices, creating a cycle.</p></details>
+                    </div>
+                </div>
+
+                <aside class="results-panel">
+                    <h2>&#x1F4CA; Inflation Result</h2>
+                    <div class="result-item"><p class="result-label">Original Amount</p><p class="result-value" id="resOriginal" style="color:#6b7280;">$100</p></div>
+                    <div class="result-item"><p class="result-label">Equivalent in Target Year</p><p class="result-value" id="resEquiv" style="color:#2563eb;font-size:1.5rem;">$0</p></div>
+                    <div class="result-item"><p class="result-label">Cumulative Inflation</p><p class="result-value" id="resCumInf" style="color:#ef4444;">0%</p></div>
+                    <div class="result-item"><p class="result-label">Average Annual Rate</p><p class="result-value" id="resAnnRate" style="color:#f59e0b;">0%</p></div>
+                    <div class="results-breakdown">
+                        <h3 style="font-size:0.95rem;font-weight:700;margin-bottom:12px;">Purchasing Power</h3>
+                        <div class="breakdown-row"><span>Lost to Inflation</span><span id="resLost" style="color:#ef4444;">0%</span></div>
+                        <div class="breakdown-row"><span>$1 Then = Now</span><span id="resDollar">$0</span></div>
+                        <div class="breakdown-row"><span>To Match: Need</span><span id="resNeed" style="color:#16a34a;">$0</span></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer><div class="container"><div class="footer-inner"><div class="footer-brand"><span class="logo-icon">&#x1F522;</span><span>CalcWithMe</span><p>Free financial calculators.</p></div><div class="footer-links"><h4>Popular</h4><a href="mortgage-calculator.html">Mortgage</a><a href="loan-calculator.html">Loan</a><a href="compound-interest-calculator.html">Compound Interest</a></div><div class="footer-links"><h4>More</h4><a href="auto-loan-calculator.html">Auto Loan</a><a href="retirement-calculator.html">Retirement</a><a href="salary-calculator.html">Salary</a></div></div><div class="footer-bottom"><p>&#169; 2026 CalcWithMe.com.</p></div></div></footer>
+
+    <script>
+    // Simplified CPI index (key years, interpolated between)
+    const cpiData = {
+        1913:9.9,1920:20.0,1930:16.7,1940:14.0,1950:24.1,1960:29.6,1970:38.8,
+        1980:82.4,1990:130.7,2000:172.2,2005:195.3,2010:218.1,2015:237.0,
+        2019:255.7,2020:258.8,2021:271.0,2022:296.8,2023:305.1,2024:313.0,2025:318.0,2026:323.0
+    };
+
+    function getCPI(year) {
+        if (cpiData[year]) return cpiData[year];
+        // Interpolate between known years
+        const years = Object.keys(cpiData).map(Number).sort((a,b) => a-b);
+        let lo = years[0], hi = years[years.length-1];
+        for (let i = 0; i < years.length - 1; i++) {
+            if (years[i] <= year && years[i+1] >= year) { lo = years[i]; hi = years[i+1]; break; }
+        }
+        if (year < lo) return cpiData[lo];
+        if (year > hi) return cpiData[hi];
+        const t = (year - lo) / (hi - lo);
+        return cpiData[lo] + t * (cpiData[hi] - cpiData[lo]);
+    }
+
+    function calcInflation() {
+        const amount = parseFloat(document.getElementById('infAmount').value) || 100;
+        const fromY = parseInt(document.getElementById('infFromYear').value) || 2000;
+        const toY = parseInt(document.getElementById('infToYear').value) || 2026;
+
+        const cpiFrom = getCPI(fromY);
+        const cpiTo = getCPI(toY);
+        const ratio = cpiTo / cpiFrom;
+        const equiv = amount * ratio;
+        const cumInf = ((ratio - 1) * 100);
+        const years = toY - fromY;
+        const annRate = years > 0 ? ((Math.pow(ratio, 1/years) - 1) * 100) : 0;
+        const lostPct = ((1 - 1/ratio) * 100);
+        const dollarNow = 1 * ratio;
+
+        document.getElementById('resOriginal').textContent = '$' + amount.toLocaleString();
+        document.getElementById('resEquiv').textContent = '$' + equiv.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        document.getElementById('resCumInf').textContent = cumInf.toFixed(1) + '%';
+        document.getElementById('resAnnRate').textContent = annRate.toFixed(2) + '%';
+        document.getElementById('resLost').textContent = lostPct.toFixed(1) + '%';
+        document.getElementById('resDollar').textContent = '$' + dollarNow.toFixed(2);
+        document.getElementById('resNeed').textContent = '$' + equiv.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+    window.addEventListener('load', calcInflation);
+    </script>
+    <div class="visitor-counter"><span>👁️ Visitors: </span><span id="visitor-counter" style="display:none;">0</span></div>
+    <script src="js/visitor-counter.js"></script>
+</body>
+</html>

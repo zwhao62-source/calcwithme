@@ -36,6 +36,12 @@ main_pages = [
     ('heloc-calculator.html', 0.8, 'weekly'),
     ('va-loan-calculator.html', 0.8, 'weekly'),
     ('home-equity-calculator.html', 0.8, 'weekly'),
+    ('mortgage-refinance-calculator.html', 0.9, 'weekly'),
+    ('moving-cost-calculator.html', 0.8, 'weekly'),
+    ('capital-gains-tax-calculator.html', 0.8, 'weekly'),
+    ('inflation-calculator.html', 0.8, 'weekly'),
+    ('rent-affordability-calculator.html', 0.8, 'weekly'),
+    ('net-worth-calculator.html', 0.8, 'weekly'),
 ]
 
 states = [
@@ -99,6 +105,20 @@ for ab in state_abbrevs:
 # State first-time homebuyer pages
 for ab in state_abbrevs:
     fname = f'{ab}-first-time-home-buyer.html'
+    fpath = os.path.join(site_dir, fname)
+    if os.path.exists(fpath):
+        add_url(f'https://calcwithme.com/{fname}', '0.6', 'monthly')
+
+# State closing cost pages
+for ab in state_abbrevs:
+    fname = f'{ab}-closing-costs.html'
+    fpath = os.path.join(site_dir, fname)
+    if os.path.exists(fpath):
+        add_url(f'https://calcwithme.com/{fname}', '0.6', 'monthly')
+
+# State home insurance pages
+for ab in state_abbrevs:
+    fname = f'{ab}-home-insurance.html'
     fpath = os.path.join(site_dir, fname)
     if os.path.exists(fpath):
         add_url(f'https://calcwithme.com/{fname}', '0.6', 'monthly')
