@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator - Calculate Your Exact Age in Years, Months, Days | CalcWithMe</title>
+    <meta name="description" content="Free age calculator. Calculate exact age in years, months, days, and total days. Find your birthday weekday and days until next birthday.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/age-calculator.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Age Calculator",
+    "url": "https://calcwithme.com/age-calculator.html",
+    "description": "Free age calculator. Calculate exact age in years, months, days, and total days. Find your birthday weekday and days until next birthday.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+  {
+    "@type": "Question",
+    "name": "How old am I if I was born in 1990?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "As of 2026, if you were born in 1990, you would be 35 or 36 years old depending on whether your birthday has passed this year."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How do I calculate my exact age?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Your age is calculated by finding the difference between today's date and your birth date. The calculation counts full years first, then remaining months and days."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How many days old am I?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "On average, a year has 365.25 days (accounting for leap years). Multiply your age in years by 365.25 and add days since your last birthday. A 30-year-old is approximately 10,958 days old."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "What day of the week was I born on?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Your birthday weekday depends on your exact birth date. Use this calculator to find out, or look it up in a perpetual calendar."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How many leap years have there been since I was born?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Since 2000 is a leap year, count every 4-year interval from your birth year to 2024, minus any century years not divisible by 400."
+    }
+  }
+]
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcwithme.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calcwithme.com/#calculators"},
+        {"@type": "ListItem", "position": 3, "name": "Age Calculator", "item": "https://calcwithme.com/age-calculator.html"}
+    ]
+}
+    </script>
+    <style>
+        .calc-content { max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.7; }
+        .calc-content h2 { margin-top: 2rem; font-size: 1.3rem; color: #1e293b; }
+        .calc-content h3 { margin-top: 1.2rem; font-size: 1.05rem; color: #334155; }
+        .calc-content p, .calc-content li { color: #475569; }
+        .calc-content ul { padding-left: 1.5rem; }
+        .related-calcs { margin-top: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 12px; }
+        .related-calcs a { display: inline-block; margin: 0.3rem 0.5rem 0.3rem 0; padding: 0.4rem 0.8rem; background: #2563eb; color: #fff; border-radius: 6px; text-decoration: none; font-size: 0.85rem; }
+        .faq-section { margin-top: 2rem; }
+        .faq-item { margin-bottom: 0.5rem; padding: 0.8rem; background: #f8fafc; border-radius: 8px; }
+        .faq-item summary { cursor: pointer; font-weight: 600; }
+        .faq-item p { margin-top: 0.5rem; color: #475569; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">&#x1F522;</span>
+                <span>Calc<span class="highlight">With</span>Me</span>
+            </a>
+            <nav>
+                <a href="/#financial-calculators">Financial</a>
+                <a href="/#health-fitness">Health</a>
+                <a href="/#math-calculators">Math</a>
+                <a href="/#other-tools">Tools</a>
+                <a href="scientific-calculator.html">Scientific</a>
+            </nav>
+        </div>
+    </header>
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Age Calculator</h1>
+                    <p class="page-desc">Free age calculator. Calculate exact age in years, months, days, and total days. Find your birthday weekday and days until next birthday.</p>
+                    <div class="calc-form">
+                        
+<div class="form-group">
+    <label for="birthDate">Date of Birth</label>
+    <input type="date" id="birthDate">
+</div>
+<div class="form-group">
+    <label for="calcDate">Calculate Age On</label>
+    <input type="date" id="calcDate">
+</div>
+
+                        <button class="btn-calculate" onclick="calculate()">Calculate</button>
+                    </div>
+                    <div id="resultsPanel" class="results-panel">
+                        <h2>&#x1F4CA; Results</h2>
+                        <div id="resultsContent"></div>
+                    </div>
+                    <div class="calc-content">
+                        
+<h2>Age Calculator</h2>
+<p>Calculate your exact age in years, months, days, and total days. Enter your date of birth and optionally a specific date to see how old you were or will be on that day. This tool also tells you the day of the week you were born and how many days until your next birthday.</p>
+<h3>How Age Is Calculated</h3>
+<p>Age is calculated by finding the difference between the current date and your date of birth. The calculation accounts for leap years, varying month lengths, and correctly handles year boundaries. The algorithm first calculates full years, then remaining months, then remaining days for maximum accuracy.</p>
+<h3>Interesting Age Facts</h3>
+<p>The day of the week you were born is determined by your exact birth date. You were born on the same weekday as everyone else born on that date. In the Gregorian calendar, every date falls on a different day of the week each year, but the same date 28 years later (or 84 years for some dates) will fall on the same day of the week due to the leap year cycle.</p>
+
+                        <div class="related-calcs">
+                            <h3>Related Calculators</h3>
+                            <a href="date-calculator.html">Date Calculator</a> <a href="bmi-calculator.html">BMI Calculator</a> <a href="scientific-calculator.html">Scientific</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="logo-icon">&#x1F522;</span>
+                    <span>CalcWithMe</span>
+                    <p>Free online calculators for everyone.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Popular</h4>
+                    <a href="mortgage-calculator.html">Mortgage</a>
+                    <a href="scientific-calculator.html">Scientific</a>
+                    <a href="bmi-calculator.html">BMI</a>
+                    <a href="percentage-calculator.html">Percentage</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Financial</h4>
+                    <a href="loan-calculator.html">Loan</a>
+                    <a href="compound-interest-calculator.html">Compound Interest</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CalcWithMe.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+function calculate() {
+    const birth = new Date(document.getElementById('birthDate').value);
+    const calc = document.getElementById('calcDate').value ? new Date(document.getElementById('calcDate').value) : new Date();
+    if (!birth.getTime()) { document.getElementById('resultsContent').innerHTML = '<p>Please enter a birth date.</p>'; return; }
+    if (birth > calc) { document.getElementById('resultsContent').innerHTML = '<p>Birth date cannot be in the future.</p>'; return; }
+    let y = calc.getFullYear() - birth.getFullYear();
+    let m = calc.getMonth() - birth.getMonth();
+    let d = calc.getDate() - birth.getDate();
+    if (d < 0) { m--; d += new Date(calc.getFullYear(), calc.getMonth(), 0).getDate(); }
+    if (m < 0) { y--; m += 12; }
+    const totalDays = Math.floor((calc - birth) / 86400000);
+    const totalWeeks = Math.floor(totalDays / 7);
+    const totalMonths = y * 12 + m;
+    const birthWeekday = birth.toLocaleDateString('en-US', { weekday: 'long' });
+    const nextBirthday = new Date(calc.getFullYear(), birth.getMonth(), birth.getDate());
+    if (nextBirthday <= calc) nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+    const daysUntilBirthday = Math.ceil((nextBirthday - calc) / 86400000);
+    const daysInYear = ((y % 4 === 0 && y % 100 !== 0) || y % 400 === 0) ? 366 : 365;
+    const html = `
+        <div class="result-item"><p class="result-label">Years</p><p class="result-value">${y}</p></div>
+        <div class="result-item"><p class="result-label">Months</p><p class="result-value">${m}</p></div>
+        <div class="result-item"><p class="result-label">Days</p><p class="result-value">${d}</p></div>
+        <div class="result-item"><p class="result-label">Total Days</p><p class="result-value secondary">${totalDays.toLocaleString()}</p></div>
+        <div class="result-item"><p class="result-label">Total Weeks</p><p class="result-value secondary">${totalWeeks.toLocaleString()}</p></div>
+        <div class="result-item"><p class="result-label">Total Months</p><p class="result-value secondary">${totalMonths}</p></div>
+        <div class="result-item"><p class="result-label">Born On</p><p class="result-value secondary">${birthWeekday}</p></div>
+        <div class="result-item"><p class="result-label">Days Until Next Birthday</p><p class="result-value secondary">${daysUntilBirthday}</p></div>
+    `;
+    document.getElementById('resultsContent').innerHTML = html;
+}
+</script>
+</body>
+</html>

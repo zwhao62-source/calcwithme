@@ -89,6 +89,7 @@
       ]
     }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <header>
@@ -246,6 +247,52 @@
                             <p class="help-text">Select the year you plan to start the mortgage</p>
                         </div>
 
+                        <h3 style="margin-top:1.5rem;border-top:1px solid #e2e8f0;padding-top:1.5rem;">Additional Costs (Optional)</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="propertyTax">Annual Property Tax</label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix">$</span>
+                                    <input type="number" id="propertyTax" class="has-prefix" value="4000" min="0" step="100">
+                                </div>
+                                <p class="help-text">Annual property tax (typical: 0.5-2.5% of home value)</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="homeInsurance">Annual Home Insurance</label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix">$</span>
+                                    <input type="number" id="homeInsurance" class="has-prefix" value="1500" min="0" step="100">
+                                </div>
+                                <p class="help-text">Annual homeowners insurance (typical: $1,000-$3,000)</p>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="pmiRate">PMI Rate (annual %)</label>
+                                <div class="input-wrapper">
+                                    <input type="number" id="pmiRate" value="0.5" min="0" max="3" step="0.1">
+                                    <span class="input-suffix">%</span>
+                                </div>
+                                <p class="help-text">Required if down payment &lt; 20%. Typical: 0.3-1.5%</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="hoaFees">Monthly HOA Fees</label>
+                                <div class="input-wrapper">
+                                    <span class="input-prefix">$</span>
+                                    <input type="number" id="hoaFees" class="has-prefix" value="0" min="0" step="50">
+                                </div>
+                                <p class="help-text">Homeowners Association dues (if applicable)</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="extraPayment">Extra Monthly Payment</label>
+                            <div class="input-wrapper">
+                                <span class="input-prefix">$</span>
+                                <input type="number" id="extraPayment" class="has-prefix" value="0" min="0" step="50">
+                            </div>
+                            <p class="help-text">Additional amount paid toward principal each month</p>
+                        </div>
+
                         <button class="btn-calculate" onclick="calculateMortgage()">Calculate Monthly Payment</button>
                     </div>
 
@@ -255,7 +302,7 @@
                     <!-- Content / SEO -->
                     <div class="calc-content">
                         <h2>How to Use This Mortgage Calculator</h2>
-                        <p>Our free mortgage calculator helps you estimate your monthly home loan payment in seconds. Whether you are buying your first home, refinancing, or comparing loan offers, this tool gives you accurate results based on current market rates.</p>
+                        <p>Our free mortgage calculator helps you estimate your monthly home loan payment in seconds. Enter your home price, down payment, loan term, and interest rate to get instant results. You can also add property tax, homeowners insurance, PMI, and HOA fees for a complete picture of your monthly housing costs. The interactive charts show your payment breakdown and how your balance decreases over time.</p>
 
                         <h3>How to calculate mortgage payments</h3>
                         <p>Your monthly mortgage payment is determined by three main factors:</p>
@@ -281,12 +328,72 @@
                         <h3>30-Year vs 15-Year Mortgage</h3>
                         <p>A 30-year mortgage offers lower monthly payments but you pay more total interest over the life of the loan. A 15-year mortgage has higher monthly payments but you become debt-free faster and pay significantly less total interest.</p>
 
+                        <h2>Understanding Mortgage Costs: A Complete Guide</h2>
+
+                        <h3>The Four Components of PITI</h3>
+                        <p>Your monthly mortgage payment consists of four components, often referred to as PITI:</p>
+                        <ul>
+                            <li><strong>Principal</strong> — The portion of your payment that reduces your loan balance. In the early years, most of your payment goes to interest, but over time, more goes to principal. For a $320,000 loan at 6.5%, your first payment includes only $336 in principal.</li>
+                            <li><strong>Interest</strong> — The cost of borrowing money, calculated as a percentage of your remaining balance. On a $320,000 loan at 6.5%, your first month's interest is $1,733. Over 30 years, you will pay approximately $407,000 in total interest — more than the loan itself.</li>
+                            <li><strong>Taxes</strong> — Property taxes fund local services like schools, roads, and emergency services. Rates vary dramatically by state: New Jersey averages 2.49% while Hawaii is just 0.28%. On a $400,000 home, that's the difference between $9,960/year and $1,120/year.</li>
+                            <li><strong>Insurance</strong> — Homeowners insurance protects against fire, theft, and liability. Average cost is $1,200-$2,500/year depending on location, coverage, and deductible. In hurricane-prone areas, wind coverage can add significantly.</li>
+                        </ul>
+
+                        <h3>Private Mortgage Insurance (PMI)</h3>
+                        <p>If your down payment is less than 20% of the home price, your lender will require PMI. This protects the lender (not you) if you default. PMI typically costs 0.3% to 1.5% of the loan amount annually. On a $320,000 loan at 0.5%, that's $1,600/year or $133/month added to your payment.</p>
+                        <p><strong>How to cancel PMI:</strong> Once your loan balance reaches 78% of the original home value (or 80% if you request it), federal law requires your lender to cancel PMI. You can also request early cancellation if your home appreciates enough to give you 20% equity. Use our <a href="pmi-calculator.html">PMI Calculator</a> to see your specific timeline.</p>
+
+                        <h3>Extra Payments: How They Save You Thousands</h3>
+                        <p>Making extra payments toward your principal is one of the most powerful ways to save money. Even small amounts add up dramatically:</p>
+                        <ul>
+                            <li><strong>$100/month extra</strong> on a $320,000 loan at 6.5% saves approximately $52,000 in interest and pays off 4 years early.</li>
+                            <li><strong>$200/month extra</strong> saves approximately $89,000 and pays off 7 years early.</li>
+                            <li><strong>$500/month extra</strong> saves approximately $148,000 and pays off 13 years early.</li>
+                        </ul>
+                        <p>Every extra dollar you pay toward principal eliminates the interest that dollar would have accrued over the remaining loan term. This is why extra payments early in the loan have the greatest impact.</p>
+
+                        <h3>30-Year vs 15-Year Mortgage: Which Is Right for You?</h3>
+                        <p>A <strong>30-year mortgage</strong> offers lower monthly payments but you pay significantly more total interest. A <strong>15-year mortgage</strong> has higher monthly payments but you pay much less interest and build equity faster.</p>
+                        <p>Example: On a $320,000 loan:</p>
+                        <ul>
+                            <li><strong>30-year at 6.5%:</strong> $2,023/month P&I, $408,280 total interest</li>
+                            <li><strong>15-year at 5.9%:</strong> $2,685/month P&I, $163,300 total interest</li>
+                        </ul>
+                        <p>That's a <strong>savings of $244,980</strong> with the 15-year loan, but your monthly payment is $662 higher. If you can afford the higher payment, the 15-year loan saves you a massive amount. Alternatively, you can get a 30-year loan and make extra payments to get similar savings with more flexibility.</p>
+
+                        <h3>Current 2026 Mortgage Rates by State</h3>
+                        <p>Mortgage rates vary by state due to differences in local economic conditions, foreclosure rates, and lender competition. As of 2026, average 30-year fixed rates range from approximately 6.3% to 7.0% depending on your state and credit profile. Use the state selector in our calculator to see rates specific to your location.</p>
+                        <p>States with the lowest rates tend to be in the Pacific Northwest and Mountain West (Oregon, Washington, Colorado). States with the highest rates are typically in the South and Midwest. However, rates also depend heavily on your credit score, down payment, and lender.</p>
+
+                        <h3>Closing Costs Explained</h3>
+                        <p>When you close on a home, you'll pay 2-5% of the loan amount in closing costs. For a $320,000 loan, that's $6,400 to $16,000. These costs include:</p>
+                        <ul>
+                            <li><strong>Lender fees:</strong> Origination fee (0.5-1%), underwriting, processing</li>
+                            <li><strong>Third-party costs:</strong> Appraisal ($300-$500), home inspection, title search</li>
+                            <li><strong>Prepaid items:</strong> Property taxes (3-6 months), insurance (1 year), interest (to end of month)</li>
+                            <li><strong>Escrow and recording:</strong> Title insurance, escrow fees, government recording fees</li>
+                        </ul>
+                        <p>Use our <a href="closing-cost-calculator.html">Closing Cost Calculator</a> for a detailed estimate based on your state.</p>
+
+                        <h3>First-Time Homebuyer Programs</h3>
+                        <p>If you're buying your first home, several programs can help reduce your costs:</p>
+                        <ul>
+                            <li><strong>FHA Loans:</strong> Down payment as low as 3.5% with credit scores of 580+. Use our <a href="fha-loan-calculator.html">FHA Loan Calculator</a>.</li>
+                            <li><strong>VA Loans:</strong> Zero down payment for veterans and active military. No PMI required. Use our <a href="va-loan-calculator.html">VA Loan Calculator</a>.</li>
+                            <li><strong>Conventional 97:</strong> 3% down payment with PMI for first-time buyers.</li>
+                            <li><strong>State and local programs:</strong> Many states offer down payment assistance, grants, and below-market rates. Check your state's housing finance agency.</li>
+                        </ul>
+
                         <div class="related-calcs">
                             <h3>Related Calculators</h3>
                             <a href="loan-calculator.html">Loan Calculator</a>
                             <a href="auto-loan-calculator.html">Auto Loan Calculator</a>
-                            <a href="compound-interest-calculator.html">Compound Interest Calculator</a>
-                            <a href="rent-vs-buy-calculator.html">Rent vs Buy Calculator</a>
+                            <a href="compound-interest-calculator.html">Compound Interest</a>
+                            <a href="rent-vs-buy-calculator.html">Rent vs Buy</a>
+                            <a href="pmi-calculator.html">PMI Calculator</a>
+                            <a href="closing-cost-calculator.html">Closing Cost</a>
+                            <a href="fha-loan-calculator.html">FHA Loan</a>
+                            <a href="home-affordability-calculator.html">Home Affordability</a>
                         </div>
 
                         <!-- FAQ Section for SEO -->
@@ -396,6 +503,32 @@
                             <span id="year20Interest">$0</span>
                         </div>
                     </div>
+
+                    <div class="results-breakdown" id="chartSection" style="display:none;">
+                        <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px;">Payment Breakdown</h3>
+                        <canvas id="paymentChart" width="260" height="200"></canvas>
+                    </div>
+
+                    <div class="results-breakdown" id="balanceChartSection" style="display:none;">
+                        <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px;">Balance Over Time</h3>
+                        <canvas id="balanceChart" width="260" height="180"></canvas>
+                    </div>
+
+                    <div class="results-breakdown" id="extraPaymentSection" style="display:none;">
+                        <h3 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 12px;">Extra Payment Savings</h3>
+                        <div class="breakdown-row">
+                            <span>Payoff Time Saved</span>
+                            <span id="timeSaved">-</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>Interest Saved</span>
+                            <span id="interestSaved" style="color:#10b981;">-</span>
+                        </div>
+                        <div class="breakdown-row">
+                            <span>New Payoff Date</span>
+                            <span id="newPayoffDate">-</span>
+                        </div>
+                    </div>
                 </aside>
             </div>
         </div>
@@ -432,29 +565,26 @@
     </footer>
 
     <script>
-        // Auto-sync down payment and percentage
+        let paymentChart = null, balanceChartInstance = null;
+
         document.getElementById('homePrice').addEventListener('input', syncDownPayment);
         document.getElementById('downPayment').addEventListener('input', syncDownPaymentPct);
         document.getElementById('downPaymentPct').addEventListener('input', syncDownPaymentFromPct);
 
         function syncDownPayment() {
-            const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
-            const currentDownPayment = parseFloat(document.getElementById('downPayment').value) || 0;
-            const pct = homePrice > 0 ? (currentDownPayment / homePrice * 100).toFixed(1) : 0;
-            document.getElementById('downPaymentPct').value = pct;
+            const hp = parseFloat(document.getElementById('homePrice').value) || 0;
+            const dp = parseFloat(document.getElementById('downPayment').value) || 0;
+            document.getElementById('downPaymentPct').value = hp > 0 ? (dp / hp * 100).toFixed(1) : 0;
         }
-
         function syncDownPaymentPct() {
-            const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
-            const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
-            const pct = homePrice > 0 ? (downPayment / homePrice * 100).toFixed(1) : 0;
-            document.getElementById('downPaymentPct').value = pct;
+            const hp = parseFloat(document.getElementById('homePrice').value) || 0;
+            const dp = parseFloat(document.getElementById('downPayment').value) || 0;
+            document.getElementById('downPaymentPct').value = hp > 0 ? (dp / hp * 100).toFixed(1) : 0;
         }
-
         function syncDownPaymentFromPct() {
-            const homePrice = parseFloat(document.getElementById('homePrice').value) || 0;
+            const hp = parseFloat(document.getElementById('homePrice').value) || 0;
             const pct = parseFloat(document.getElementById('downPaymentPct').value) || 0;
-            document.getElementById('downPayment').value = Math.round(homePrice * pct / 100);
+            document.getElementById('downPayment').value = Math.round(hp * pct / 100);
         }
 
         function calculateMortgage() {
@@ -462,6 +592,11 @@
             const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
             const loanTermYears = parseInt(document.getElementById('loanTerm').value) || 30;
             const annualRate = parseFloat(document.getElementById('interestRate').value) || 0;
+            const annualPropertyTax = parseFloat(document.getElementById('propertyTax').value) || 0;
+            const annualInsurance = parseFloat(document.getElementById('homeInsurance').value) || 0;
+            const pmiRatePct = parseFloat(document.getElementById('pmiRate').value) || 0;
+            const hoaFees = parseFloat(document.getElementById('hoaFees').value) || 0;
+            const extraPayment = parseFloat(document.getElementById('extraPayment').value) || 0;
 
             if (homePrice <= 0 || downPayment >= homePrice || annualRate <= 0) {
                 alert('Please enter valid values.');
@@ -471,16 +606,22 @@
             const loanAmount = homePrice - downPayment;
             const monthlyRate = annualRate / 100 / 12;
             const numPayments = loanTermYears * 12;
+            const downPct = downPayment / homePrice * 100;
 
-            // Monthly payment formula
+            // Monthly P&I
             const monthlyPI = monthlyRate === 0
                 ? loanAmount / numPayments
                 : loanAmount * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / (Math.pow(1 + monthlyRate, numPayments) - 1);
 
-            // Estimate taxes and insurance (approximately 1.5% of home value annually / 12)
-            const estMonthlyTaxIns = homePrice * 0.015 / 12;
-            const totalMonthly = monthlyPI + estMonthlyTaxIns;
+            // Additional monthly costs
+            const monthlyTax = annualPropertyTax / 12;
+            const monthlyInsurance = annualInsurance / 12;
+            const monthlyPMI = downPct < 20 ? (loanAmount * pmiRatePct / 100 / 12) : 0;
+            const monthlyHOA = hoaFees;
 
+            const totalMonthly = monthlyPI + monthlyTax + monthlyInsurance + monthlyPMI + monthlyHOA;
+
+            // Standard amortization (no extra payments)
             const totalPaid = monthlyPI * numPayments;
             const totalInterest = totalPaid - loanAmount;
             const totalCost = totalPaid + downPayment;
@@ -494,27 +635,106 @@
             document.getElementById('totalCost').textContent = '$' + formatNumber(Math.round(totalCost));
 
             // Year-by-year interest
-            const year1Interest = calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 12);
-            const year5Interest = calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 60);
-            const year10Interest = calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 120);
-            const year15Interest = calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 180);
-            const year20Interest = calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 240);
+            document.getElementById('year1Interest').textContent = '$' + formatNumber(Math.round(calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 12)));
+            document.getElementById('year5Interest').textContent = '$' + formatNumber(Math.round(calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 60)));
+            document.getElementById('year10Interest').textContent = '$' + formatNumber(Math.round(calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 120)));
+            document.getElementById('year15Interest').textContent = '$' + formatNumber(Math.round(calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 180)));
+            document.getElementById('year20Interest').textContent = '$' + formatNumber(Math.round(calculateCumulativeInterest(loanAmount, monthlyRate, monthlyPI, 240)));
 
-            document.getElementById('year1Interest').textContent = '$' + formatNumber(Math.round(year1Interest));
-            document.getElementById('year5Interest').textContent = '$' + formatNumber(Math.round(year5Interest));
-            document.getElementById('year10Interest').textContent = '$' + formatNumber(Math.round(year10Interest));
-            document.getElementById('year15Interest').textContent = '$' + formatNumber(Math.round(year15Interest));
-            document.getElementById('year20Interest').textContent = '$' + formatNumber(Math.round(year20Interest));
+            // Pie chart - payment breakdown
+            const chartSection = document.getElementById('chartSection');
+            chartSection.style.display = 'block';
+            if (paymentChart) paymentChart.destroy();
+            paymentChart = new Chart(document.getElementById('paymentChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Principal & Interest', 'Property Tax', 'Insurance', 'PMI', 'HOA'],
+                    datasets: [{
+                        data: [monthlyPI, monthlyTax, monthlyInsurance, monthlyPMI, monthlyHOA].map(v => Math.round(v)),
+                        backgroundColor: ['#2563eb','#f59e0b','#10b981','#ef4444','#8b5cf6'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, padding: 8 } } }
+                }
+            });
+
+            // Balance over time chart
+            const balanceSection = document.getElementById('balanceChartSection');
+            balanceSection.style.display = 'block';
+            const balanceData = [];
+            const interestData = [];
+            let balance = loanAmount;
+            let cumInterest = 0;
+            for (let year = 0; year <= loanTermYears; year++) {
+                balanceData.push(Math.round(balance));
+                interestData.push(Math.round(cumInterest));
+                for (let m = 0; m < 12 && balance > 0; m++) {
+                    const int = balance * monthlyRate;
+                    cumInterest += int;
+                    balance -= (monthlyPI - int);
+                    if (balance < 0) balance = 0;
+                }
+            }
+            const labels = Array.from({length: loanTermYears + 1}, (_, i) => 'Yr ' + i);
+            if (balanceChartInstance) balanceChartInstance.destroy();
+            balanceChartInstance = new Chart(document.getElementById('balanceChart'), {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Remaining Balance',
+                        data: balanceData,
+                        borderColor: '#2563eb',
+                        backgroundColor: 'rgba(37,99,235,0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 0
+                    }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: {
+                        y: { ticks: { callback: v => '$' + (v/1000).toFixed(0) + 'k' }, grid: { color: '#f1f5f9' } },
+                        x: { ticks: { maxTicksLimit: 6 }, grid: { display: false } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // Extra payment savings
+            const extraSection = document.getElementById('extraPaymentSection');
+            if (extraPayment > 0) {
+                extraSection.style.display = 'block';
+                let balExtra = loanAmount, monthsExtra = 0, totalIntExtra = 0;
+                while (balExtra > 0 && monthsExtra < numPayments * 2) {
+                    const int = balExtra * monthlyRate;
+                    totalIntExtra += int;
+                    const principalPaid = Math.min(monthlyPI - int + extraPayment, balExtra);
+                    balExtra -= principalPaid;
+                    monthsExtra++;
+                }
+                const monthsSaved = numPayments - monthsExtra;
+                const intSaved = totalInterest - totalIntExtra;
+                document.getElementById('timeSaved').textContent = Math.floor(monthsSaved/12) + ' yr ' + (monthsSaved%12) + ' mo';
+                document.getElementById('interestSaved').textContent = '$' + formatNumber(Math.round(intSaved));
+                const startYear = parseInt(document.getElementById('startYear').value) || 2026;
+                const payoffYear = startYear + Math.floor(monthsExtra/12);
+                const payoffMonth = monthsExtra % 12 + 1;
+                document.getElementById('newPayoffDate').textContent = payoffMonth + '/' + payoffYear;
+            } else {
+                extraSection.style.display = 'none';
+            }
         }
 
         function calculateCumulativeInterest(principal, monthlyRate, monthlyPayment, months) {
-            let balance = principal;
-            let totalInterest = 0;
+            let balance = principal, totalInterest = 0;
             for (let i = 0; i < months && balance > 0; i++) {
                 const interest = balance * monthlyRate;
                 totalInterest += interest;
-                const principalPaid = Math.min(monthlyPayment - interest, balance);
-                balance -= principalPaid;
+                balance -= Math.min(monthlyPayment - interest, balance);
             }
             return totalInterest;
         }
@@ -523,7 +743,6 @@
             return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
         }
 
-        // Auto-calculate on page load
         window.addEventListener('load', calculateMortgage);
     </script>
 

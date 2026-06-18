@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter - Length, Weight, Temperature, Area, Volume | CalcWithMe</title>
+    <meta name="description" content="Free unit converter. Convert length, weight, temperature, area, volume, speed, and data storage units. Supports metric and imperial systems.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://calcwithme.com/unit-converter.html">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%E2%83%A3</text></svg>">
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Unit Converter",
+    "url": "https://calcwithme.com/unit-converter.html",
+    "description": "Free unit converter. Convert length, weight, temperature, area, volume, speed, and data storage units. Supports metric and imperial systems.",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+  {
+    "@type": "Question",
+    "name": "How many km in a mile?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "1 mile = 1.60934 kilometers. This converter handles it instantly."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How do I convert Celsius to Fahrenheit?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Use the formula: °F = (°C × 9/5) + 32. For example, 20°C = 68°F."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How many grams in a pound?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "1 pound = 453.592 grams. There are 28.35 grams in one ounce."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "What is 100 Mbps in MB/s?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Since 1 byte = 8 bits, 100 Mbps = 12.5 MB/s (megabytes per second). This converter handles data storage units."
+    }
+  },
+  {
+    "@type": "Question",
+    "name": "How many liters in a gallon?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "1 US gallon = 3.78541 liters. The UK gallon is slightly different at 4.54609 liters."
+    }
+  }
+]
+}
+    </script>
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://calcwithme.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Calculators", "item": "https://calcwithme.com/#calculators"},
+        {"@type": "ListItem", "position": 3, "name": "Unit Converter", "item": "https://calcwithme.com/unit-converter.html"}
+    ]
+}
+    </script>
+    <style>
+        .calc-content { max-width: 800px; margin: 2rem auto; padding: 0 1rem; line-height: 1.7; }
+        .calc-content h2 { margin-top: 2rem; font-size: 1.3rem; color: #1e293b; }
+        .calc-content h3 { margin-top: 1.2rem; font-size: 1.05rem; color: #334155; }
+        .calc-content p, .calc-content li { color: #475569; }
+        .calc-content ul { padding-left: 1.5rem; }
+        .related-calcs { margin-top: 2rem; padding: 1.5rem; background: #f8fafc; border-radius: 12px; }
+        .related-calcs a { display: inline-block; margin: 0.3rem 0.5rem 0.3rem 0; padding: 0.4rem 0.8rem; background: #2563eb; color: #fff; border-radius: 6px; text-decoration: none; font-size: 0.85rem; }
+        .faq-section { margin-top: 2rem; }
+        .faq-item { margin-bottom: 0.5rem; padding: 0.8rem; background: #f8fafc; border-radius: 8px; }
+        .faq-item summary { cursor: pointer; font-weight: 600; }
+        .faq-item p { margin-top: 0.5rem; color: #475569; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <a href="/" class="logo">
+                <span class="logo-icon">&#x1F522;</span>
+                <span>Calc<span class="highlight">With</span>Me</span>
+            </a>
+            <nav>
+                <a href="/#financial-calculators">Financial</a>
+                <a href="/#health-fitness">Health</a>
+                <a href="/#math-calculators">Math</a>
+                <a href="/#other-tools">Tools</a>
+                <a href="scientific-calculator.html">Scientific</a>
+            </nav>
+        </div>
+    </header>
+    <main class="calculator-page">
+        <div class="container">
+            <div class="calculator-layout">
+                <div class="calculator-main">
+                    <h1>Unit Converter</h1>
+                    <p class="page-desc">Free unit converter. Convert length, weight, temperature, area, volume, speed, and data storage units. Supports metric and imperial systems.</p>
+                    <div class="calc-form">
+                        
+<div class="form-group">
+    <label for="unitCategory">Category</label>
+    <select id="unitCategory" onchange="updateUnitOptions()">
+        <option value="length">Length</option>
+        <option value="weight">Weight</option>
+        <option value="temperature">Temperature</option>
+        <option value="area">Area</option>
+        <option value="volume">Volume</option>
+        <option value="speed">Speed</option>
+        <option value="data">Data Storage</option>
+    </select>
+</div>
+<div class="form-group">
+    <label for="fromValue">Value</label>
+    <input type="number" id="fromValue" value="1" min="0">
+</div>
+<div class="form-group">
+    <label for="fromUnit">From</label>
+    <select id="fromUnit"></select>
+</div>
+<div class="form-group">
+    <label for="toUnit">To</label>
+    <select id="toUnit"></select>
+</div>
+
+                        <button class="btn-calculate" onclick="calculate()">Calculate</button>
+                    </div>
+                    <div id="resultsPanel" class="results-panel">
+                        <h2>&#x1F4CA; Results</h2>
+                        <div id="resultsContent"></div>
+                    </div>
+                    <div class="calc-content">
+                        
+<h2>Unit Converter</h2>
+<p>Convert between different units of measurement instantly. Covers length, weight, temperature, area, volume, speed, and data storage. Whether you need to convert miles to kilometers, pounds to kilograms, Celsius to Fahrenheit, or gigabytes to megabytes, this tool handles it all with precision and speed.</p>
+<h3>Length Conversions</h3>
+<p>The metric system (SI) is based on the meter, with prefixes indicating powers of 10: kilometer (km), centimeter (cm), millimeter (mm). The imperial system uses inches, feet, yards, and miles. Key conversions: 1 inch = 2.54 cm, 1 foot = 30.48 cm, 1 mile = 1.609 km, 1 yard = 0.914 meters.</p>
+<h3>Weight Conversions</h3>
+<p>The SI unit for weight/mass is the kilogram. The imperial system uses pounds and ounces. Key conversions: 1 kg = 2.205 lbs, 1 lb = 453.6 grams, 1 oz = 28.35 grams. Note: on Earth, mass and weight are proportional, so the same numbers work for everyday purposes.</p>
+<h3>Temperature Conversions</h3>
+<p>Three temperature scales are in common use: Fahrenheit (used in the US), Celsius (used in most countries), and Kelvin (used in science). Key conversions: 0°C = 32°F (freezing point of water), 100°C = 212°F (boiling point of water), 0K = -273.15°C (absolute zero).</p>
+
+                        <div class="related-calcs">
+                            <h3>Related Calculators</h3>
+                            <a href="scientific-calculator.html">Scientific Calculator</a> <a href="percentage-calculator.html">Percentage</a> <a href="bmi-calculator.html">BMI Calculator</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <span class="logo-icon">&#x1F522;</span>
+                    <span>CalcWithMe</span>
+                    <p>Free online calculators for everyone.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Popular</h4>
+                    <a href="mortgage-calculator.html">Mortgage</a>
+                    <a href="scientific-calculator.html">Scientific</a>
+                    <a href="bmi-calculator.html">BMI</a>
+                    <a href="percentage-calculator.html">Percentage</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Financial</h4>
+                    <a href="loan-calculator.html">Loan</a>
+                    <a href="compound-interest-calculator.html">Compound Interest</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CalcWithMe.com. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+const unitData = {
+    length: { units: { meters: 1, kilometers: 1000, centimeters: 0.01, millimeters: 0.001, miles: 1609.344, yards: 0.9144, feet: 0.3048, inches: 0.0254, nautical_miles: 1852 }, labels: {meters:"Meters (m)",kilometers:"Kilometers (km)",centimeters:"Centimeters (cm)",millimeters:"Millimeters (mm)",miles:"Miles (mi)",yards:"Yards (yd)",feet:"Feet (ft)",inches:"Inches (in)",nautical_miles:"Nautical Miles"}},
+    weight: { units: { kg: 1, g: 0.001, mg: 0.000001, lb: 0.453592, oz: 0.0283495, ton: 1000 }, labels: {kg:"Kilograms (kg)",g:"Grams (g)",mg:"Milligrams (mg)",lb:"Pounds (lb)",oz:"Ounces (oz)",ton:"Metric Tons"}},
+    temperature: { units: ['celsius','fahrenheit','kelvin'], labels: {celsius:'Celsius (°C)',fahrenheit:'Fahrenheit (°F)',kelvin:'Kelvin (K)'}, type: 'temp' },
+    area: { units: { sqm: 1, sqkm: 1000000, hectare: 10000, sqft: 0.092903, sqyd: 0.836127, sqmi: 2589988.11, acre: 4046.86 }, labels: {sqm:"Square Meters (m²)",sqkm:"Square Kilometers (km²)",hectare:"Hectares (ha)",sqft:"Square Feet (ft²)",sqyd:"Square Yards (yd²)",sqmi:"Square Miles (mi²)",acre:"Acres"}},
+    volume: { units: { liter: 1, ml: 0.001, gallon: 3.78541, quart: 0.946353, pint: 0.473176, cup: 0.236588, floz: 0.0295735, cubicm: 1000 }, labels: {liter:"Liters (L)",ml:"Milliliters (mL)",gallon:"US Gallons (gal)",quart:"US Quarts (qt)",pint:"US Pints (pt)",cup:"US Cups",floz:"US Fluid Ounces (fl oz)",cubicm:"Cubic Meters (m³)"}},
+    speed: { units: { mps: 1, kph: 0.277778, mph: 0.44704, knots: 0.514444 }, labels: {mps:"Meters/sec (m/s)",kph:"Kilometers/hr (km/h)",mph:"Miles/hr (mph)",knots:"Knots"}},
+    data: { units: { bytes: 1, kb: 1024, mb: 1048576, gb: 1073741824, tb: 1099511627776, pb: 1125899906842624 }, labels: {bytes:"Bytes (B)",kb:"Kilobytes (KB)",mb:"Megabytes (MB)",gb:"Gigabytes (GB)",tb:"Terabytes (TB)",pb:"Petabytes (PB)"}}
+};
+function updateUnitOptions() {
+    const cat = document.getElementById('unitCategory').value;
+    const data = unitData[cat];
+    const fromSel = document.getElementById('fromUnit');
+    const toSel = document.getElementById('toUnit');
+    const units = Object.keys(data.units);
+    fromSel.innerHTML = toSel.innerHTML = '';
+    units.forEach(u => { fromSel.innerHTML += `<option value="${u}">${data.labels[u]}</option>`; toSel.innerHTML += `<option value="${u}">${data.labels[u]}</option>`; });
+    toSel.value = units[1] || units[0];
+    if (units[1]) fromSel.options[0].selected = true;
+}
+function calculate() {
+    const val = parseFloat(document.getElementById('fromValue').value);
+    const cat = document.getElementById('unitCategory').value;
+    const from = document.getElementById('fromUnit').value;
+    const to = document.getElementById('toUnit').value;
+    const data = unitData[cat];
+    let result;
+    if (data.type === 'temp') {
+        let c; if (from === 'celsius') c = val; else if (from === 'fahrenheit') c = (val-32)*5/9; else c = val - 273.15;
+        if (to === 'celsius') result = c; else if (to === 'fahrenheit') result = c*9/5+32; else result = c+273.15;
+    } else {
+        result = val * data.units[from] / data.units[to];
+    }
+    const fmt = Math.abs(result) < 0.0001 || Math.abs(result) >= 1000000 ? result.toExponential(6) : parseFloat(result.toPrecision(10)).toString();
+    document.getElementById('resultsContent').innerHTML = `
+        <div class="result-item"><p class="result-label">Result</p><p class="result-value">${fmt}</p></div>
+        <div class="result-item"><p class="result-label">${val.toLocaleString()} ${data.labels[from]}</p><p class="result-value secondary">= ${result.toLocaleString()} ${data.labels[to]}</p></div>
+    `;
+}
+updateUnitOptions();
+</script>
+</body>
+</html>
