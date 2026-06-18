@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+
+<title>Body Fat Calculator - Free US Navy Method Calculator 2026 | CalcWithMe</title>
+<meta name="description" content="Free body fat calculator using the US Navy method. Enter your measurements to estimate body fat percentage for men and women.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://calcwithme.com/body-fat-calculator.html">
+<meta property="og:title" content="Body Fat Calculator - CalcWithMe">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://calcwithme.com"},{"@type":"ListItem","position":2,"name":"Health","item":"https://calcwithme.com/#health-fitness"},{"@type":"ListItem","position":3,"name":"Body Fat Calculator","item":"https://calcwithme.com/body-fat-calculator.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is body fat percentage calculated?","acceptedAnswer":{"@type":"Answer","text":"The US Navy method uses circumference measurements of neck, waist, and hips to estimate body fat. For women, hip measurement is also included."}},{"@type":"Question","name":"What is a healthy body fat percentage?","acceptedAnswer":{"@type":"Answer","text":"Essential fat: men 2-5%, women 10-13%. Athletes: men 6-13%, women 14-20%. Fitness: men 14-17%, women 21-24%. Average: men 18-24%, women 25-31%."}}]}</script>
+<style>.bf-result{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;}.bf-bar{height:20px;border-radius:10px;background:#e2e8f0;overflow:hidden;margin:8px 0;}.bf-fill{height:100%;border-radius:10px;transition:width 0.5s;}</style>
+</head>
+<body><header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/">Calculators</a><a href="/blog/">Blog</a></nav></div></header>
+<main class="calculator-page"><div class="container"><div class="calculator-layout">
+<div class="calculator-main">
+<h1>Body Fat Calculator</h1>
+<p class="page-desc">Estimate your body fat percentage using the US Navy method. Enter your measurements for an accurate estimate.</p>
+<div class="calc-form">
+<div class="form-group"><label>Sex</label><select id="sex" onchange="toggleSex()"><option value="male">Male</option><option value="female">Female</option></select></div>
+<div class="form-row">
+<div class="form-group"><label>Height (inches)</label><input type="number" id="height" value="70" min="48" max="96" step="0.5"></div>
+<div class="form-group"><label>Weight (lbs)</label><input type="number" id="weight" value="180" min="50" max="500" step="1"></div>
+</div>
+<div class="form-group"><label>Neck Circumference (inches)</label><input type="number" id="neck" value="15" min="5" max="30" step="0.1"></div>
+<div class="form-group"><label>Waist Circumference (inches)</label><input type="number" id="waist" value="34" min="10" max="80" step="0.1"><div class="help-text">Measure at navel level</div></div>
+<div class="form-group" id="hipGroup" style="display:none;"><label>Hip Circumference (inches)</label><input type="number" id="hip" value="38" min="10" max="80" step="0.1"><div class="help-text">Measure at the widest point</div></div>
+<button class="btn-calculate" onclick="calcBF()">Calculate Body Fat</button>
+</div>
+<div class="calc-content">
+<h2>How the US Navy Body Fat Formula Works</h2>
+<p><strong>Men:</strong> Body Fat % = 86.010 x log10(waist - neck) - 70.041 x log10(height) + 36.76</p>
+<p><strong>Women:</strong> Body Fat % = 163.205 x log10(waist + hip - neck) - 97.684 x log10(height) - 78.387</p>
+<h2>Body Fat Categories</h2>
+<table class="schedule-table"><thead><tr><th>Category</th><th>Men</th><th>Women</th></tr></thead><tbody>
+<tr><td>Essential Fat</td><td>2-5%</td><td>10-13%</td></tr>
+<tr><td>Athletes</td><td>6-13%</td><td>14-20%</td></tr>
+<tr><td>Fitness</td><td>14-17%</td><td>21-24%</td></tr>
+<tr><td>Average</td><td>18-24%</td><td>25-31%</td></tr>
+<tr><td>Obese</td><td>&gt;25%</td><td>&gt;32%</td></tr>
+</tbody></table>
+<h2>Other Methods to Measure Body Fat</h2>
+<ul><li><strong>Skinfold calipers</strong>: Pinch skin at specific sites, ~3-4% accuracy</li><li><strong>Bioelectrical impedance</strong>: Scales send current through body, ~3% error</li><li><strong>DEXA scan</strong>: X-ray based, most accurate at ~1-2% error</li><li><strong>Hydrostatic weighing</strong>: Gold standard, 1-2% accuracy</li></ul>
+</div></div>
+<div class="results-panel"><h2>Body Fat Results</h2>
+<div class="result-item"><div class="result-label">Estimated Body Fat</div><div class="result-value" id="bfPct">---</div></div>
+<div class="result-item"><div class="result-label">Category</div><div class="result-value secondary" id="bfCat">---</div></div>
+<div class="result-item"><div class="result-label">Fat Mass (lbs)</div><div class="result-value secondary" id="bfMass">---</div></div>
+<div class="result-item"><div class="result-label">Lean Mass (lbs)</div><div class="result-value secondary" id="leanMass">---</div></div>
+<div class="bf-result">
+<div id="bfBar" class="bf-bar"><div id="bfFill" class="bf-fill" style="width:0%"></div></div>
+</div>
+</div></div></div>
+<script>
+function toggleSex(){
+  document.getElementById('hipGroup').style.display=document.getElementById('sex').value==='female'?'block':'none';
+}
+function calcBF(){
+  const sex=document.getElementById('sex').value;
+  const h=parseFloat(document.getElementById('height').value)||0;
+  const w=parseFloat(document.getElementById('weight').value)||0;
+  const n=parseFloat(document.getElementById('neck').value)||0;
+  const waist=parseFloat(document.getElementById('waist').value)||0;
+  let bf;
+  if(sex==='male'){
+    bf=86.010*Math.log10(waist-n)-70.041*Math.log10(h)+36.76;
+  }else{
+    const hip=parseFloat(document.getElementById('hip').value)||0;
+    bf=163.205*Math.log10(waist+hip-n)-97.684*Math.log10(h)-78.387;
+  }
+  bf=Math.max(2,Math.min(60,bf));
+  const fatMass=w*bf/100;
+  const lean=w-fatMass;
+  const cats=sex==='male'?[[2,'Essential'],[6,'Athletes'],[14,'Fitness'],[18,'Average'],[25,'Obese']]:[[10,'Essential'],[14,'Athletes'],[21,'Fitness'],[25,'Average'],[32,'Obese']];
+  let cat='Obese';for(const [t,c] of cats)if(bf>=t)cat=c;
+  const pct=Math.round(bf*10)/10;
+  document.getElementById('bfPct').textContent=pct+'%';
+  document.getElementById('bfCat').textContent=cat;
+  document.getElementById('bfMass').textContent=fatMass.toFixed(1)+' lbs';
+  document.getElementById('leanMass').textContent=lean.toFixed(1)+' lbs';
+  const fill=document.getElementById('bfFill');
+  const colors=['#ef4444','#f97316','#eab308','#22c55e'];
+  const colorIdx=Math.min(3,Math.floor(pct/7));
+  fill.style.width=Math.min(100,pct)+'%';
+  fill.style.background=colors[colorIdx];
+}
+calcBF();
+</script></main>
+<footer><div class="container"><div class="footer-bottom"><p>&copy; 2026 CalcWithMe.com. All rights reserved.</p></div></div></footer>
+</body></html>

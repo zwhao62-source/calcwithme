@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+
+<title>Ideal Weight Calculator - Free Healthy Weight Estimator 2026 | CalcWithMe</title>
+<meta name="description" content="Free ideal weight calculator. Find your healthy weight range using BMI, Devine, Robinson, and Miller formulas.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://calcwithme.com/ideal-weight-calculator.html">
+<meta property="og:title" content="Ideal Weight Calculator - CalcWithMe">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is my ideal weight?","acceptedAnswer":{"@type":"Answer","text":"Your ideal weight depends on height, sex, and frame size. A BMI of 18.5-24.9 is considered healthy for most adults."}},{"@type":"Question","name":"What is the Robinson formula?","acceptedAnswer":{"@type":"Answer","text":"Men: 114 lb + 4 lb/inch over 5 ft. Women: 108 lb + 3.5 lb/inch over 5 ft. Adjusts by 10% for large or small frame."}}]}</script>
+</head>
+<body><header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/">Calculators</a><a href="/blog/">Blog</a></nav></div></header>
+<main class="calculator-page"><div class="container"><div class="calculator-layout">
+<div class="calculator-main">
+<h1>Ideal Weight Calculator</h1>
+<p class="page-desc">Find your healthy weight range based on height. Uses BMI, Devine, Robinson, and Miller formulas.</p>
+<div class="calc-form">
+<div class="form-group"><label>Sex</label><select id="sex"><option value="male">Male</option><option value="female">Female</option></select></div>
+<div class="form-group"><label>Height (inches)</label><input type="number" id="height" value="68" min="48" max="96"></div>
+<div class="form-group"><label>Frame Size</label><select id="frame"><option value="0.9">Small Frame</option><option value="1" selected>Medium Frame</option><option value="1.1">Large Frame</option></select></div>
+<button class="btn-calculate" onclick="calcIdeal()">Calculate Ideal Weight</button>
+</div>
+<div class="calc-content">
+<h2>What Is Ideal Body Weight?</h2>
+<p>Ideal body weight (IBW) is a weight estimate based on height that is associated with optimal health outcomes. It serves as a guideline rather than a precise target.</p>
+<h2>Formulas Used</h2>
+<ul><li><strong>BMI Range (18.5-24.9)</strong>: The CDC and WHO standard for healthy weight</li><li><strong>Devine Formula</strong>: Originally for dosing medications; 100 lb + 5 lb/inch over 5 ft</li><li><strong>Robinson Formula</strong>: Modified from Devine; considered more accurate for adults</li><li><strong>Miller Formula</strong>: Another commonly used estimate</li></ul>
+<h2>Limitations of Ideal Weight Formulas</h2>
+<p>These formulas were developed from limited population data and don't account for muscle mass, bone density, age, or body composition. Athletes with high muscle mass may exceed these ranges and still be healthy.</p>
+<h2>Better Alternative</h2>
+<p>Use BMI (18.5-24.9 healthy range) combined with waist circumference for a more complete picture. Waist over 40" (men) or 35" (women) indicates higher health risk regardless of weight.</p>
+</div></div>
+<div class="results-panel"><h2>Your Results</h2>
+<div class="result-item"><div class="result-label">BMI Range (18.5-24.9)</div><div class="result-value" id="bmiRange">---</div></div>
+<div class="result-item"><div class="result-label">Devine Formula</div><div class="result-value secondary" id="devine">---</div></div>
+<div class="result-item"><div class="result-label">Robinson Formula</div><div class="result-value secondary" id="robinson">---</div></div>
+<div class="result-item"><div class="result-label">Miller Formula</div><div class="result-value secondary" id="miller">---</div></div>
+</div></div></div>
+<script>
+function calcIdeal(){
+  const sex=document.getElementById('sex').value;
+  const h=parseFloat(document.getElementById('height').value)||0;
+  const frame=parseFloat(document.getElementById('frame').value)||1;
+  const extra=h-60; // inches over 5 ft (60 inches)
+  // BMI range
+  const bmiLow=18.5*Math.pow(h*0.0254,2)/0.453592;
+  const bmiHigh=24.9*Math.pow(h*0.0254,2)/0.453592;
+  // Devine: 100+(5*extra) men, 95.5+(5*extra) women
+  const devine=((sex==='male'?100:95.5)+5*extra)*frame;
+  // Robinson: 114+(3*extra) men, 108+(3*extra) women
+  const robinson=((sex==='male'?114:108)+3*extra)*frame;
+  // Miller: 131+(2.7*extra) men, 123+(3*extra) women
+  const miller=((sex==='male'?131:123)+(sex==='male'?2.7:3)*extra)*frame;
+  document.getElementById('bmiRange').textContent=Math.round(bmiLow)+' - '+Math.round(bmiHigh)+' lbs';
+  document.getElementById('devine').textContent=Math.round(devine)+' lbs';
+  document.getElementById('robinson').textContent=Math.round(robinson)+' lbs';
+  document.getElementById('miller').textContent=Math.round(miller)+' lbs';
+}
+calcIdeal();
+</script></main>
+<footer><div class="container"><div class="footer-bottom"><p>&copy; 2026 CalcWithMe.com. All rights reserved.</p></div></div></footer>
+</body></html>

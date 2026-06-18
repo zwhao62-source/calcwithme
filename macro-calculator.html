@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+
+<title>Macro Calculator - Free Carb Protein Fat Calculator 2026 | CalcWithMe</title>
+<meta name="description" content="Free macro calculator. Calculate your daily carbohydrate, protein, and fat intake based on your calorie goal and fitness goal.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://calcwithme.com/macro-calculator.html">
+<meta property="og:title" content="Macro Calculator - CalcWithMe">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are macros?","acceptedAnswer":{"@type":"Answer","text":"Macros (macronutrients) are the three main nutrients: carbohydrates (4 cal/g), protein (4 cal/g), and fat (9 cal/g). They make up all the calories you eat."}},{"@type":"Question","name":"How much protein do I need?","acceptedAnswer":{"@type":"Answer","text":"0.8g/kg body weight for sedentary adults. Athletes: 1.4-2.0g/kg. People building muscle: 1.6-2.2g/kg."}}]}</script>
+</head>
+<body><header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/">Calculators</a><a href="/blog/">Blog</a></nav></div></header>
+<main class="calculator-page"><div class="container"><div class="calculator-layout">
+<div class="calculator-main">
+<h1>Macro Calculator</h1>
+<p class="page-desc">Calculate your daily carbohydrate, protein, and fat targets based on your calorie goal and fitness goal.</p>
+<div class="calc-form">
+<div class="form-group"><label>Goal</label><select id="goal"><option value="lose">Lose Weight (Cut)</option><option value="maintain">Maintain Weight</option><option value="gain">Build Muscle (Bulk)</option></select></div>
+<div class="form-row">
+<div class="form-group"><label>Weight (lbs)</label><input type="number" id="weight" value="160" min="80" max="400"></div>
+<div class="form-group"><label>Activity Level</label><select id="activity">
+<option value="1.2">Sedentary</option><option value="1.375">Light (1-3x/week)</option><option value="1.55" selected>Moderate (3-5x/week)</option>
+<option value="1.725">Active (6-7x/week)</option><option value="1.9">Very Active (Athletic)</option>
+</select></div>
+</div>
+<div class="form-group"><label>Macro Split</label><select id="split">
+<option value="balanced">Balanced (40/30/30 - C/P/F)</option>
+<option value="lowcarb">Low Carb (25/40/35 - C/P/F)</option>
+<option value="highcarb">High Carb (50/25/25 - C/P/F)</option>
+<option value="keto">Keto (5/35/60 - C/P/F)</option>
+<option value="paleo">Paleo (30/35/35 - C/P/F)</option>
+</select></div>
+<button class="btn-calculate" onclick="calcMacro()">Calculate Macros</button>
+</div>
+<div class="calc-content">
+<h2>What Are Macros?</h2>
+<p>Macronutrients are the nutrients that provide calories: Carbohydrates (4 cal/g), Protein (4 cal/g), Fat (9 cal/g). Your macro split determines what proportion of each you eat.</p>
+<h2>Common Macro Splits</h2>
+<ul><li><strong>Balanced (40/30/30)</strong>: Good general-purpose split</li><li><strong>Low Carb (25/40/35)</strong>: Better for fat loss and blood sugar control</li><li><strong>High Carb (50/25/25)</strong>: Ideal for endurance athletes and high-intensity training</li><li><strong>Keto (5/35/60)</strong>: Very low carb, high fat for ketone production</li></ul>
+<h2>Protein: The Most Important Macro</h2>
+<p>Protein is the most satiating macro and essential for muscle repair. Target: 1.6-2.2g/kg body weight for muscle building, 1.2-1.6g/kg for weight loss to preserve muscle mass.</p>
+<h2>Pre- vs Post-Workout Nutrition</h2>
+<ul><li><strong>Before workout</strong>: 0.5g carbs/lb body weight 1-2 hours before</li><li><strong>After workout</strong>: 20-40g protein within 2 hours post-workout</li></ul>
+</div></div>
+<div class="results-panel"><h2>Daily Macro Targets</h2>
+<div class="result-item"><div class="result-label">Daily Calories</div><div class="result-value" id="calories">---</div></div>
+<div class="result-item"><div class="result-label">Carbohydrates</div><div class="result-value" id="carbs">---</div></div>
+<div class="result-item"><div class="result-label">Protein</div><div class="result-value secondary" id="protein">---</div></div>
+<div class="result-item"><div class="result-label">Fat</div><div class="result-value secondary" id="fat">---</div></div>
+<div class="result-item"><div class="result-label">Carbs (grams)</div><div class="result-value secondary" id="carbsG">---</div></div>
+<div class="result-item"><div class="result-label">Protein (grams)</div><div class="result-value secondary" id="proteinG">---</div></div>
+<div class="result-item"><div class="result-label">Fat (grams)</div><div class="result-value secondary" id="fatG">---</div></div>
+</div></div></div>
+<script>
+function calcMacro(){
+  const w=parseFloat(document.getElementById('weight').value)||160;
+  const act=parseFloat(document.getElementById('activity').value)||1.55;
+  const goal=document.getElementById('goal').value;
+  const split=document.getElementById('split').value;
+  const bmr=w*10+6.25*170-5*30+5; // approx
+  const tdee=bmr*act;
+  let calories=goal==='lose'?tdee-500:goal==='gain'?tdee+300:tdee;
+  const splits={'balanced':[0.4,0.3,0.3],'lowcarb':[0.25,0.4,0.35],'highcarb':[0.5,0.25,0.25],'keto':[0.05,0.35,0.6],'paleo':[0.3,0.35,0.35]};
+  const [cPct,pPct,fPct]=splits[split];
+  const carbs=cPct*calories/4,protein=pPct*calories/4,fat=fPct*calories/9;
+  document.getElementById('calories').textContent=Math.round(calories)+' cal/day';
+  document.getElementById('carbs').textContent=(cPct*100)+'% = '+Math.round(carbs)+' cal';
+  document.getElementById('protein').textContent=(pPct*100)+'% = '+Math.round(protein)+' cal';
+  document.getElementById('fat').textContent=(fPct*100)+'% = '+Math.round(fat)+' cal';
+  document.getElementById('carbsG').textContent=Math.round(carbs)+'g';
+  document.getElementById('proteinG').textContent=Math.round(protein)+'g';
+  document.getElementById('fatG').textContent=Math.round(fat)+'g';
+}
+calcMacro();
+</script></main>
+<footer><div class="container"><div class="footer-bottom"><p>&copy; 2026 CalcWithMe.com. All rights reserved.</p></div></div></footer>
+</body></html>

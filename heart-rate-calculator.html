@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+
+<title>Heart Rate Zone Calculator - Target Heart Rate 2026 | CalcWithMe</title>
+<meta name="description" content="Free heart rate zone calculator. Find your target heart rate zones for different exercise intensities using the Karvonen formula.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://calcwithme.com/heart-rate-calculator.html">
+<meta property="og:title" content="Heart Rate Zone Calculator - CalcWithMe">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is my target heart rate?","acceptedAnswer":{"@type":"Answer","text":"Your target heart rate for exercise is 50-85% of your maximum heart rate (220 - age). Use the Karvonen formula for more accuracy."}},{"@type":"Question","name":"How do I measure my heart rate?","acceptedAnswer":{"@type":"Answer","text":"Place two fingers on your wrist or neck, count beats for 15 seconds, multiply by 4 for beats per minute."}}]}</script>
+</head>
+<body><header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/">Calculators</a><a href="/blog/">Blog</a></nav></div></header>
+<main class="calculator-page"><div class="container"><div class="calculator-layout">
+<div class="calculator-main">
+<h1>Heart Rate Zone Calculator</h1>
+<p class="page-desc">Calculate your target heart rate zones for different exercise intensities. Uses the Karvonen formula for accuracy.</p>
+<div class="calc-form">
+<div class="form-group"><label>Age (years)</label><input type="number" id="age" value="30" min="15" max="100"></div>
+<div class="form-group"><label>Resting Heart Rate (bpm)</label><input type="number" id="rhr" value="70" min="40" max="120"><div class="help-text">Measure in the morning before getting up</div></div>
+<div class="form-group"><label>Formula</label><select id="formula"><option value="karvonen" selected>Karvonen (recommended)</option><option value="simple">Simple (220-age)</option></select></div>
+<button class="btn-calculate" onclick="calcHR()">Calculate Heart Rate Zones</button>
+</div>
+<div class="calc-content">
+<h2>Understanding Heart Rate Zones</h2>
+<p>Exercise at different heart rate zones produces different benefits. Train across zones for optimal fitness.</p>
+<h2>Heart Rate Zones (by % of Max)</h2>
+<ul><li><strong>Zone 1 (50-60%)</strong>: Very light — recovery walks, warm-up, cool-down</li><li><strong>Zone 2 (60-70%)</strong>: Light — fat burning, builds aerobic base, easy conversation</li><li><strong>Zone 3 (70-80%)</strong>: Moderate — aerobic endurance, improves cardiovascular fitness</li><li><strong>Zone 4 (80-90%)</strong>: Hard — anaerobic threshold, improves speed and performance</li><li><strong>Zone 5 (90-100%)</strong>: Maximum — interval training, short bursts, improves VO2 max</li></ul>
+<h2>The Karvonen Formula</h2>
+<p><strong>Target HR = ((Max HR - Resting HR) x %Intensity) + Resting HR</strong></p>
+<p>This formula is more accurate than the simple 220-age method because it accounts for your fitness level (resting heart rate).</p>
+<h2>How to Measure Your Resting Heart Rate</h2>
+<p>Measure first thing in the morning before getting out of bed. Count your pulse for 60 seconds (or 30 seconds x 2). Lower resting HR = better fitness. Athletes often have RHR of 40-60 bpm.</p>
+</div></div>
+<div class="results-panel"><h2>Your Heart Rate Zones</h2>
+<div class="result-item"><div class="result-label">Max Heart Rate</div><div class="result-value" id="maxHR">---</div></div>
+<div class="result-item"><div class="result-label">Zone 1 (50-60%)</div><div class="result-value secondary" id="zone1">---</div></div>
+<div class="result-item"><div class="result-label">Zone 2 (60-70%)</div><div class="result-value secondary" id="zone2">---</div></div>
+<div class="result-item"><div class="result-label">Zone 3 (70-80%)</div><div class="result-value secondary" id="zone3">---</div></div>
+<div class="result-item"><div class="result-label">Zone 4 (80-90%)</div><div class="result-value secondary" id="zone4">---</div></div>
+<div class="result-item"><div class="result-label">Zone 5 (90-100%)</div><div class="result-value secondary" id="zone5">---</div></div>
+</div></div></div>
+<script>
+function calcHR(){
+  const age=parseFloat(document.getElementById('age').value)||30;
+  const rhr=parseFloat(document.getElementById('rhr').value)||70;
+  const formula=document.getElementById('formula').value;
+  const maxHR=formula==='karvonen'?220-age:220-age;
+  const zones=[0.5,0.6,0.7,0.8,0.9];
+  const names=['zone1','zone2','zone3','zone4','zone5'];
+  const labels=['Zone 1 (50-60%)','Zone 2 (60-70%)','Zone 3 (70-80%)','Zone 4 (80-90%)','Zone 5 (90-100%)'];
+  document.getElementById('maxHR').textContent=maxHR+' bpm';
+  zones.forEach((z,i)=>{
+    let thr;
+    if(formula==='karvonen'){
+      thr=(maxHR-rhr)*z+rhr;
+    }else{
+      thr=maxHR*z;
+    }
+    document.getElementById(names[i]).textContent=Math.round(thr)+' bpm';
+  });
+}
+calcHR();
+</script></main>
+<footer><div class="container"><div class="footer-bottom"><p>&copy; 2026 CalcWithMe.com. All rights reserved.</p></div></div></footer>
+</body></html>

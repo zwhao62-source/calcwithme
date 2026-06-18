@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+
+<title>Pace Calculator - Running & Cycling Pace Calculator 2026 | CalcWithMe</title>
+<meta name="description" content="Free pace calculator. Calculate your running or cycling pace, speed, and finish times for any distance from 5K to marathon.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://calcwithme.com/pace-calculator.html">
+<meta property="og:title" content="Pace Calculator - CalcWithMe">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate running pace?","acceptedAnswer":{"@type":"Answer","text":"Pace = Time / Distance. For example, running 5K in 25 minutes: 25/5 = 5 min/km or 8:03 min/mile."}},{"@type":"Question","name":"What is a good marathon pace?","acceptedAnswer":{"@type":"Answer","text":"A 4-hour marathon = 9:09 min/mile (5:41 min/km). A 3:30 marathon = 8:01 min/mile (4:59 min/km)."}}]}</script>
+</head>
+<body><header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/">Calculators</a><a href="/blog/">Blog</a></nav></div></header>
+<main class="calculator-page"><div class="container"><div class="calculator-layout">
+<div class="calculator-main">
+<h1>Pace Calculator</h1>
+<p class="page-desc">Calculate your running or cycling pace, speed, and predicted finish times for any distance.</p>
+<div class="calc-form">
+<div class="form-group"><label>Calculate By</label><select id="calcBy" onchange="togglePace()"><option value="time">Time & Distance → Pace</option><option value="pace">Pace & Distance → Time</option></select></div>
+<div class="form-row">
+<div class="form-group"><label>Hours</label><input type="number" id="ph" value="0" min="0"></div>
+<div class="form-group"><label>Minutes</label><input type="number" id="pm" value="30" min="0" max="59"></div>
+<div class="form-group"><label>Seconds</label><input type="number" id="ps" value="0" min="0" max="59"></div>
+</div>
+<div class="form-group"><label>Distance</label><div style="display:flex;gap:8px;"><input type="number" id="dist" value="5" min="0.1" step="0.1" style="flex:1;"><select id="unit" style="width:80px;"><option value="km">km</option><option value="mi" selected>miles</option></select></div></div>
+<div id="paceInputs" style="display:none;">
+<div class="form-row">
+<div class="form-group"><label>Min/Mile or Min/km</label><input type="number" id="paceMin" value="8" min="1" max="30"></div>
+<div class="form-group"><label>Seconds</label><input type="number" id="paceSec" value="0" min="0" max="59"></div>
+</div>
+</div>
+<button class="btn-calculate" onclick="calcPace()">Calculate</button>
+</div>
+<div class="calc-content">
+<h2>How to Calculate Running Pace</h2>
+<p><strong>Pace (min/mile) = Total Minutes / Miles</strong></p>
+<p>Example: 5K (3.1 miles) in 28:30. Pace = 28.5 / 3.1 = 9:11 min/mile. Or 28.5 / 5 = 5:42 min/km.</p>
+<h2>Common Race Pace Chart</h2>
+<table class="schedule-table"><thead><tr><th>Distance</th><th>7:00/mi</th><th>8:00/mi</th><th>9:00/mi</th><th>10:00/mi</th></tr></thead><tbody>
+<tr><td>5K</td><td>21:46</td><td>24:52</td><td>27:58</td><td>31:04</td></tr>
+<tr><td>10K</td><td>43:31</td><td>49:44</td><td>55:56</td><td>1:02:08</td></tr>
+<tr><td>Half Marathon</td><td>1:31:41</td><td>1:44:46</td><td>1:57:52</td><td>2:10:58</td></tr>
+<tr><td>Marathon</td><td>3:03:20</td><td>3:29:23</td><td>3:55:26</td><td>4:21:29</td></tr>
+</tbody></table>
+<h2>Pace Zone Training</h2>
+<ul><li><strong>Easy (Zone 2)</strong>: 65-75% max HR — builds aerobic base</li><li><strong>Threshold</strong>: 80-88% max HR — improves lactate clearance</li><li><strong>Intervals</strong>: 90-100% max HR — improves VO2 max and speed</li></ul>
+</div></div>
+<div class="results-panel"><h2>Results</h2>
+<div class="result-item"><div class="result-label">Pace per Mile</div><div class="result-value" id="paceMile">---</div></div>
+<div class="result-item"><div class="result-label">Pace per KM</div><div class="result-value secondary" id="paceKm">---</div></div>
+<div class="result-item"><div class="result-label">Speed (mph)</div><div class="result-value secondary" id="speedMph">---</div></div>
+<div class="result-item"><div class="result-label">5K Time</div><div class="result-value secondary" id="time5k">---</div></div>
+<div class="result-item"><div class="result-label">10K Time</div><div class="result-value secondary" id="time10k">---</div></div>
+<div class="result-item"><div class="result-label">Half Marathon</div><div class="result-value secondary" id="timeHalf">---</div></div>
+<div class="result-item"><div class="result-label">Marathon</div><div class="result-value secondary" id="timeMarathon">---</div></div>
+</div></div></div>
+<script>
+function fmtTime(s){
+  const h=Math.floor(s/3600),m=Math.floor((s%3600)/60),sec=Math.round(s%60);
+  return h>0?h+':'+String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0'):m+':'+String(sec).padStart(2,'0');
+}
+function togglePace(){
+  const by=document.getElementById('calcBy').value;
+  document.getElementById('paceInputs').style.display=by==='pace'?'block':'none';
+}
+function calcPace(){
+  const by=document.getElementById('calcBy').value;
+  let totalMin;
+  if(by==='time'){
+    const h=parseFloat(document.getElementById('ph').value)||0;
+    const m=parseFloat(document.getElementById('pm').value)||0;
+    const s=parseFloat(document.getElementById('ps').value)||0;
+    totalMin=h+m+s/60;
+  }else{
+    const pm=parseFloat(document.getElementById('paceMin').value)||8;
+    const ps=parseFloat(document.getElementById('paceSec').value)||0;
+    const dist=parseFloat(document.getElementById('dist').value)||1;
+    totalMin=(pm+ps/60)*dist;
+  }
+  const dist=parseFloat(document.getElementById('dist').value)||1;
+  const isMi=document.getElementById('unit').value==='mi';
+  const kmDist=isMi?dist*1.60934:dist;
+  const miDist=isMi?dist:dist/1.60934;
+  const paceMi=totalMin/miDist;
+  const paceKm=totalMin/kmDist;
+  const mph=60/paceMi;
+  document.getElementById('paceMile').textContent=Math.floor(paceMi)+':'+String(Math.round((paceMi%1)*60)).padStart(2,'0')+' /mi';
+  document.getElementById('paceKm').textContent=Math.floor(paceKm)+':'+String(Math.round((paceKm%1)*60)).padStart(2,'0')+' /km';
+  document.getElementById('speedMph').textContent=mph.toFixed(1)+' mph';
+  document.getElementById('time5k').textContent=fmtTime(paceKm*5);
+  document.getElementById('time10k').textContent=fmtTime(paceKm*10);
+  document.getElementById('timeHalf').textContent=fmtTime(paceKm*21.0975);
+  document.getElementById('timeMarathon').textContent=fmtTime(paceKm*42.195);
+}
+calcPace();
+</script></main>
+<footer><div class="container"><div class="footer-bottom"><p>&copy; 2026 CalcWithMe.com. All rights reserved.</p></div></div></footer>
+</body></html>

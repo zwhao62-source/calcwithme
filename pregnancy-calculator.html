@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+
+<title>Pregnancy Calculator - Due Date & Conception Date Calculator 2026 | CalcWithMe</title>
+<meta name="description" content="Free pregnancy calculator. Enter your last period or conception date to find your due date, trimester milestones, and fetal development stages.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://calcwithme.com/pregnancy-calculator.html">
+<meta property="og:title" content="Pregnancy Calculator - CalcWithMe">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is my due date calculated?","acceptedAnswer":{"@type":"Answer","text":"Naegele's rule: Add 280 days (40 weeks) to the first day of your last menstrual period. This assumes a 28-day cycle with ovulation on day 14."}},{"@type":"Question","name":"How accurate is the due date?","acceptedAnswer":{"@type":"Answer","text":"Only about 4% of babies are born on their due date. Most arrive within 2 weeks before or after."}}]}</script>
+</head>
+<body><header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/">Calculators</a><a href="/blog/">Blog</a></nav></div></header>
+<main class="calculator-page"><div class="container"><div class="calculator-layout">
+<div class="calculator-main">
+<h1>Pregnancy Calculator</h1>
+<p class="page-desc">Calculate your due date, current trimester, weeks pregnant, and key fetal development milestones.</p>
+<div class="calc-form">
+<div class="form-group"><label>First Day of Last Period</label><input type="date" id="lmp" value="2026-03-18"></div>
+<div class="form-group"><label>Average Cycle Length (days)</label><select id="cycle">
+<option value="21">21 days</option><option value="28" selected>28 days (average)</option>
+<option value="30">30 days</option><option value="35">35 days</option>
+</select></div>
+<button class="btn-calculate" onclick="calcPreg()">Calculate Pregnancy Timeline</button>
+</div>
+<div class="calc-content">
+<h2>How Pregnancy Is Calculated</h2>
+<p>Pregnancy is measured from the first day of your last menstrual period (LMP). This is called the gestational age. Conception typically occurs about 14 days after LMP in a 28-day cycle.</p>
+<h2>Key Pregnancy Milestones</h2>
+<ul><li><strong>Week 4</strong>: Implantation occurs, pregnancy test turns positive</li><li><strong>Week 8</strong>: Heartbeat detectable on ultrasound</li><li><strong>Week 12</strong>: End of first trimester, miscarriage risk drops significantly</li><li><strong>Week 20</strong>: Anatomy scan, may reveal baby's sex</li><li><strong>Week 24</strong>: Viability milestone — baby has a chance of survival if born</li><li><strong>Week 37</strong>: Baby is considered full-term</li></ul>
+<h2>The Three Trimesters</h2>
+<ul><li><strong>First Trimester (Weeks 1-12)</strong>: Rapid cell division, organ formation. Most common for nausea and fatigue.</li><li><strong>Second Trimester (Weeks 13-26)</strong>: Growth phase. Most women feel best during this period. Baby movements felt ("quickening").</li><li><strong>Third Trimester (Weeks 27-40)</strong>: Rapid brain development, fat accumulation. Common discomforts: back pain, swelling, shortness of breath.</li></ul>
+<h2>Important Notes</h2>
+<p>Only ~4% of babies arrive on their due date. First-time moms often go past their due date; subsequent pregnancies tend to arrive sooner.</p>
+</div></div>
+<div class="results-panel"><h2>Your Pregnancy Timeline</h2>
+<div class="result-item"><div class="result-label">Due Date</div><div class="result-value" id="dueDate">---</div></div>
+<div class="result-item"><div class="result-label">Weeks Pregnant</div><div class="result-value" id="weeksPreg">---</div></div>
+<div class="result-item"><div class="result-label">Current Trimester</div><div class="result-value secondary" id="trimester">---</div></div>
+<div class="result-item"><div class="result-label">Conception Date</div><div class="result-value secondary" id="conception">---</div></div>
+<div class="result-item"><div class="result-label">Days Until Due Date</div><div class="result-value secondary" id="daysLeft">---</div></div>
+</div></div></div>
+<script>
+function calcPreg(){
+  const lmp=new Date(document.getElementById('lmp').value);
+  const cycle=parseInt(document.getElementById('cycle').value)||28;
+  const ovulation=new Date(lmp.getTime()+(cycle-14)*86400000);
+  const dueDate=new Date(lmp.getTime()+280*86400000);
+  const today=new Date();
+  const daysDiff=Math.floor((today-lmp)/86400000);
+  const weeks=Math.floor(daysDiff/7);
+  const daysRem=daysDiff%7;
+  const tri=weeks<13?'First Trimester':weeks<27?'Second Trimester':'Third Trimester';
+  const daysLeft=Math.max(0,Math.floor((dueDate-today)/86400000));
+  const fmt=d=>d.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+  document.getElementById('dueDate').textContent=fmt(dueDate);
+  document.getElementById('weeksPreg').textContent=weeks+' weeks, '+daysRem+' days';
+  document.getElementById('trimester').textContent=tri;
+  document.getElementById('conception').textContent=fmt(ovulation);
+  document.getElementById('daysLeft').textContent=daysLeft+' days';
+}
+calcPreg();
+</script></main>
+<footer><div class="container"><div class="footer-bottom"><p>&copy; 2026 CalcWithMe.com. All rights reserved.</p></div></div></footer>
+</body></html>
