@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Grade Calculator - Free Test & GPA Calculator 2026 | CalcWithMe</title>
+<meta name="description" content="Free grade calculator. Calculate weighted averages, GPA, and what you need on the final exam to pass.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://calcwithme.com/grade-calculator.html">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate my class grade?","acceptedAnswer":{"@type":"Answer","text":"Multiply each category score by its weight, then add all weighted scores together."}},{"@type":"Question","name":"What do I need on the final?","acceptedAnswer":{"@type":"Answer","text":"Required Final = (Target - Current Weighted) / (1 - Final Weight)."}}]}</script>
+<style>.grade-row{display:flex;gap:8px;align-items:center;margin-bottom:8px;padding:8px;background:#f8fafc;border-radius:8px;}.grade-row input{flex:1;min-width:50px;}.add-btn{background:#10b981;color:white;border:none;padding:8px 16px;border-radius:8px;cursor:pointer;font-weight:600;}.remove-btn{background:#ef4444;color:white;border:none;padding:4px 8px;border-radius:6px;cursor:pointer;font-size:.8rem;}</style>
+</head>
+<body><header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/">Calculators</a><a href="/blog/">Blog</a></nav></div></header>
+<main class="calculator-page"><div class="container"><div class="calculator-layout">
+<div class="calculator-main">
+<h1>Grade Calculator</h1>
+<p class="page-desc">Calculate your class grade with weighted categories, find what you need on the final, or compute your GPA.</p>
+<div class="calc-form">
+<div id="gradeRows">
+<div class="grade-row"><input type="text" value="Homework" class="gn"><input type="number" value="90" min="0" max="100" class="gs" placeholder="Grade %"><input type="number" value="30" min="0" max="100" class="gw" placeholder="Weight %"><button class="remove-btn" onclick="this.parentElement.remove();calcGrade()">X</button></div>
+<div class="grade-row"><input type="text" value="Midterm" class="gn"><input type="number" value="85" min="0" max="100" class="gs" placeholder="Grade %"><input type="number" value="30" min="0" max="100" class="gw" placeholder="Weight %"><button class="remove-btn" onclick="this.parentElement.remove();calcGrade()">X</button></div>
+<div class="grade-row"><input type="text" value="Final" class="gn"><input type="number" value="0" min="0" max="100" class="gs" placeholder="Grade %"><input type="number" value="40" min="0" max="100" class="gw" placeholder="Weight %"></div>
+</div>
+<button class="add-btn" onclick="addRow()">+ Add Category</button>
+<div class="form-group" style="margin-top:16px;"><label>Target Grade (%)</label><input type="number" id="targetGrade" value="80" min="0" max="100"></div>
+<button class="btn-calculate" onclick="calcGrade()">Calculate Grade</button>
+</div>
+<div class="calc-content">
+<h2>How to Calculate Your Grade</h2>
+<p>Multiply each category score by its weight: <strong>Overall = Sum(Grade x Weight)</strong>. For a class with Homework 90% (30%), Midterm 85% (30%), Final unknown (40%): current = 52.5% out of 60% weighted.</p>
+<h2>What Do I Need on the Final?</h2>
+<p><strong>Required = (Target - Current Weighted) / (1 - Final Weight)</strong>. To get 80% with 52.5% earned and final worth 40%: (80 - 52.5) / 0.40 = 68.75%. You need 69% on the final.</p>
+<h2>GPA Scale</h2>
+<ul><li>A+ (97-100): 4.0 | A (93-96): 4.0 | A- (90-92): 3.7</li><li>B+ (87-89): 3.3 | B (83-86): 3.0 | B- (80-82): 2.7</li><li>C+ (77-79): 2.3 | C (73-76): 2.0 | C- (70-72): 1.7</li><li>D (60-69): 1.0 | F (below 60): 0.0</li></ul>
+</div></div>
+<div class="results-panel"><h2>Grade Results</h2>
+<div class="result-item"><div class="result-label">Current Weighted Grade</div><div class="result-value" id="currentGrade">---</div></div>
+<div class="result-item"><div class="result-label">Total Weight</div><div class="result-value secondary" id="totalWeight">---</div></div>
+<div class="result-item"><div class="result-label">Needed on Remaining</div><div class="result-value secondary" id="neededGrade">---</div></div>
+<div class="result-item"><div class="result-label">Letter Grade</div><div class="result-value secondary" id="letterGrade">---</div></div>
+</div></div></div>
+<script>
+function addRow(){const d=document.createElement('div');d.className='grade-row';d.innerHTML='<input type="text" value="Category" class="gn"><input type="number" value="0" min="0" max="100" class="gs" placeholder="Grade %"><input type="number" value="10" min="0" max="100" class="gw" placeholder="Weight %"><button class="remove-btn" onclick="this.parentElement.remove();calcGrade()">X</button>';document.getElementById('gradeRows').appendChild(d);}
+function lg(p){if(p>=97)return'A+';if(p>=93)return'A';if(p>=90)return'A-';if(p>=87)return'B+';if(p>=83)return'B';if(p>=80)return'B-';if(p>=77)return'C+';if(p>=73)return'C';if(p>=70)return'C-';if(p>=60)return'D';return'F';}
+function calcGrade(){
+  const rows=document.querySelectorAll('.grade-row');let sum=0,ws=0;
+  rows.forEach(r=>{const s=parseFloat(r.querySelector('.gs').value)||0;const w=parseFloat(r.querySelector('.gw').value)||0;sum+=s*w/100;ws+=w;});
+  const target=parseFloat(document.getElementById('targetGrade').value)||80;
+  const needed=ws<100?((target-sum)/(100-ws)*100):0;
+  document.getElementById('currentGrade').textContent=(ws>0?sum/(ws/100):0).toFixed(2)+'%';
+  document.getElementById('totalWeight').textContent=ws.toFixed(1)+'%';
+  document.getElementById('neededGrade').textContent=ws<100?needed.toFixed(2)+'%':'All weight entered';
+  document.getElementById('letterGrade').textContent=lg(ws>0?sum/(ws/100):0);
+}
+calcGrade();
+</script></main>
+<footer><div class="container"><div class="footer-bottom"><p>&copy; 2026 CalcWithMe.com. All rights reserved.</p><p class="disclaimer">Results are estimates only.</p></div></div></footer>
+</body></html>

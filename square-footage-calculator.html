@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Square Footage Calculator - Free Area Calculator | CalcWithMe</title>
+<meta name="description" content="Free square footage calculator. Calculate area for rectangles, circles, triangles, and trapezoids. Convert between sq ft, sq m, and acres.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://calcwithme.com/square-footage-calculator.html">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate square footage?","acceptedAnswer":{"@type":"Answer","text":"Multiply length by width. For a room 12ft x 15ft, the square footage is 180 sq ft."}},{"@type":"Question","name":"How many square feet in an acre?","acceptedAnswer":{"@type":"Answer","text":"One acre equals 43,560 square feet."}}]}</script>
+</head>
+<body><header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/">Calculators</a><a href="/blog/">Blog</a></nav></div></header>
+<main class="calculator-page"><div class="container"><div class="calculator-layout">
+<div class="calculator-main">
+<h1>Square Footage Calculator</h1>
+<p class="page-desc">Calculate area in square feet, square meters, or acres. Perfect for flooring, painting, landscaping, and real estate.</p>
+<div class="calc-form">
+<div class="form-group"><label>Shape</label><select id="shape" onchange="updateShape()">
+<option value="rectangle">Rectangle / Square</option><option value="circle">Circle</option>
+<option value="triangle">Triangle</option><option value="trapezoid">Trapezoid</option></select></div>
+<div id="shapeInputs"><div class="form-row"><div class="form-group"><label>Length (ft)</label><input type="number" id="length" value="12" min="0" step="0.1"></div><div class="form-group"><label>Width (ft)</label><input type="number" id="width" value="15" min="0" step="0.1"></div></div></div>
+<div class="form-group"><label>Number of Same Areas</label><input type="number" id="count" value="1" min="1" step="1"></div>
+<button class="btn-calculate" onclick="calcSqft()">Calculate Square Footage</button>
+</div>
+<div class="calc-content">
+<h2>How to Calculate Square Footage</h2>
+<p>Rectangle: Length x Width. Circle: pi x r2. Triangle: 0.5 x base x height. Trapezoid: 0.5 x (top + bottom) x height.</p>
+<h2>Common Conversions</h2>
+<ul><li>1 sq ft = 0.0929 sq m | 1 sq m = 10.764 sq ft</li><li>1 acre = 43,560 sq ft | 1 acre = 4,047 sq m</li></ul>
+<h2>Cost by Square Foot</h2>
+<ul><li>Hardwood flooring: $8-15/sq ft | Carpet: $3-7/sq ft | Tile: $10-25/sq ft</li><li>Interior paint: $2-6/sq ft (walls) | Sod: $0.30-0.80/sq ft</li></ul>
+<h2>Measuring Irregular Shapes</h2>
+<p>Break the area into simple shapes, calculate each, then add together. For an L-shaped room, split into two rectangles.</p>
+</div></div>
+<div class="results-panel"><h2>Area Results</h2>
+<div class="result-item"><div class="result-label">Square Feet</div><div class="result-value" id="sqftResult">---</div></div>
+<div class="result-item"><div class="result-label">Square Meters</div><div class="result-value secondary" id="sqmResult">---</div></div>
+<div class="result-item"><div class="result-label">Acres</div><div class="result-value secondary" id="acresResult">---</div></div>
+</div></div></div>
+<script>
+function updateShape(){
+  const s=document.getElementById('shape').value,div=document.getElementById('shapeInputs');
+  if(s==='rectangle')div.innerHTML='<div class="form-row"><div class="form-group"><label>Length (ft)</label><input type="number" id="length" value="12" min="0" step="0.1"></div><div class="form-group"><label>Width (ft)</label><input type="number" id="width" value="15" min="0" step="0.1"></div></div>';
+  else if(s==='circle')div.innerHTML='<div class="form-group"><label>Radius (ft)</label><input type="number" id="radius" value="10" min="0" step="0.1"></div>';
+  else if(s==='triangle')div.innerHTML='<div class="form-row"><div class="form-group"><label>Base (ft)</label><input type="number" id="base" value="10" min="0" step="0.1"></div><div class="form-group"><label>Height (ft)</label><input type="number" id="height" value="8" min="0" step="0.1"></div></div>';
+  else if(s==='trapezoid')div.innerHTML='<div class="form-row"><div class="form-group"><label>Top Width (ft)</label><input type="number" id="topW" value="6" min="0" step="0.1"></div><div class="form-group"><label>Bottom Width (ft)</label><input type="number" id="botW" value="10" min="0" step="0.1"></div></div><div class="form-group"><label>Height (ft)</label><input type="number" id="trapH" value="8" min="0" step="0.1"></div>';
+}
+function calcSqft(){
+  const s=document.getElementById('shape').value,c=parseInt(document.getElementById('count').value)||1;
+  let area=0;
+  if(s==='rectangle'){const l=parseFloat(document.getElementById('length').value)||0,w=parseFloat(document.getElementById('width').value)||0;area=l*w;}
+  else if(s==='circle'){const r=parseFloat(document.getElementById('radius').value)||0;area=Math.PI*r*r;}
+  else if(s==='triangle'){const b=parseFloat(document.getElementById('base').value)||0,h=parseFloat(document.getElementById('height').value)||0;area=0.5*b*h;}
+  else if(s==='trapezoid'){const t=parseFloat(document.getElementById('topW').value)||0,b=parseFloat(document.getElementById('botW').value)||0,h=parseFloat(document.getElementById('trapH').value)||0;area=0.5*(t+b)*h;}
+  area*=c;
+  document.getElementById('sqftResult').textContent=area.toFixed(2)+' sq ft';
+  document.getElementById('sqmResult').textContent=(area*0.0929).toFixed(2)+' sq m';
+  document.getElementById('acresResult').textContent=(area/43560<1?(area/43560).toFixed(4):(area/43560).toFixed(2))+' acres';
+}
+calcSqft();
+</script></main>
+<footer><div class="container"><div class="footer-bottom"><p>&copy; 2026 CalcWithMe.com. All rights reserved.</p><p class="disclaimer">Results are estimates only.</p></div></div></footer>
+</body></html>

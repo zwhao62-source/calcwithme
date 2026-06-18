@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Hours Calculator - Free Time Duration Calculator | CalcWithMe</title>
+<meta name="description" content="Free hours calculator. Calculate hours between two times, total work hours, and time duration.">
+<meta name="robots" content="index,follow"><link rel="canonical" href="https://calcwithme.com/hours-calculator.html">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="77de646f-0376-43ee-8b45-326250fd1485"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I calculate hours between two times?","acceptedAnswer":{"@type":"Answer","text":"Subtract start time from end time. From 9 AM to 5 PM is 8 hours."}},{"@type":"Question","name":"How many hours is 8:30 AM to 5:45 PM?","acceptedAnswer":{"@type":"Answer","text":"9 hours 15 minutes, or 9.25 hours."}}]}</script>
+</head>
+<body><header><div class="container header-inner"><a href="/" class="logo"><span class="logo-icon">&#x1F522;</span><span>Calc<span class="highlight">With</span>Me</span></a><nav><a href="/">Calculators</a><a href="/blog/">Blog</a></nav></div></header>
+<main class="calculator-page"><div class="container"><div class="calculator-layout">
+<div class="calculator-main">
+<h1>Hours Calculator</h1>
+<p class="page-desc">Calculate hours and minutes between two times, total work hours, and time duration.</p>
+<div class="calc-form">
+<div class="form-row"><div class="form-group"><label>Start Time</label><input type="time" id="startTime" value="09:00"></div><div class="form-group"><label>End Time</label><input type="time" id="endTime" value="17:00"></div></div>
+<div class="form-group"><label>Lunch Break (minutes)</label><input type="number" id="lunch" value="30" min="0" step="15"></div>
+<button class="btn-calculate" onclick="calcHours()">Calculate Hours</button>
+</div>
+<div class="calc-content">
+<h2>How to Calculate Hours Between Times</h2>
+<p>Convert to 24-hour format, subtract start from end. If end is earlier, add 24 hours (crossing midnight). Then subtract break time.</p>
+<h2>Time Math Tips</h2>
+<ul><li>15 min = 0.25 hrs | 30 min = 0.5 hrs | 45 min = 0.75 hrs</li><li>For payroll, round to nearest quarter hour</li><li>Cross-midnight: 10 PM to 6 AM = 8 hours</li></ul>
+<h2>Common Work Hours</h2>
+<ul><li>9 AM to 5 PM = 8 hours | 8:30 AM to 5:30 PM = 9 hours</li><li>7 AM to 3:30 PM = 8.5 hours | 11 PM to 7 AM = 8 hours (overnight)</li></ul>
+</div></div>
+<div class="results-panel"><h2>Time Results</h2>
+<div class="result-item"><div class="result-label">Total Hours</div><div class="result-value" id="totalHours">---</div></div>
+<div class="result-item"><div class="result-label">Decimal Hours</div><div class="result-value secondary" id="decimalHours">---</div></div>
+<div class="result-item"><div class="result-label">After Break</div><div class="result-value secondary" id="afterLunch">---</div></div>
+<div class="result-item"><div class="result-label">Weekly (x5)</div><div class="result-value secondary" id="weekly">---</div></div>
+</div></div></div>
+<script>
+function calcHours(){
+  const s=document.getElementById('startTime').value.split(':');
+  const e=document.getElementById('endTime').value.split(':');
+  const lunch=parseInt(document.getElementById('lunch').value)||0;
+  let start=parseInt(s[0])*60+parseInt(s[1]),end=parseInt(e[0])*60+parseInt(e[1]);
+  if(end<=start)end+=24*60;
+  const totalM=end-start,afterM=totalM-lunch;
+  document.getElementById('totalHours').textContent=Math.floor(totalM/60)+' hrs '+totalM%60+' min';
+  document.getElementById('decimalHours').textContent=(totalM/60).toFixed(2)+' hrs';
+  document.getElementById('afterLunch').textContent=Math.floor(afterM/60)+' hrs '+afterM%60+' min ('+(afterM/60).toFixed(2)+' hrs)';
+  document.getElementById('weekly').textContent=(afterM/60*5).toFixed(1)+' hrs/week';
+}
+calcHours();
+</script></main>
+<footer><div class="container"><div class="footer-bottom"><p>&copy; 2026 CalcWithMe.com. All rights reserved.</p><p class="disclaimer">Results are estimates only.</p></div></div></footer>
+</body></html>
