@@ -148,6 +148,28 @@
         .cat-tab.active { color: #2563eb; border-bottom-color: #2563eb; }
         .cat-section { display: none; }
         .cat-section.active { display: block; }
+        /* Compact calc list */
+        .calc-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+        .calc-list-item {
+            display: flex; align-items: center; gap: 8px;
+            padding: 10px 14px; border-radius: 8px;
+            text-decoration: none; color: var(--text);
+            transition: all 0.15s; border: 1px solid transparent;
+        }
+        .calc-list-item:hover { background: #eff6ff; border-color: #bfdbfe; color: var(--primary); }
+        .calc-list-item .cli-icon { font-size: 1.1rem; flex-shrink: 0; }
+        .calc-list-item .cli-name { font-size: 0.88rem; font-weight: 500; }
+        .calc-list-item .cli-badge {
+            font-size: 0.65rem; font-weight: 700; padding: 2px 6px; border-radius: 10px;
+            background: #dbeafe; color: #2563eb; margin-left: auto; flex-shrink: 0;
+        }
+        .calc-list-item .cli-badge.hot { background: #fef3c7; color: #92400e; }
+        .calc-list-heading {
+            font-size: 0.72rem; font-weight: 700; color: #2563eb; text-transform: uppercase;
+            letter-spacing: 0.06em; padding: 10px 0 4px; grid-column: 1 / -1;
+            border-top: 1px solid #f1f5f9; margin-top: 4px;
+        }
+        .calc-list-heading:first-child { border-top: none; margin-top: 0; }
         @media (max-width: 520px) {
             .sci-widget { padding: 0.8rem; }
             .sw-btn { padding: 8px 2px; font-size: 0.72rem; }
@@ -163,11 +185,74 @@
                 <span class="logo-icon">&#x1F522;</span>
                 <span>Calc<span class="highlight">With</span>Me</span>
             </a>
+            <button class="nav-mobile-toggle" onclick="document.querySelector('nav').classList.toggle('open')">☰</button>
             <nav>
-                <a href="/#financial-calculators">Financial</a>
-                <a href="/#health-fitness">Health</a>
-                <a href="/#math-calculators">Math</a>
-                <a href="/#other-tools">Tools</a>
+                <div class="nav-dropdown">
+                    <a href="#financial-calculators">Financial ▾</a>
+                    <div class="nav-dropdown-menu">
+                        <div class="menu-heading">Home & Mortgage</div>
+                        <a href="mortgage-calculator.html">🏠 Mortgage Calculator</a>
+                        <a href="mortgage-refinance-calculator.html">🔄 Refinance Calculator</a>
+                        <a href="home-affordability-calculator.html">🏡 Home Affordability</a>
+                        <a href="down-payment-calculator.html">💵 Down Payment</a>
+                        <a href="closing-cost-calculator.html">📋 Closing Cost</a>
+                        <a href="pmi-calculator.html">🛡️ PMI Calculator</a>
+                        <a href="fha-loan-calculator.html">🏦 FHA Loan</a>
+                        <a href="va-loan-calculator.html">🎖️ VA Loan</a>
+                        <a href="heloc-calculator.html">🏠💰 HELOC</a>
+                        <a href="home-equity-calculator.html">🏠📈 Home Equity</a>
+                        <a href="amortization-calculator.html">📄 Amortization</a>
+                        <div class="menu-heading">Loans & Debt</div>
+                        <a href="loan-calculator.html">💳 Loan Calculator</a>
+                        <a href="auto-loan-calculator.html">🚗 Auto Loan</a>
+                        <a href="car-payment-calculator.html">🚙 Car Payment</a>
+                        <a href="credit-card-payoff-calculator.html">💳 Credit Card Payoff</a>
+                        <div class="menu-heading">Savings & Investment</div>
+                        <a href="compound-interest-calculator.html">📈 Compound Interest</a>
+                        <a href="investment-roi-calculator.html">📊 Investment ROI</a>
+                        <a href="retirement-calculator.html">🏖️ Retirement</a>
+                        <a href="savings-goal-calculator.html">🏆 Savings Goal</a>
+                        <div class="menu-heading">Tax & Expenses</div>
+                        <a href="tax-calculator.html">📋 Tax Calculator</a>
+                        <a href="property-tax-calculator.html">🏛️ Property Tax</a>
+                        <a href="capital-gains-tax-calculator.html">📈 Capital Gains Tax</a>
+                        <a href="salary-calculator.html">💰 Salary Calculator</a>
+                        <a href="rent-vs-buy-calculator.html">🏠❓ Rent vs Buy</a>
+                        <a href="rent-affordability-calculator.html">🏠💳 Rent Affordability</a>
+                        <a href="net-worth-calculator.html">💰 Net Worth</a>
+                        <a href="car-insurance-calculator.html">🛡️ Car Insurance</a>
+                        <a href="gas-calculator.html">⛽ Gas Calculator</a>
+                        <a href="total-car-cost-calculator.html">🚗 Total Car Cost</a>
+                        <a href="parking-cost-calculator.html">🅿️ Parking Cost</a>
+                        <a href="moving-cost-calculator.html">📦 Moving Cost</a>
+                        <a href="tip-calculator.html">💵 Tip Calculator</a>
+                        <a href="inflation-calculator.html">📉 Inflation</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#health-fitness">Health ▾</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="bmi-calculator.html">⚕️ BMI Calculator</a>
+                        <a href="calorie-calculator.html">🍔 Calorie Calculator</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#math-calculators">Math ▾</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="scientific-calculator.html">🧮 Scientific Calculator</a>
+                        <a href="fraction-calculator.html">½ Fraction Calculator</a>
+                        <a href="percentage-calculator.html">📊 Percentage Calculator</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <a href="#other-tools">Tools ▾</a>
+                    <div class="nav-dropdown-menu">
+                        <a href="age-calculator.html">🎂 Age Calculator</a>
+                        <a href="date-calculator.html">📅 Date Calculator</a>
+                        <a href="unit-converter.html">🔄 Unit Converter</a>
+                        <a href="password-generator.html">🔐 Password Generator</a>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
@@ -262,205 +347,44 @@
                 <div class="cat-section active" id="cat-financial">
                     <h2 class="section-title" id="financial-calculators">Financial Calculators</h2>
                     <p class="section-sub">Mortgage, loans, taxes, retirement — everything you need to manage your money.</p>
-                    <div class="calc-grid">
-                        <a href="mortgage-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F3E0;</div>
-                            <h3>Mortgage Calculator</h3>
-                            <p>Calculate monthly payments, total interest, and amortization. All 50 states with current 2026 rates.</p>
-                            <span class="calc-tag">Most Popular</span>
-                        </a>
-                        <a href="loan-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4B3;</div>
-                            <h3>Loan Calculator</h3>
-                            <p>Monthly payments and total cost for personal, student, and business loans.</p>
-                            <span class="calc-tag">Ready</span>
-                        </a>
-                        <a href="compound-interest-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4C8;</div>
-                            <h3>Compound Interest</h3>
-                            <p>See how your money grows with compound interest over time.</p>
-                            <span class="calc-tag">Ready</span>
-                        </a>
-                        <a href="auto-loan-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F697;</div>
-                            <h3>Auto Loan Calculator</h3>
-                            <p>Car loan payments, financing comparison, and true cost of buying.</p>
-                            <span class="calc-tag">Ready</span>
-                        </a>
-                        <a href="tax-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4CB;</div>
-                            <h3>Tax Calculator</h3>
-                            <p>Federal and state income tax. All 50 states with 2026 brackets.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="retirement-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F3D6;</div>
-                            <h3>Retirement Calculator</h3>
-                            <p>Plan retirement savings. See if you're on track.</p>
-                            <span class="calc-tag">Ready</span>
-                        </a>
-                        <a href="credit-card-payoff-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4B3;</div>
-                            <h3>Credit Card Payoff</h3>
-                            <p>How long to pay off your balance and interest savings.</p>
-                            <span class="calc-tag">Ready</span>
-                        </a>
-                        <a href="investment-roi-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4CA;</div>
-                            <h3>Investment ROI</h3>
-                            <p>Return on investment and annualized returns.</p>
-                            <span class="calc-tag">Ready</span>
-                        </a>
-                        <a href="salary-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4B0;</div>
-                            <h3>Salary Calculator</h3>
-                            <p>Convert between hourly, daily, weekly, monthly, and annual salary.</p>
-                            <span class="calc-tag">Ready</span>
-                        </a>
-                        <a href="home-affordability-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F3E2;</div>
-                            <h3>Home Affordability</h3>
-                            <p>How much house can you afford? Uses the 28/36 rule.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="rent-vs-buy-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F3E0;&#x2753;</div>
-                            <h3>Rent vs Buy</h3>
-                            <p>Compare the true cost of renting vs buying a home.</p>
-                            <span class="calc-tag">Ready</span>
-                        </a>
-                        <a href="savings-goal-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F3C6;</div>
-                            <h3>Savings Goal</h3>
-                            <p>How much to save monthly to reach your goals.</p>
-                            <span class="calc-tag">Ready</span>
-                        </a>
-                        <a href="car-insurance-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F6E1;&#xFE0F;</div>
-                            <h3>Car Insurance</h3>
-                            <p>Estimate auto insurance premiums by age, vehicle, location.</p>
-                            <span class="calc-tag">Ready</span>
-                        </a>
-                        <a href="gas-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x26FD;</div>
-                            <h3>Gas Calculator</h3>
-                            <p>Monthly and annual fuel cost estimates.</p>
-                            <span class="calc-tag">Ready</span>
-                        </a>
-                        <a href="total-car-cost-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4B0;</div>
-                            <h3>Total Car Cost</h3>
-                            <p>True cost of car ownership: loan, gas, insurance, depreciation.</p>
-                            <span class="calc-tag">Ready</span>
-                        </a>
-                        <a href="parking-cost-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F17F;</div>
-                            <h3>Parking Cost</h3>
-                            <p>Monthly parking expenses by city and parking type.</p>
-                            <span class="calc-tag">Ready</span>
-                        </a>
-                        <a href="car-payment-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F697;</div>
-                            <h3>Car Payment</h3>
-                            <p>Monthly car payments with down payment and trade-in.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="down-payment-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F3E0;</div>
-                            <h3>Down Payment</h3>
-                            <p>How much you need and how long to save for it.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="amortization-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4C4;</div>
-                            <h3>Amortization</h3>
-                            <p>Complete loan payment schedule with principal vs interest.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="closing-cost-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4CB;</div>
-                            <h3>Closing Cost</h3>
-                            <p>Estimate total closing costs when buying a home.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="property-tax-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F3DB;</div>
-                            <h3>Property Tax</h3>
-                            <p>Annual property taxes by state with 5-year projections.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="pmi-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F6E1;</div>
-                            <h3>PMI Calculator</h3>
-                            <p>Private Mortgage Insurance costs and cancellation timeline.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="fha-loan-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F3E6;</div>
-                            <h3>FHA Loan</h3>
-                            <p>FHA mortgage payments with upfront and annual MIP.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="heloc-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F3E0;&#x1F4B0;</div>
-                            <h3>HELOC Calculator</h3>
-                            <p>Home Equity Line of Credit payments and borrowable amount.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="va-loan-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F396;</div>
-                            <h3>VA Loan</h3>
-                            <p>VA mortgage with funding fee. Zero down, no PMI.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="home-equity-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F3E0;&#x1F4C8;</div>
-                            <h3>Home Equity</h3>
-                            <p>Your home equity, LTV ratio, and borrowable amount.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="mortgage-refinance-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F504;</div>
-                            <h3>Refinance Calculator</h3>
-                            <p>Break-even point, monthly savings, and total interest saved.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="moving-cost-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4E6;</div>
-                            <h3>Moving Cost</h3>
-                            <p>Local and long-distance moving cost estimates.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="capital-gains-tax-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4C8;</div>
-                            <h3>Capital Gains Tax</h3>
-                            <p>Short-term and long-term capital gains tax with 2026 brackets.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="inflation-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4C9;</div>
-                            <h3>Inflation Calculator</h3>
-                            <p>How inflation erodes purchasing power. CPI data from 1913.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="rent-affordability-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F3E0;&#x1F4B3;</div>
-                            <h3>Rent Affordability</h3>
-                            <p>How much rent can you afford? Based on the 30% rule.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="net-worth-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4B0;</div>
-                            <h3>Net Worth</h3>
-                            <p>Your net worth vs US averages by age percentile.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="tip-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4B5;</div>
-                            <h3>Tip Calculator</h3>
-                            <p>Tip amount, split bills, total per person.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
+                    <div class="calc-list">
+                        <div class="calc-list-heading">Home & Mortgage</div>
+                        <a href="mortgage-calculator.html" class="calc-list-item"><span class="cli-icon">🏠</span><span class="cli-name">Mortgage Calculator</span><span class="cli-badge hot">Popular</span></a>
+                        <a href="mortgage-refinance-calculator.html" class="calc-list-item"><span class="cli-icon">🔄</span><span class="cli-name">Refinance Calculator</span></a>
+                        <a href="home-affordability-calculator.html" class="calc-list-item"><span class="cli-icon">🏡</span><span class="cli-name">Home Affordability</span></a>
+                        <a href="down-payment-calculator.html" class="calc-list-item"><span class="cli-icon">💵</span><span class="cli-name">Down Payment</span></a>
+                        <a href="closing-cost-calculator.html" class="calc-list-item"><span class="cli-icon">📋</span><span class="cli-name">Closing Cost</span></a>
+                        <a href="pmi-calculator.html" class="calc-list-item"><span class="cli-icon">🛡️</span><span class="cli-name">PMI Calculator</span></a>
+                        <a href="fha-loan-calculator.html" class="calc-list-item"><span class="cli-icon">🏦</span><span class="cli-name">FHA Loan</span></a>
+                        <a href="va-loan-calculator.html" class="calc-list-item"><span class="cli-icon">🎖️</span><span class="cli-name">VA Loan</span></a>
+                        <a href="heloc-calculator.html" class="calc-list-item"><span class="cli-icon">🏠💰</span><span class="cli-name">HELOC</span></a>
+                        <a href="home-equity-calculator.html" class="calc-list-item"><span class="cli-icon">🏠📈</span><span class="cli-name">Home Equity</span></a>
+                        <a href="amortization-calculator.html" class="calc-list-item"><span class="cli-icon">📄</span><span class="cli-name">Amortization</span></a>
+                        <a href="property-tax-calculator.html" class="calc-list-item"><span class="cli-icon">🏛️</span><span class="cli-name">Property Tax</span></a>
+                        <a href="rent-vs-buy-calculator.html" class="calc-list-item"><span class="cli-icon">🏠❓</span><span class="cli-name">Rent vs Buy</span></a>
+                        <a href="rent-affordability-calculator.html" class="calc-list-item"><span class="cli-icon">🏠💳</span><span class="cli-name">Rent Affordability</span></a>
+                        <div class="calc-list-heading">Loans & Debt</div>
+                        <a href="loan-calculator.html" class="calc-list-item"><span class="cli-icon">💳</span><span class="cli-name">Loan Calculator</span></a>
+                        <a href="auto-loan-calculator.html" class="calc-list-item"><span class="cli-icon">🚗</span><span class="cli-name">Auto Loan</span></a>
+                        <a href="car-payment-calculator.html" class="calc-list-item"><span class="cli-icon">🚙</span><span class="cli-name">Car Payment</span></a>
+                        <a href="credit-card-payoff-calculator.html" class="calc-list-item"><span class="cli-icon">💳</span><span class="cli-name">Credit Card Payoff</span></a>
+                        <a href="car-insurance-calculator.html" class="calc-list-item"><span class="cli-icon">🛡️</span><span class="cli-name">Car Insurance</span></a>
+                        <a href="gas-calculator.html" class="calc-list-item"><span class="cli-icon">⛽</span><span class="cli-name">Gas Calculator</span></a>
+                        <a href="total-car-cost-calculator.html" class="calc-list-item"><span class="cli-icon">🚗</span><span class="cli-name">Total Car Cost</span></a>
+                        <a href="parking-cost-calculator.html" class="calc-list-item"><span class="cli-icon">🅿️</span><span class="cli-name">Parking Cost</span></a>
+                        <a href="moving-cost-calculator.html" class="calc-list-item"><span class="cli-icon">📦</span><span class="cli-name">Moving Cost</span></a>
+                        <div class="calc-list-heading">Savings & Investment</div>
+                        <a href="compound-interest-calculator.html" class="calc-list-item"><span class="cli-icon">📈</span><span class="cli-name">Compound Interest</span></a>
+                        <a href="investment-roi-calculator.html" class="calc-list-item"><span class="cli-icon">📊</span><span class="cli-name">Investment ROI</span></a>
+                        <a href="retirement-calculator.html" class="calc-list-item"><span class="cli-icon">🏖️</span><span class="cli-name">Retirement</span></a>
+                        <a href="savings-goal-calculator.html" class="calc-list-item"><span class="cli-icon">🏆</span><span class="cli-name">Savings Goal</span></a>
+                        <a href="net-worth-calculator.html" class="calc-list-item"><span class="cli-icon">💰</span><span class="cli-name">Net Worth</span></a>
+                        <div class="calc-list-heading">Tax & Income</div>
+                        <a href="tax-calculator.html" class="calc-list-item"><span class="cli-icon">📋</span><span class="cli-name">Tax Calculator</span></a>
+                        <a href="capital-gains-tax-calculator.html" class="calc-list-item"><span class="cli-icon">📈</span><span class="cli-name">Capital Gains Tax</span></a>
+                        <a href="salary-calculator.html" class="calc-list-item"><span class="cli-icon">💰</span><span class="cli-name">Salary Calculator</span></a>
+                        <a href="tip-calculator.html" class="calc-list-item"><span class="cli-icon">💵</span><span class="cli-name">Tip Calculator</span></a>
+                        <a href="inflation-calculator.html" class="calc-list-item"><span class="cli-icon">📉</span><span class="cli-name">Inflation</span></a>
                     </div>
                 </div>
 
@@ -468,19 +392,9 @@
                 <div class="cat-section" id="cat-health">
                     <h2 class="section-title" id="health-fitness">Health & Fitness Calculators</h2>
                     <p class="section-sub">BMI, calorie needs, and more to help you stay healthy.</p>
-                    <div class="calc-grid">
-                        <a href="bmi-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x2695;&#xFE0F;</div>
-                            <h3>BMI Calculator</h3>
-                            <p>Body Mass Index with health category classification. Imperial and metric.</p>
-                            <span class="calc-tag">Popular</span>
-                        </a>
-                        <a href="calorie-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F354;</div>
-                            <h3>Calorie Calculator</h3>
-                            <p>Daily calorie needs with macro breakdown. Based on activity level.</p>
-                            <span class="calc-tag">Popular</span>
-                        </a>
+                    <div class="calc-list">
+                        <a href="bmi-calculator.html" class="calc-list-item"><span class="cli-icon">⚕️</span><span class="cli-name">BMI Calculator</span><span class="cli-badge hot">Popular</span></a>
+                        <a href="calorie-calculator.html" class="calc-list-item"><span class="cli-icon">🍔</span><span class="cli-name">Calorie Calculator</span><span class="cli-badge hot">Popular</span></a>
                     </div>
                 </div>
 
@@ -488,25 +402,10 @@
                 <div class="cat-section" id="cat-math">
                     <h2 class="section-title" id="math-calculators">Math Calculators</h2>
                     <p class="section-sub">Scientific calculator, fractions, percentages, and more.</p>
-                    <div class="calc-grid">
-                        <a href="scientific-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F9EE;</div>
-                            <h3>Scientific Calculator</h3>
-                            <p>Full-featured: trig, log, exponents, roots, memory, DEG/RAD mode.</p>
-                            <span class="calc-tag">Most Popular</span>
-                        </a>
-                        <a href="fraction-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x00BD;</div>
-                            <h3>Fraction Calculator</h3>
-                            <p>Add, subtract, multiply, and divide fractions. Simplified results.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="percentage-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4CA;</div>
-                            <h3>Percentage Calculator</h3>
-                            <p>Percentage of a number, change, and difference. Multiple modes.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
+                    <div class="calc-list">
+                        <a href="scientific-calculator.html" class="calc-list-item"><span class="cli-icon">🧮</span><span class="cli-name">Scientific Calculator</span><span class="cli-badge hot">Popular</span></a>
+                        <a href="fraction-calculator.html" class="calc-list-item"><span class="cli-icon">½</span><span class="cli-name">Fraction Calculator</span></a>
+                        <a href="percentage-calculator.html" class="calc-list-item"><span class="cli-icon">📊</span><span class="cli-name">Percentage Calculator</span></a>
                     </div>
                 </div>
 
@@ -514,31 +413,11 @@
                 <div class="cat-section" id="cat-tools">
                     <h2 class="section-title" id="other-tools">Everyday Tools</h2>
                     <p class="section-sub">Age, date, unit conversion, password generation — handy utilities.</p>
-                    <div class="calc-grid">
-                        <a href="age-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F382;</div>
-                            <h3>Age Calculator</h3>
-                            <p>Exact age in years, months, days. Birthday weekday and countdown.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="date-calculator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F4C5;</div>
-                            <h3>Date Calculator</h3>
-                            <p>Days between dates, add or subtract days. Leap year aware.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="unit-converter.html" class="calc-card">
-                            <div class="calc-icon">&#x1F504;</div>
-                            <h3>Unit Converter</h3>
-                            <p>Length, weight, temperature, area, volume, speed, data storage.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
-                        <a href="password-generator.html" class="calc-card">
-                            <div class="calc-icon">&#x1F510;</div>
-                            <h3>Password Generator</h3>
-                            <p>Strong, secure, random passwords. 8-64 characters, customizable.</p>
-                            <span class="calc-tag">New</span>
-                        </a>
+                    <div class="calc-list">
+                        <a href="age-calculator.html" class="calc-list-item"><span class="cli-icon">🎂</span><span class="cli-name">Age Calculator</span></a>
+                        <a href="date-calculator.html" class="calc-list-item"><span class="cli-icon">📅</span><span class="cli-name">Date Calculator</span></a>
+                        <a href="unit-converter.html" class="calc-list-item"><span class="cli-icon">🔄</span><span class="cli-name">Unit Converter</span></a>
+                        <a href="password-generator.html" class="calc-list-item"><span class="cli-icon">🔐</span><span class="cli-name">Password Generator</span></a>
                     </div>
                 </div>
             </div>
