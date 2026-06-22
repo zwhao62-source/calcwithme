@@ -61,6 +61,7 @@ main_pages = [
     ('macro-calculator.html', 0.7, 'weekly'),
     ('water-calculator.html', 0.7, 'weekly'),
     ('heart-rate-calculator.html', 0.7, 'weekly'),
+    ('mortgage-comparison.html', 0.8, 'weekly'),
 ]
 
 states = [
