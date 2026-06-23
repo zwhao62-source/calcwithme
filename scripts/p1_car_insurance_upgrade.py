@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+# -*- coding: utf-8 -*-
+"""P1: Car Insurance Calculator - Deep Content Upgrade (3000+ words)"""
+import os
+
+html = r'''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -380,4 +384,13 @@
     <div class="visitor-counter"><span>👁️ Visitors: </span><span id="visitor-counter">0</span></div>
     <script src="js/visitor-counter.js"></script>
 </body>
-</html>
+</html>'''
+
+path = r'C:\Users\Administrator\.qclaw\workspace\calcwithme-site\car-insurance-calculator.html'
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(html)
+# Count words in content
+import re
+text = re.sub(r'<[^>]+>', ' ', html)
+words = len(text.split())
+print(f'P1 car-insurance-calculator.html written: {len(html)} bytes, ~{words} words')
